@@ -1,63 +1,58 @@
 <div class="w-full flex flex-col justify-center items-center p-4 md:p-8 animate-fade-in-up">
   
-  <div class="w-full max-w-5xl flex flex-col md:flex-row gap-8 h-full min-h-[500px]">
+  <div class="w-full max-w-7xl flex flex-col md:flex-row gap-8 items-stretch">
     
-    <!-- Primary Score Card -->
-    <div class="flex-1 p-16 rounded-3xl border border-white/10 transition-all duration-500 flex flex-col items-center justify-center text-center cursor-pointer relative z-0 overflow-hidden group hover:border-brandYellow">
+    <!-- Left Column (Classification) -->
+    <div class="flex-1 p-6 rounded-3xl border border-white/10 flex flex-col items-center justify-center text-center bg-transparent">
+      <span class="text-xs font-bold text-white/50 uppercase tracking-widest mb-4">Classification</span>
+      <h3 class="text-4xl md:text-5xl font-black text-white tracking-tighter">{{ riskClassification }}</h3>
+      <p class="text-white/40 text-sm mt-6 max-w-[200px]">Requires immediate review of flagged clauses.</p>
+      
+      <!-- Quick Stats -->
+      <div class="mt-8 flex gap-6 text-left">
+        <div class="flex flex-col">
+          <span class="text-xs font-bold text-white/30 uppercase tracking-widest">Analyzed</span>
+          <span class="text-2xl font-black text-white">{{ totalClauses }}</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xs font-bold text-white/30 uppercase tracking-widest">Flagged</span>
+          <span class="text-2xl font-black text-brandYellow">{{ flaggedIssues }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Middle Primary Score Card -->
+    <div class="flex-[1.5] py-8 px-12 rounded-3xl border border-white/10 transition-all duration-500 flex flex-col items-center justify-center text-center cursor-pointer relative z-0 overflow-hidden group hover:border-brandYellow shadow-2xl">
       
       <!-- Interactive Background Lens -->
       <span class="absolute top-[96px] left-1/2 w-0 h-0 bg-brandYellow rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[1200px] group-hover:h-[1200px] transition-all duration-700 ease-out -z-10"></span>
       
       <!-- Strict Icon Border -->
-      <div class="relative z-10 w-16 h-16 rounded-full border border-white/20 group-hover:border-black/10 flex items-center justify-center mb-10 transition-colors duration-500 text-brandYellow group-hover:text-black">
+      <div class="relative z-10 w-16 h-16 rounded-full border border-white/20 group-hover:border-black/10 flex items-center justify-center mb-4 transition-colors duration-500 text-brandYellow group-hover:text-black">
         <ng-icon name="lucideShieldAlert" size="24px" strokeWidth="2"></ng-icon>
       </div>
 
       <span class="relative z-10 text-sm font-bold text-white/50 uppercase tracking-widest mb-4 transition-colors duration-500 group-hover:text-black/60">Overall Risk Score</span>
       
       <!-- Massive Brutalist Typography -->
-      <div class="relative z-10 text-[8rem] md:text-[12rem] leading-none font-black text-white tracking-tighter transition-colors duration-500 group-hover:text-black">
+      <div class="relative z-10 text-[6rem] md:text-[8rem] leading-none font-black text-white tracking-tighter transition-colors duration-500 group-hover:text-black">
         {{ overallScore }}
       </div>
     </div>
 
-    <!-- Right Column (Classification & Action) -->
-    <div class="md:w-1/3 flex flex-col gap-8">
+    <!-- Right Column (Export Action Card) -->
+    <div (click)="exportPdf()" class="flex-1 p-6 rounded-3xl border border-white/10 transition-all duration-500 flex flex-col items-center justify-center text-center cursor-pointer relative z-0 overflow-hidden group hover:border-white">
       
-      <!-- Classification Card (Static) -->
-      <div class="flex-1 p-12 rounded-3xl border border-white/10 flex flex-col items-center justify-center text-center bg-transparent">
-        <span class="text-xs font-bold text-white/50 uppercase tracking-widest mb-4">Classification</span>
-        <h3 class="text-4xl md:text-5xl font-black text-white tracking-tighter">{{ riskClassification }}</h3>
-        <p class="text-white/40 text-sm mt-6 max-w-[200px]">Requires immediate review of flagged clauses.</p>
-        
-        <!-- Quick Stats -->
-        <div class="mt-8 flex gap-6 text-left">
-          <div class="flex flex-col">
-            <span class="text-xs font-bold text-white/30 uppercase tracking-widest">Analyzed</span>
-            <span class="text-2xl font-black text-white">{{ totalClauses }}</span>
-          </div>
-          <div class="flex flex-col">
-            <span class="text-xs font-bold text-white/30 uppercase tracking-widest">Flagged</span>
-            <span class="text-2xl font-black text-brandYellow">{{ flaggedIssues }}</span>
-          </div>
-        </div>
+      <!-- White Lens -->
+      <span class="absolute top-[72px] left-1/2 w-0 h-0 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[800px] group-hover:h-[800px] transition-all duration-700 ease-out -z-10"></span>
+
+      <!-- Strict Icon Border -->
+      <div class="relative z-10 w-12 h-12 rounded-full border border-white/20 group-hover:border-black/10 flex items-center justify-center mb-6 transition-colors duration-500 text-white group-hover:text-black">
+        <ng-icon name="lucideDownload" size="20px" strokeWidth="2"></ng-icon>
       </div>
 
-      <!-- Export Action Card (Hover Lens) -->
-      <div (click)="exportPdf()" class="p-12 rounded-3xl border border-white/10 transition-all duration-500 flex flex-col items-center justify-center text-center cursor-pointer relative z-0 overflow-hidden group hover:border-white">
-        
-        <!-- White Lens -->
-        <span class="absolute top-[72px] left-1/2 w-0 h-0 bg-white rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[800px] group-hover:h-[800px] transition-all duration-700 ease-out -z-10"></span>
-
-        <!-- Strict Icon Border -->
-        <div class="relative z-10 w-12 h-12 rounded-full border border-white/20 group-hover:border-black/10 flex items-center justify-center mb-6 transition-colors duration-500 text-white group-hover:text-black">
-          <ng-icon name="lucideDownload" size="20px" strokeWidth="2"></ng-icon>
-        </div>
-
-        <h4 class="relative z-10 text-2xl font-bold text-white transition-colors duration-500 group-hover:text-black mb-2">Export PDF</h4>
-        <span class="relative z-10 text-xs font-bold text-white/50 transition-colors duration-500 group-hover:text-black/60 uppercase tracking-widest">Detailed Report</span>
-      </div>
-
+      <h4 class="relative z-10 text-2xl font-bold text-white transition-colors duration-500 group-hover:text-black mb-2">Export PDF</h4>
+      <span class="relative z-10 text-xs font-bold text-white/50 transition-colors duration-500 group-hover:text-black/60 uppercase tracking-widest">Detailed Report</span>
     </div>
 
   </div>
