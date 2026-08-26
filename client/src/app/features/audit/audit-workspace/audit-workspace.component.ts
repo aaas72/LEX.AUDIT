@@ -20,7 +20,8 @@ export class AuditWorkspaceComponent {
   onFileUploaded(file: File) {
     this.uploadedFile = file;
     this.currentState = 'processing';
-    // Simulate processing delay
+    
+    // Simulate AI scanning delay before showing results
     setTimeout(() => {
       this.currentState = 'results';
     }, 10000);
