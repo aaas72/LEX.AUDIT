@@ -1,0 +1,41 @@
+<div class="w-full flex-1 flex flex-col justify-center items-center p-8">
+  <div 
+    class="w-full max-w-4xl p-16 rounded-3xl border-2 border-dashed transition-all duration-500 flex flex-col items-center text-center cursor-pointer relative z-0 overflow-hidden group"
+    [ngClass]="isDragging ? 'border-brandYellow bg-brandYellow/10' : 'border-white/20 hover:border-brandYellow'"
+    (dragover)="onDragOver($event)"
+    (dragleave)="onDragLeave($event)"
+    (drop)="onDrop($event)"
+    (click)="fileInput.click()">
+    
+    <!-- Interactive Background Lens -->
+    <span class="absolute top-1/2 left-1/2 w-0 h-0 bg-brandYellow rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[850px] group-hover:h-[850px] transition-all duration-700 ease-out -z-10"></span>
+
+    <input type="file" #fileInput class="hidden" (change)="onFileSelected($event)" accept="application/pdf,.pdf" />
+    
+    <ng-container *ngIf="uploadStep === 0; else uploadingState">
+      <!-- Icon Container -->
+      <div class="relative z-10 w-24 h-24 rounded-full border border-white/20 group-hover:border-black/10 flex items-center justify-center mb-8 transition-colors duration-500 text-white group-hover:text-black">
+        <ng-icon name="heroDocumentArrowUp" size="40px" strokeWidth="1.5"></ng-icon>
+      </div>
+      
+      <h2 class="relative z-10 text-3xl font-bold mb-4 text-white group-hover:text-black transition-colors duration-500">
+        {{ isDragging ? 'Drop it here...' : 'Upload Contract for Audit' }}
+      </h2>
+      <p class="relative z-10 text-white/60 text-lg max-w-md group-hover:text-black/80 transition-colors duration-500 mb-4">
+        Drag & drop your PDF document here, or click to browse. Our AI will instantly begin the stealth analysis.
+      </p>
+      <p *ngIf="errorMessage" class="relative z-10 text-brandYellow font-bold">{{ errorMessage }}</p>
+    </ng-container>
+
+    <ng-template #uploadingState>
+      <!-- Uploading/Verifying State -->
+      <div class="relative z-10 flex flex-col items-center justify-center text-white group-hover:text-black transition-colors duration-500">
+        <!-- Minimal Spinner -->
+        <div class="w-16 h-16 border-2 border-white/20 border-t-white group-hover:border-black/20 group-hover:border-t-black rounded-full animate-spin mb-8"></div>
+        <h2 class="text-2xl font-bold mb-2">{{ uploadStatus }}</h2>
+        <p class="text-white/60 group-hover:text-black/60 text-sm">Secure sequence initiated...</p>
+      </div>
+    </ng-template>
+
+  </div>
+</div>

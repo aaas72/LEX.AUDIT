@@ -1,0 +1,37 @@
+<section class="py-24 md:py-32 bg-black text-white relative">
+  <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+    
+    <div class="text-center mb-20" appAnimateOnScroll="animate-fade-in-up">
+      <h2 class="text-4xl md:text-6xl font-black tracking-tighter mb-4 uppercase">How it works.</h2>
+      <p class="text-xl text-white/70 max-w-2xl mx-auto">Three simple steps to secure, transparent, and balanced contracts.</p>
+    </div>
+
+    <div class="flex flex-col gap-6 max-w-4xl mx-auto">
+      <div *ngFor="let step of steps; let i = index" 
+           class="relative overflow-hidden group p-8 md:p-12 rounded-2xl border border-white/20 bg-transparent flex flex-col md:flex-row items-start md:items-center gap-8 transition-transform duration-500 hover:-translate-y-2 z-0"
+           appAnimateOnScroll="animate-fade-in-up" [animationDelay]="(i * 150) + 'ms'">
+           
+        <!-- The Inspection Lens (Hover Effect) -->
+        <span class="absolute top-[72px] left-[72px] md:top-1/2 md:left-[88px] w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out -z-[20] group-hover:w-[1500px] group-hover:h-[1500px] bg-brandYellow"></span>
+
+        <!-- Massive Background Number -->
+        <div class="text-7xl md:text-9xl font-black text-white/5 group-hover:text-black/10 transition-colors duration-500 absolute -top-4 right-4 md:right-8 select-none -z-10">
+          0{{ i + 1 }}
+        </div>
+
+        <!-- Icon (Must be Circular Border per identity rules) -->
+        <div class="w-20 h-20 rounded-full border border-white/20 flex items-center justify-center shrink-0 group-hover:border-black/20 transition-colors duration-500">
+          <ng-icon [name]="step.icon" size="36px" strokeWidth="2" class="text-white group-hover:text-black transition-colors duration-500"></ng-icon>
+        </div>
+        
+        <!-- Text Content -->
+        <div class="relative z-10">
+          <h3 class="text-2xl md:text-3xl font-bold mb-3 text-white group-hover:text-black transition-colors duration-500">{{ step.title }}</h3>
+          <p class="text-white/70 group-hover:text-black/80 leading-relaxed text-lg transition-colors duration-500 max-w-2xl">{{ step.description }}</p>
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+</section>

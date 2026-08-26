@@ -1,0 +1,66 @@
+<div class="w-full animate-fade-in-up">
+  <!-- Header Section -->
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-6">
+    <div>
+      <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-tighter mb-2">Audit Complete</h2>
+      <p class="text-white/60 text-lg">AI analysis of the contract has identified key risks.</p>
+    </div>
+    <button class="bg-brandYellow text-black px-8 py-4 rounded-full font-bold uppercase tracking-wider flex items-center gap-3 transition-opacity hover:opacity-80">
+      <ng-icon name="lucideDownload" size="20px"></ng-icon>
+      Export PDF
+    </button>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <!-- Score Card -->
+    <div class="lg:col-span-1 bg-black border border-white/20 p-10 rounded-3xl flex flex-col justify-center items-center relative overflow-hidden group">
+      <!-- Lens effect -->
+      <span class="absolute top-1/2 left-1/2 w-0 h-0 bg-brandYellow rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[600px] group-hover:h-[600px] transition-all duration-700 ease-out -z-10"></span>
+      
+      <div class="relative z-10 flex flex-col items-center text-center">
+        <ng-icon name="lucideShieldAlert" size="64px" class="text-brandYellow mb-6 transition-colors duration-500 group-hover:text-black"></ng-icon>
+        <span class="text-sm font-bold text-white/50 uppercase tracking-widest mb-2 transition-colors duration-500 group-hover:text-black/60">Risk Score</span>
+        <div class="text-7xl font-black text-white tracking-tighter transition-colors duration-500 group-hover:text-black">
+          {{ overallScore }}<span class="text-4xl text-white/30 group-hover:text-black/30">/100</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Findings Grid -->
+    <div class="lg:col-span-2 flex flex-col gap-4">
+      <div *ngFor="let finding of findings; let i = index" 
+           class="p-6 rounded-3xl border transition-all duration-300 flex flex-col sm:flex-row gap-6 items-start sm:items-center justify-between"
+           [ngClass]="finding.status === 'flagged' ? 'bg-brandYellow/10 border-brandYellow text-white' : 'bg-transparent border-white/10 text-white/60'">
+        
+        <div class="flex items-start gap-4">
+          <div class="mt-1">
+            <ng-icon 
+              *ngIf="finding.status === 'flagged'" 
+              name="lucideAlertTriangle" 
+              size="24px" 
+              class="text-brandYellow">
+            </ng-icon>
+            <ng-icon 
+              *ngIf="finding.status === 'passed'" 
+              name="lucideCheckCircle" 
+              size="24px" 
+              class="text-white/30">
+            </ng-icon>
+          </div>
+          <div>
+            <h4 class="text-xl font-bold mb-1" [ngClass]="finding.status === 'flagged' ? 'text-white' : 'text-white/60'">
+              {{ finding.title }}
+            </h4>
+            <p class="text-sm" [ngClass]="finding.status === 'flagged' ? 'text-white/70' : 'text-white/40'">
+              {{ finding.description }}
+            </p>
+          </div>
+        </div>
+        
+        <div *ngIf="finding.status === 'flagged'" class="px-4 py-2 bg-brandYellow text-black text-xs font-bold uppercase rounded-full whitespace-nowrap self-start sm:self-center">
+          {{ finding.riskLevel }} Risk
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

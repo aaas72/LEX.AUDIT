@@ -1,0 +1,23 @@
+<section class="py-20 bg-brandYellow text-black border-y-4 border-black" appAnimateOnScroll="animate-fade-in">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+      
+      <!-- Trust Statement -->
+      <div class="md:w-1/3 text-center md:text-start">
+        <h3 class="text-3xl font-bold tracking-tight mb-4">Trusted by the best.</h3>
+        <p class="text-charcoal/80 font-medium">
+          Leading legal teams and independent professionals rely on LEX.AUDIT to mitigate risks and negotiate with confidence.
+        </p>
+      </div>
+
+      <!-- Metrics -->
+      <div class="md:w-2/3 flex flex-wrap justify-center md:justify-end gap-10 lg:gap-16">
+        <div *ngFor="let metric of metrics; let i = index" class="flex flex-col items-center md:items-end text-center md:text-right" appAnimateOnScroll="animate-fade-in-up" [animationDelay]="i * 150 + 'ms'">
+          <span class="text-4xl lg:text-5xl font-black mb-2">{{ metric.value }}</span>
+          <span class="text-xs tracking-widest uppercase font-semibold text-charcoal">{{ metric.label }}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

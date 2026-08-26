@@ -1,0 +1,25 @@
+<section class="py-24 bg-brandYellow text-black border-b-4 border-black">
+  <div class="max-w-7xl mx-auto px-4 md:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto mb-20" appAnimateOnScroll="animate-fade-in-up">
+      <h2 class="text-xs tracking-widest uppercase font-semibold text-charcoal mb-4">Who is it for?</h2>
+      <h3 class="text-4xl font-medium tracking-tight mb-6">Designed for professionals who refuse to compromise.</h3>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div *ngFor="let case of cases; let i = index" class="group relative z-0 cursor-pointer flex flex-col items-center justify-center text-center p-8 rounded-2xl overflow-hidden min-h-[400px] aspect-[4/5] md:aspect-auto" appAnimateOnScroll="animate-fade-in-up" [animationDelay]="i * 150 + 'ms'">
+
+        <div class="relative z-0 w-20 h-20 rounded-full border border-black group-hover:border-transparent flex items-center justify-center mb-6 transition-colors duration-500 text-black group-hover:text-brandYellow shrink-0">
+          
+          <!-- The Spotlight Lens perfectly tracks the icon's dynamic position -->
+          <span class="absolute top-1/2 left-1/2 w-0 h-0 bg-black rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:w-[500px] group-hover:h-[500px] transition-all duration-700 ease-out -z-10"></span>
+          
+          <ng-icon class="relative z-10" [name]="case.icon" size="32px" strokeWidth="1.5"></ng-icon>
+        </div>
+        <h4 class="relative z-10 text-2xl font-bold mb-4 text-black group-hover:text-brandYellow transition-colors duration-500">{{ case.title }}</h4>
+        <p class="relative z-10 text-charcoal/80 leading-relaxed group-hover:text-white/80 transition-colors duration-500">{{ case.description }}</p>
+      </div>
+    </div>
+
+  </div>
+</section>

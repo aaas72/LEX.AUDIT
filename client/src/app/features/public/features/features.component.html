@@ -1,0 +1,56 @@
+<div class="relative min-h-screen bg-black text-white font-sans overflow-x-hidden flex flex-col">
+  
+  <app-navbar theme="dark"></app-navbar>
+
+  <main class="flex-grow">
+    
+    <!-- Hero Section -->
+    <section class="py-24 md:py-32 relative">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
+        <div class="text-center max-w-4xl mx-auto" appAnimateOnScroll="animate-fade-in-up">
+          <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-6">UNLEASH PRECISION.</h1>
+          <p class="text-xl md:text-2xl text-white/70 mb-10">Discover the cutting-edge capabilities that power LEX.AUDIT, designed to transform how you analyze and negotiate contracts.</p>
+          <app-ui-button text="Start Free Trial" variant="yellow" size="lg"></app-ui-button>
+        </div>
+      </div>
+      
+      <!-- Subtle Background Glow -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brandYellow/10 rounded-full blur-[120px] -z-10 pointer-events-none"></div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-16 md:py-24 bg-black">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <div *ngFor="let feature of features; let i = index" 
+               class="relative group p-8 rounded-2xl border-2 border-white/10 bg-transparent transition-all duration-500 hover:-translate-y-2 hover:border-brandYellow"
+               appAnimateOnScroll="animate-fade-in-up" [animationDelay]="i * 100 + 'ms'">
+            
+            <div class="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-brandYellow group-hover:border-brandYellow transition-colors duration-500 text-white group-hover:text-black">
+              <ng-icon [name]="feature.icon" size="32px" strokeWidth="2"></ng-icon>
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-4">{{ feature.title }}</h3>
+            <p class="text-white/60 leading-relaxed">{{ feature.description }}</p>
+            
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 md:py-32 bg-brandYellow text-black border-y-2 border-brandYellow">
+      <div class="max-w-7xl mx-auto px-4 md:px-8 text-center" appAnimateOnScroll="animate-fade-in-up">
+        <h2 class="text-4xl md:text-6xl font-black tracking-tighter leading-none mb-6">READY TO UPGRADE YOUR CONTRACTS?</h2>
+        <p class="text-xl md:text-2xl opacity-80 mb-10 max-w-2xl mx-auto">Join hundreds of forward-thinking legal teams securing their deals with AI precision.</p>
+        <app-ui-button text="Book a Demo" variant="dark" size="lg"></app-ui-button>
+      </div>
+    </section>
+
+  </main>
+
+  <app-footer></app-footer>
+
+</div>
