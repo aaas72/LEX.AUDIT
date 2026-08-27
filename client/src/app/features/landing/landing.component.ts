@@ -11,11 +11,12 @@ import { SocialProofComponent } from './components/social-proof/social-proof.com
 import { UseCasesComponent } from './components/use-cases/use-cases.component';
 import { CtaComponent } from './components/cta/cta.component';
 import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [CommonModule, UiButtonComponent, UiCardComponent, NavbarComponent, FooterComponent, ContainerComponent, LandingHeroComponent, FeaturesComponent, SocialProofComponent, UseCasesComponent, CtaComponent, HowItWorksComponent],
+  imports: [CommonModule, NavbarComponent, FooterComponent, ContainerComponent, LandingHeroComponent, FeaturesComponent, SocialProofComponent, UseCasesComponent, CtaComponent, HowItWorksComponent, TranslatePipe],
   templateUrl: './landing.component.html',
 })
 export class LandingComponent {

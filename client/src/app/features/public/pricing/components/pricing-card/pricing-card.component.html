@@ -1,22 +1,24 @@
 <div class="relative group p-6 xl:p-8 rounded-2xl border-2 transition-all duration-500 flex flex-col h-full"
-     [ngClass]="plan.isPopular ? 'bg-brandYellow border-brandYellow text-black' : 'bg-transparent border-white/20 hover:border-brandYellow text-white'">
+     [ngClass]="plan.isPopular ? 'bg-brandYellow border-brandYellow text-black' : 'bg-transparent border-brandYellow/20 hover:border-brandYellow text-brandYellow'">
   
   <div *ngIf="plan.isPopular" class="absolute -top-3 left-1/2 -translate-x-1/2 bg-black text-brandYellow text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-brandYellow whitespace-nowrap">
     Recommended
   </div>
 
-  <h3 class="text-xl xl:text-2xl font-bold mb-2">{{ plan.name }}</h3>
+  <h3 class="text-xl xl:text-2xl font-bold mb-2">{{ 'PRICING.PLANS.' + plan.planKey + '.NAME' | translate }}</h3>
   <div class="mb-4">
-    <span class="text-4xl xl:text-5xl font-black tracking-tight">{{ plan.price }}</span>
-    <span *ngIf="plan.period" class="text-base opacity-70 font-medium">{{ plan.period }}</span>
+    <span class="text-4xl xl:text-5xl font-black tracking-tight">{{ 'PRICING.PLANS.' + plan.planKey + '.PRICE' | translate }}</span>
+    <span *ngIf="'PRICING.PLANS.' + plan.planKey + '.PERIOD' | translate as period" class="text-base opacity-70 font-medium">
+      {{ period === 'PRICING.PLANS.' + plan.planKey + '.PERIOD' ? '' : period }}
+    </span>
   </div>
-  <p class="mb-6 opacity-80 min-h-[48px] text-sm">{{ plan.description }}</p>
+  <p class="mb-6 opacity-80 min-h-[48px] text-sm">{{ 'PRICING.PLANS.' + plan.planKey + '.DESC' | translate }}</p>
 
   <div class="flex-grow flex flex-col gap-6 mb-8">
     <!-- Pros -->
     <ul class="space-y-3">
-      <li *ngFor="let pro of plan.pros" class="flex items-start gap-3 font-medium text-sm">
-        <div class="mt-0.5" [ngClass]="plan.isPopular ? 'text-black' : 'text-white'">
+      <li *ngFor="let pro of ('PRICING.PLANS.' + plan.planKey + '.PROS' | translate)" class="flex items-start gap-3 font-medium text-sm">
+        <div class="mt-0.5" [ngClass]="plan.isPopular ? 'text-black' : 'text-brandYellow'">
           <ng-icon name="lucideCheck" size="18px" strokeWidth="3"></ng-icon>
         </div>
         <span>{{ pro }}</span>
@@ -24,8 +26,8 @@
     </ul>
     
     <!-- Cons -->
-    <ul *ngIf="plan.cons && plan.cons.length > 0" class="space-y-3 pt-4 border-t border-dashed" [ngClass]="plan.isPopular ? 'border-black/20' : 'border-white/20'">
-      <li *ngFor="let con of plan.cons" class="flex items-start gap-3 text-sm opacity-50">
+    <ul class="space-y-3 pt-4 border-t border-dashed" [ngClass]="plan.isPopular ? 'border-black/20' : 'border-brandYellow/20'">
+      <li *ngFor="let con of ('PRICING.PLANS.' + plan.planKey + '.CONS' | translate)" class="flex items-start gap-3 text-sm opacity-50">
         <div class="mt-0.5">
           <ng-icon name="lucideX" size="18px" strokeWidth="3"></ng-icon>
         </div>
@@ -34,7 +36,7 @@
     </ul>
   </div>
 
-  <app-ui-button [text]="plan.buttonText"
+  <app-ui-button [text]="'PRICING.PLANS.' + plan.planKey + '.BUTTON' | translate"
                  [variant]="plan.isPopular ? 'dark' : 'yellow'"
                  [fullWidth]="true"
                  size="lg"></app-ui-button>

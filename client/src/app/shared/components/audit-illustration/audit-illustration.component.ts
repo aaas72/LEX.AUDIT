@@ -2,10 +2,11 @@ import { Component, HostListener, OnInit, OnDestroy, OnChanges, SimpleChanges, I
 import { CommonModule } from '@angular/common';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { 
-  lucideMail, lucideFileText, lucideMapPin, lucideClock, lucideShoppingCart, 
-  lucideSearch, lucideShieldCheck, lucideBriefcase, lucideActivity, lucideCheckCircle 
+  lucideScale, lucideFileSearch, lucideShieldAlert, lucideLandmark, 
+  lucideFileSignature, lucideAlertTriangle, lucideFileCheck, lucideEye 
 } from '@ng-icons/lucide';
 import * as pdfjsLib from 'pdfjs-dist';
+import { TranslatePipe } from '@ngx-translate/core';
 
 // Set the worker source
 pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.mjs`;
@@ -16,11 +17,11 @@ pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs
   imports: [
     CommonModule, 
     NgIconComponent
-  ],
+  , TranslatePipe],
   viewProviders: [
     provideIcons({ 
-      lucideMail, lucideFileText, lucideMapPin, lucideClock, lucideShoppingCart,
-      lucideSearch, lucideShieldCheck, lucideBriefcase, lucideActivity, lucideCheckCircle
+      lucideScale, lucideFileSearch, lucideShieldAlert, lucideLandmark,
+      lucideFileSignature, lucideAlertTriangle, lucideFileCheck, lucideEye
     })
   ],
   templateUrl: './audit-illustration.component.html',
@@ -59,8 +60,8 @@ export class AuditIllustrationComponent implements OnInit, OnDestroy, OnChanges 
 
   get iconClasses(): string {
     return this.theme === 'dark'
-      ? 'border-brandYellow/30 text-brandYellow/60'
-      : 'border-black/20 text-black/40';
+      ? 'border-[#332a08] text-[#997a17] bg-[#120f03]' // Solid colors matching dark yellow/black aesthetic
+      : 'border-[#d49a1c] text-[#a87a15] bg-[#e6aa1e]'; // Solid colors matching lighter yellow aesthetic
   }
 
   ngOnChanges(changes: SimpleChanges) {

@@ -1,11 +1,12 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AuditIllustrationComponent } from '../../../../shared/components/audit-illustration/audit-illustration.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-scanning-progress',
   standalone: true,
-  imports: [CommonModule, AuditIllustrationComponent],
+  imports: [CommonModule, AuditIllustrationComponent, TranslatePipe],
   templateUrl: './scanning-progress.component.html',
   styles: ``
 })

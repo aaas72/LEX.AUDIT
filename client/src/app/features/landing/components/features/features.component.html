@@ -1,14 +1,13 @@
-<section class="py-24 bg-black text-white relative">
+<section class="py-24 bg-black text-brandYellow relative">
   <app-container>
     <div class="max-w-7xl mx-auto px-4 md:px-8">
 
       <!-- Section Header -->
       <div class="text-center max-w-3xl mx-auto mb-20" appAnimateOnScroll="animate-fade-in-up">
-        <h2 class="text-xs tracking-widest uppercase font-semibold text-brandYellow mb-4">Core Capabilities</h2>
-        <h3 class="text-4xl md:text-5xl font-medium tracking-tight mb-6">Uncover the hidden risks in seconds.</h3>
-        <p class="text-white/70 text-lg">
-          We combine advanced artificial intelligence with rigorous legal frameworks to extract, analyze, and neutralize
-          unfair terms before you sign.
+        <h2 class="text-xs tracking-widest uppercase font-semibold text-brandYellow mb-4">{{ 'FEATURES.SECTION_LABEL' | translate }}</h2>
+        <h3 class="text-4xl md:text-5xl font-medium tracking-tight mb-6">{{ 'FEATURES.TITLE' | translate }}</h3>
+        <p class="text-brandYellowMuted text-lg">
+          {{ 'FEATURES.SUBTITLE' | translate }}
         </p>
       </div>
 
@@ -17,24 +16,24 @@
 
         <div *ngFor="let feature of features; let i = index" appAnimateOnScroll="animate-fade-in-up"
           [animationDelay]="i * 150 + 'ms'"
-          class="group relative overflow-hidden z-0 p-8 rounded-2xl border-2 border-white/10 bg-transparent transition-all duration-500 hover:-translate-y-2 flex flex-col items-start text-start">
+          class="group relative overflow-hidden z-0 p-8 rounded-2xl border-2 border-brandYellow/10 bg-transparent transition-all duration-500 flex flex-col items-start text-start">
 
           <!-- The Inspection Lens (Spotlight Effect) -->
           <span
-            class="absolute top-[64px] left-[64px] w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out -z-10 group-hover:w-[600px] group-hover:h-[600px] bg-brandYellow"></span>
+            class="absolute top-[64px] ltr:left-[64px] rtl:right-[64px] w-0 h-0 rounded-full ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out -z-10 group-hover:w-[600px] group-hover:h-[600px] bg-brandYellow"></span>
 
           <div
-            class="relative z-10 w-16 h-16 rounded-full border border-white/20 flex items-center justify-center mb-6 shrink-0 group-hover:border-black/20 transition-all duration-500">
+            class="relative z-10 w-16 h-16 rounded-full border border-brandYellow/20 flex items-center justify-center mb-6 shrink-0 group-hover:border-black/20 transition-all duration-500">
             <ng-icon [name]="feature.icon" size="24px" strokeWidth="2"
-              class="text-white group-hover:text-black transition-colors duration-500"></ng-icon>
+              class="text-brandYellow group-hover:text-black transition-colors duration-500"></ng-icon>
           </div>
 
           <h4
-            class="relative z-10 text-xl font-semibold mb-3 text-white group-hover:text-black transition-colors duration-500">
-            {{ feature.title }}</h4>
+            class="relative z-10 text-xl font-semibold mb-3 text-brandYellow group-hover:text-black transition-colors duration-500">
+            {{ feature.titleKey | translate }}</h4>
           <p
-            class="relative z-10 text-white/70 leading-relaxed text-sm md:text-base group-hover:text-black/80 transition-colors duration-500">
-            {{ feature.description }}
+            class="relative z-10 text-brandYellowMuted leading-relaxed text-sm md:text-base group-hover:text-blackMuted transition-colors duration-500">
+            {{ feature.descKey | translate }}
           </p>
         </div>
 

@@ -1,0 +1,247 @@
+{
+  "NAVBAR": {
+    "HOME": "Home",
+    "PRICING": "Pricing",
+    "CONTACT": "Contact",
+    "LOGIN": "Login",
+    "START_FREE": "Start Free"
+  },
+  "HERO": {
+    "TITLE": "Discover legal risks<br/>before they happen",
+    "SUBTITLE": "LEX.AUDIT platform uses advanced AI to audit contracts, extract unfair clauses, and ensure legal compliance to protect your business from hidden loopholes.",
+    "BUTTON": "Start auditing your contracts"
+  },
+  "FEATURES": {
+    "SECTION_LABEL": "Core Capabilities",
+    "TITLE": "Uncover hidden risks in seconds.",
+    "SUBTITLE": "We integrate advanced AI with rigorous legal frameworks to extract, analyze, and neutralize unfair terms before signing.",
+    "CARDS": {
+      "F1_TITLE": "Smart Clause Detection",
+      "F1_DESC": "Our AI engine instantly scans hundreds of pages to identify hidden or unfair clauses that manual auditing might miss.",
+      "F2_TITLE": "Severity Risk Rating",
+      "F2_DESC": "Every detected issue is categorized by risk severity, allowing legal teams and individuals to prioritize critical contract negotiations.",
+      "F3_TITLE": "Alternative Rewriting",
+      "F3_DESC": "LEX.AUDIT doesn't just point out problems; it suggests balanced, fair, and legally sound alternative phrasing for risky clauses."
+    }
+  },
+  "HOW_IT_WORKS": {
+    "TITLE": "How it works.",
+    "SUBTITLE": "Three simple steps to secure, transparent, and balanced contracts.",
+    "STEPS": {
+      "S1_TITLE": "Upload & Configure",
+      "S1_DESC": "Upload your contract securely. Select the opposing party type and set your risk tolerance (Aggressive, Standard, or Lenient).",
+      "S2_TITLE": "AI Analysis & Rewriting",
+      "S2_DESC": "Our proprietary AI scans the document, flags risky clauses, and automatically suggests balanced, market-standard redlines.",
+      "S3_TITLE": "Review & Export",
+      "S3_DESC": "Accept or reject the AI suggestions. Once satisfied, export a clean PDF or a fully tracked Microsoft Word document."
+    }
+  },
+  "USE_CASES": {
+    "SECTION_LABEL": "Who is it for?",
+    "TITLE": "Designed for professionals who refuse to compromise.",
+    "CASES": {
+      "C1_TITLE": "Law Firms",
+      "C1_DESC": "Accelerate contract review cycles. Let our AI do the heavy lifting of initial risk detection so your attorneys can focus on strategic negotiations.",
+      "C2_TITLE": "Freelancers & Contractors",
+      "C2_DESC": "Don't sign away your rights. Instantly understand complex legal jargon and ensure your client contracts are fair and balanced before you begin work.",
+      "C3_TITLE": "Enterprise Legal Ops",
+      "C3_DESC": "Standardize risk assessment across thousands of vendor agreements. Ensure corporate compliance without slowing down the procurement process."
+    }
+  },
+  "SOCIAL_PROOF": {
+    "TITLE": "Trusted by the best.",
+    "SUBTITLE": "Leading legal teams and independent professionals rely on LEX.AUDIT to mitigate risks and negotiate with confidence.",
+    "METRICS": {
+      "M1_LABEL": "Contracts Audited",
+      "M1_VALUE": "10,000+",
+      "M2_LABEL": "Hidden Risks Detected",
+      "M2_VALUE": "2.5M+",
+      "M3_LABEL": "Average Time Saved",
+      "M3_VALUE": "85%"
+    }
+  },
+  "CTA": {
+    "TITLE": "Ready to audit?",
+    "SUBTITLE": "Don't leave your contracts to chance. Upload your first contract today and let our AI engine reveal what's hidden between the lines.",
+    "BUTTON": "Start your free trial"
+  },
+  "FEATURES_PAGE": {
+    "HERO_TITLE": "UNLEASH PRECISION.",
+    "HERO_SUBTITLE": "Discover the cutting-edge capabilities that power LEX.AUDIT, designed to transform how you analyze and negotiate contracts.",
+    "HERO_BUTTON": "Start Free Trial",
+    "CARDS": {
+      "F1_TITLE": "AI-Powered Risk Detection",
+      "F1_DESC": "Our proprietary models scan contracts instantly to identify hidden clauses, skewed liabilities, and regulatory risks.",
+      "F2_TITLE": "Automated Clause Rewriting",
+      "F2_DESC": "Don't just find the problem. Let our AI suggest fairer, balanced alternatives based on standard legal precedents.",
+      "F3_TITLE": "Compliance & Governance",
+      "F3_DESC": "Ensure every contract adheres to your internal playbooks and external compliance standards automatically.",
+      "F4_TITLE": "Real-time Collaboration",
+      "F4_DESC": "Work seamlessly with your legal and sales teams. Leave comments, approve changes, and track version history in one place.",
+      "F5_TITLE": "Custom Playbook Integration",
+      "F5_DESC": "Train our AI on your specific company playbooks to ensure audits are tailored precisely to your risk tolerance.",
+      "F6_TITLE": "Instant Execution",
+      "F6_DESC": "Turn weeks of manual review into minutes. Accelerate your deal cycles and close contracts faster than ever before."
+    },
+    "CTA_TITLE": "READY TO UPGRADE YOUR CONTRACTS?",
+    "CTA_SUBTITLE": "Join hundreds of forward-thinking legal teams securing their deals with AI precision.",
+    "CTA_BUTTON": "Book a Demo"
+  },
+  "CONTACT": {
+    "TITLE": "CONTACT",
+    "SUBTITLE": "Have a legal inquiry? Get in touch.",
+    "FORM": {
+      "FULL_NAME": "Full Name",
+      "FULL_NAME_PLACEHOLDER": "John Doe",
+      "EMAIL": "Email Address",
+      "EMAIL_PLACEHOLDER": "john@example.com",
+      "MESSAGE": "Message",
+      "MESSAGE_PLACEHOLDER": "How can we help?",
+      "SUBMIT": "SEND MESSAGE"
+    }
+  },
+  "AUDIT": {
+    "WORKSPACE_TITLE": "WORKSPACE",
+    "WORKSPACE_SUBTITLE": "Secure environment for AI contract analysis.",
+    "UPLOAD": {
+      "TITLE": "Upload Contract for Audit",
+      "TITLE_DRAGGING": "Drop it here...",
+      "SUBTITLE": "Drag & drop your PDF document here, or click to browse. Our AI will instantly begin the stealth analysis.",
+      "ERROR_PDF_ONLY": "Only PDF files are supported for analysis.",
+      "STATUS_VERIFYING": "Verifying file integrity...",
+      "STATUS_PREPARING": "Preparing document for analysis...",
+      "STATUS_ROUTING": "Routing to processing engine...",
+      "STATUS_SECURE": "Secure sequence initiated..."
+    },
+    "SCANNING": {
+      "WATERMARK": "TRUST THE AUDIT"
+    },
+    "RESULTS": {
+      "CLASSIFICATION": "Classification",
+      "CLASSIFICATION_NOTE": "Requires immediate review of flagged clauses.",
+      "ANALYZED": "Analyzed",
+      "FLAGGED": "Flagged",
+      "OVERALL_RISK_SCORE": "Overall Risk Score",
+      "EXPORT_PDF": "Export PDF",
+      "DETAILED_REPORT": "Detailed Report"
+    }
+  },
+  "PRICING": {
+    "TITLE": "Transparent Pricing.",
+    "SUBTITLE": "No hidden terms. Choose the plan that fits your risk mitigation needs.",
+    "PLANS": {
+      "STARTER": {
+        "NAME": "Starter",
+        "PRICE": "Free",
+        "DESC": "For individuals exploring AI legal audits.",
+        "PROS": [
+          "3 contract audits per month",
+          "Basic risk detection",
+          "Standard PDF reports"
+        ],
+        "CONS": [
+          "No clause rewriting",
+          "No custom templates",
+          "No team features"
+        ],
+        "BUTTON": "Get Started"
+      },
+      "PRO": {
+        "NAME": "Professional",
+        "PRICE": "$49",
+        "PERIOD": "/mo",
+        "DESC": "For solo lawyers handling steady volumes.",
+        "PROS": [
+          "50 contract audits per month",
+          "Advanced AI logic",
+          "Priority support",
+          "Word & PDF exports"
+        ],
+        "CONS": [
+          "No clause rewriting",
+          "Single user only"
+        ],
+        "BUTTON": "Start Trial"
+      },
+      "AGENCY": {
+        "NAME": "Agency",
+        "PRICE": "$149",
+        "PERIOD": "/mo",
+        "DESC": "Ideal for small firms and growing legal teams.",
+        "PROS": [
+          "Unlimited contract audits",
+          "AI clause rewriting",
+          "Team collaboration (up to 5)",
+          "Custom templates integration"
+        ],
+        "CONS": [
+          "No dedicated account manager",
+          "No on-premise deployment"
+        ],
+        "BUTTON": "Start Free Trial"
+      },
+      "ENTERPRISE": {
+        "NAME": "Enterprise",
+        "PRICE": "Custom",
+        "DESC": "Built for corporate legal operations demanding full control.",
+        "PROS": [
+          "Everything in Agency",
+          "Unlimited team members",
+          "Dedicated account manager",
+          "On-premise deployment",
+          "Custom API access"
+        ],
+        "CONS": [
+          "Requires custom onboarding"
+        ],
+        "BUTTON": "Contact Sales"
+      }
+    }
+  },
+  "PRIVACY_PAGE": {
+    "TITLE": "PRIVACY POLICY",
+    "SEC1_TITLE": "1. DATA COLLECTION",
+    "SEC1_DESC": "We collect only the essential data required to provide our AI-driven contract analysis services. All uploaded documents are temporarily stored in volatile memory and are permanently expunged post-analysis.",
+    "SEC2_TITLE": "2. CONFIDENTIALITY",
+    "SEC2_DESC": "Your legal documents are strictly confidential. We do not use your contracts to train our models unless explicitly opted-in by the enterprise administrator.",
+    "SEC3_TITLE": "3. THIRD-PARTY SHARING",
+    "SEC3_DESC": "We do not sell, rent, or trade your personal or corporate data to third parties. Our infrastructure operates on secure, isolated instances.",
+    "SEC4_TITLE": "4. COMPLIANCE",
+    "SEC4_DESC": "Our platform adheres to GDPR, CCPA, and SOC 2 Type II standards to ensure maximum security and privacy."
+  },
+  "TERMS_PAGE": {
+    "TITLE": "TERMS OF SERVICE",
+    "SEC1_TITLE": "1. ACCEPTANCE",
+    "SEC1_DESC": "By accessing LEX.AUDIT, you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, you must not use our platform.",
+    "SEC2_TITLE": "2. LIMITATION OF LIABILITY",
+    "SEC2_DESC": "The AI analysis provided by LEX.AUDIT does not constitute formal legal advice. We are not liable for any damages or losses arising from reliance on the automated risk assessments.",
+    "SEC3_TITLE": "3. FAIR USE",
+    "SEC3_DESC": "API abuse, automated scraping, or attempts to reverse engineer the auditing models will result in immediate termination of the service account."
+  },
+  "COOKIE_PAGE": {
+    "TITLE": "COOKIE POLICY",
+    "SEC1_TITLE": "1. NECESSARY COOKIES",
+    "SEC1_DESC": "We use essential cookies required for the platform to function securely, such as authentication tokens and session identifiers. These cannot be disabled.",
+    "SEC2_TITLE": "2. PERFORMANCE COOKIES",
+    "SEC2_DESC": "We employ minimal tracking to understand performance bottlenecks. No personally identifiable information is tracked in this process.",
+    "SEC3_TITLE": "3. MANAGING PREFERENCES",
+    "SEC3_DESC": "You can manage or delete cookies via your browser settings. However, doing so may degrade the application's performance and security features."
+  },
+  "FOOTER": {
+    "TAGLINE": "Mitigate risk. Maximize fairness. The standard in AI legal auditing.",
+    "RIGHTS": "All rights reserved.",
+    "WORDS": {
+      "LEX_AUDIT": "LEX.AUDIT",
+      "UNFAIR_CLAUSE": "UNFAIR.CLAUSE",
+      "HIDDEN_RISK": "HIDDEN.RISK",
+      "AUTO_RENEWAL": "AUTO.RENEWAL",
+      "LIABILITY_TRAP": "LIABILITY.TRAP",
+      "IP_LEAKAGE": "IP.LEAKAGE"
+    },
+    "LINKS": {
+      "TERMS": "Terms of Service",
+      "PRIVACY": "Privacy Policy",
+      "COOKIE": "Cookie Policy"
+    }
+  }
+}

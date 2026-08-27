@@ -1,4 +1,4 @@
-<div class="relative min-h-screen bg-black text-white font-sans overflow-x-hidden flex flex-col">
+<div class="relative min-h-screen bg-black text-brandYellow font-sans overflow-x-hidden flex flex-col">
   
   <app-navbar theme="dark"></app-navbar>
 
@@ -8,9 +8,9 @@
     <section class="py-24 md:py-32 relative">
       <div class="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         <div class="text-center max-w-4xl mx-auto" appAnimateOnScroll="animate-fade-in-up">
-          <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-6">UNLEASH PRECISION.</h1>
-          <p class="text-xl md:text-2xl text-white/70 mb-10">Discover the cutting-edge capabilities that power LEX.AUDIT, designed to transform how you analyze and negotiate contracts.</p>
-          <app-ui-button text="Start Free Trial" variant="yellow" size="lg"></app-ui-button>
+          <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-none mb-6">{{ 'FEATURES_PAGE.HERO_TITLE' | translate }}</h1>
+          <p class="text-xl md:text-2xl text-brandYellowMuted mb-10">{{ 'FEATURES_PAGE.HERO_SUBTITLE' | translate }}</p>
+          <app-ui-button [text]="'FEATURES_PAGE.HERO_BUTTON' | translate" variant="yellow" size="lg"></app-ui-button>
         </div>
       </div>
       
@@ -24,15 +24,18 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           <div *ngFor="let feature of features; let i = index" 
-               class="relative group p-8 rounded-2xl border-2 border-white/10 bg-transparent transition-all duration-500 hover:-translate-y-2 hover:border-brandYellow"
-               appAnimateOnScroll="animate-fade-in-up" [animationDelay]="i * 100 + 'ms'">
+               class="group relative overflow-hidden z-0 p-8 rounded-2xl border-2 border-brandYellow/10 bg-transparent transition-all duration-500 flex flex-col items-start text-start"
+               appAnimateOnScroll="animate-fade-in-up" [animationDelay]="i * 150 + 'ms'">
             
-            <div class="w-16 h-16 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:bg-brandYellow group-hover:border-brandYellow transition-colors duration-500 text-white group-hover:text-black">
-              <ng-icon [name]="feature.icon" size="32px" strokeWidth="2"></ng-icon>
+            <!-- The Inspection Lens (Spotlight Effect) -->
+            <span class="absolute top-[64px] left-[64px] w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out -z-10 group-hover:w-[600px] group-hover:h-[600px] bg-brandYellow"></span>
+
+            <div class="relative z-10 w-16 h-16 rounded-full border border-brandYellow/20 flex items-center justify-center mb-6 shrink-0 group-hover:border-black/20 transition-all duration-500">
+              <ng-icon [name]="feature.icon" size="32px" strokeWidth="2" class="text-brandYellow group-hover:text-black transition-colors duration-500"></ng-icon>
             </div>
             
-            <h3 class="text-2xl font-bold mb-4">{{ feature.title }}</h3>
-            <p class="text-white/60 leading-relaxed">{{ feature.description }}</p>
+            <h3 class="relative z-10 text-2xl font-bold mb-4 text-brandYellow group-hover:text-black transition-colors duration-500">{{ feature.titleKey | translate }}</h3>
+            <p class="relative z-10 text-brandYellowDim leading-relaxed group-hover:text-blackMuted transition-colors duration-500">{{ feature.descKey | translate }}</p>
             
           </div>
           
@@ -43,9 +46,9 @@
     <!-- CTA Section -->
     <section class="py-24 md:py-32 bg-brandYellow text-black border-y-2 border-brandYellow">
       <div class="max-w-7xl mx-auto px-4 md:px-8 text-center" appAnimateOnScroll="animate-fade-in-up">
-        <h2 class="text-4xl md:text-6xl font-black tracking-tighter leading-none mb-6">READY TO UPGRADE YOUR CONTRACTS?</h2>
-        <p class="text-xl md:text-2xl opacity-80 mb-10 max-w-2xl mx-auto">Join hundreds of forward-thinking legal teams securing their deals with AI precision.</p>
-        <app-ui-button text="Book a Demo" variant="dark" size="lg"></app-ui-button>
+        <h2 class="text-4xl md:text-6xl font-black tracking-tighter leading-none mb-6">{{ 'FEATURES_PAGE.CTA_TITLE' | translate }}</h2>
+        <p class="text-xl md:text-2xl opacity-80 mb-10 max-w-2xl mx-auto">{{ 'FEATURES_PAGE.CTA_SUBTITLE' | translate }}</p>
+        <app-ui-button [text]="'FEATURES_PAGE.CTA_BUTTON' | translate" variant="dark" size="lg"></app-ui-button>
       </div>
     </section>
 

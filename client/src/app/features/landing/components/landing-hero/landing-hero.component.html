@@ -4,15 +4,14 @@
     
     <!-- Text Column -->
     <div class="flex-1 flex flex-col items-start text-start w-full max-w-2xl">
-      <h1 class="text-5xl lg:text-6xl font-medium tracking-tight leading-snug text-black mb-8" appAnimateOnScroll="animate-fade-in-up" animationDelay="0ms">
-        What are the main forms<br/>of contract auditing?
+      <h1 class="text-5xl lg:text-6xl font-medium tracking-tight leading-snug text-black mb-8" appAnimateOnScroll="animate-fade-in-up" animationDelay="0ms" [innerHTML]="'HERO.TITLE' | translate">
       </h1>
       <p class="text-base md:text-lg text-black leading-relaxed mb-12" appAnimateOnScroll="animate-fade-in-up" animationDelay="150ms">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.
+        {{ 'HERO.SUBTITLE' | translate }}
       </p>
       
       <div appAnimateOnScroll="animate-fade-in-up" animationDelay="300ms">
-        <app-ui-button text="Read more"></app-ui-button>
+        <app-ui-button [text]="'HERO.BUTTON' | translate"></app-ui-button>
       </div>
 
     </div>

@@ -98,9 +98,9 @@
       <defs>
         <radialGradient id="lensGradient" cx="50%" cy="50%" r="50%">
           <!-- Transparent center for X-Ray effect -->
-          <stop offset="60%" stop-color="white" stop-opacity="0.0" />
+          <stop offset="60%" stop-color="#FBBF24" stop-opacity="0.0" />
           <!-- White inner rim to simulate glass edge thickness -->
-          <stop offset="95%" stop-color="white" stop-opacity="0.2" />
+          <stop offset="95%" stop-color="#FBBF24" stop-opacity="0.2" />
           <!-- Dark outer inner-shadow for 3D depth -->
           <stop offset="100%" stop-color="black" stop-opacity="0.15" />
         </radialGradient>
@@ -110,8 +110,8 @@
       <line x1="21.65" y1="21.65" x2="30" y2="30" />
       
       <!-- Realistic Concentric Highlights (Shifted +5) -->
-      <path d="M 11.4 11.4 A 6.5 6.5 0 0 1 20.6 11.4" stroke="white" stroke-width="1" stroke-linecap="round" opacity="0.8" />
-      <path d="M 20.6 20.6 A 6.5 6.5 0 0 1 16 22.5" stroke="white" stroke-width="0.8" stroke-linecap="round" opacity="0.4" />
+      <path d="M 11.4 11.4 A 6.5 6.5 0 0 1 20.6 11.4" stroke="#FBBF24" stroke-width="1" stroke-linecap="round" opacity="0.8" />
+      <path d="M 20.6 20.6 A 6.5 6.5 0 0 1 16 22.5" stroke="#FBBF24" stroke-width="0.8" stroke-linecap="round" opacity="0.4" />
     </svg>
   </div>
   </div>
@@ -119,59 +119,59 @@
   <!-- Orbiting Icons Ring Layer -->
   <div class="absolute top-[40%] left-1/2 w-0 h-0 -z-10 spin-ring">
     
-    <!-- Icon 1: Mail (0deg) -->
+    <!-- Icon 1: Scale (0deg) -->
     <div class="absolute" style="transform: rotate(0deg) translateY(-200px) rotate(0deg);">
-      <div class="counter-spin flex items-center justify-center -ml-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideMail" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
+        <ng-icon name="lucideScale" size="28px" strokeWidth="1.5"></ng-icon>
       </div>
     </div>
 
-    <!-- Icon 2: Briefcase (45deg) -->
+    <!-- Icon 2: FileSearch (45deg) -->
     <div class="absolute" style="transform: rotate(45deg) translateY(-200px) rotate(-45deg);">
-      <div class="counter-spin flex items-center justify-center -ml-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideBriefcase" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
+        <ng-icon name="lucideFileSearch" size="28px" strokeWidth="1.5"></ng-icon>
       </div>
     </div>
 
-    <!-- Icon 3: MapPin (90deg) -->
+    <!-- Icon 3: ShieldAlert (90deg) -->
     <div class="absolute" style="transform: rotate(90deg) translateY(-200px) rotate(-90deg);">
-      <div class="counter-spin flex items-center justify-center -ml-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideMapPin" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
+        <ng-icon name="lucideShieldAlert" size="28px" strokeWidth="1.5"></ng-icon>
       </div>
     </div>
 
-    <!-- Icon 4: Clock (135deg) -->
+    <!-- Icon 4: Landmark (135deg) -->
     <div class="absolute" style="transform: rotate(135deg) translateY(-200px) rotate(-135deg);">
-      <div class="counter-spin flex items-center justify-center -ml-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideClock" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
+        <ng-icon name="lucideLandmark" size="28px" strokeWidth="1.5"></ng-icon>
       </div>
     </div>
 
-    <!-- Icon 5: ShoppingCart (180deg) -->
+    <!-- Icon 5: FileSignature (180deg) -->
     <div class="absolute" style="transform: rotate(180deg) translateY(-200px) rotate(-180deg);">
-      <div class="counter-spin flex items-center justify-center -ml-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideShoppingCart" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
+        <ng-icon name="lucideFileSignature" size="28px" strokeWidth="1.5"></ng-icon>
       </div>
     </div>
 
-    <!-- Icon 6: Activity (225deg) -->
+    <!-- Icon 6: AlertTriangle (225deg) -->
     <div class="absolute" style="transform: rotate(225deg) translateY(-200px) rotate(-225deg);">
-      <div class="counter-spin flex items-center justify-center -ml-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideActivity" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
+        <ng-icon name="lucideAlertTriangle" size="28px" strokeWidth="1.5"></ng-icon>
       </div>
     </div>
 
-    <!-- Icon 7: ShieldCheck (270deg) -->
+    <!-- Icon 7: FileCheck (270deg) -->
     <div class="absolute" style="transform: rotate(270deg) translateY(-200px) rotate(-270deg);">
-      <div class="counter-spin flex items-center justify-center -ml-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideShieldCheck" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
+        <ng-icon name="lucideFileCheck" size="28px" strokeWidth="1.5"></ng-icon>
       </div>
     </div>
 
-    <!-- Icon 8: FileText (315deg) -->
+    <!-- Icon 8: Eye (315deg) -->
     <div class="absolute" style="transform: rotate(315deg) translateY(-200px) rotate(-315deg);">
-      <div class="counter-spin flex items-center justify-center -ml-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideFileText" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
+        <ng-icon name="lucideEye" size="28px" strokeWidth="1.5"></ng-icon>
       </div>
     </div>
 

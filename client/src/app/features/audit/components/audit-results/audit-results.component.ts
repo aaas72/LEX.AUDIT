@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { lucideDownload, lucideShieldAlert, lucideFileText } from '@ng-icons/lucide';
 import { PdfExportService } from '../../../../core/services/pdf-export.service';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-audit-results',
   standalone: true,
-  imports: [CommonModule, NgIconComponent],
+  imports: [CommonModule, NgIconComponent, TranslatePipe],
   providers: [provideIcons({ lucideDownload, lucideShieldAlert, lucideFileText })],
   templateUrl: './audit-results.component.html',
   styles: ``

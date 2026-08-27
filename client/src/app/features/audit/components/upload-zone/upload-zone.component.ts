@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroDocumentArrowUp } from '@ng-icons/heroicons/outline';
@@ -6,7 +7,7 @@ import { heroDocumentArrowUp } from '@ng-icons/heroicons/outline';
 @Component({
   selector: 'app-upload-zone',
   standalone: true,
-  imports: [CommonModule, NgIconComponent],
+  imports: [CommonModule, NgIconComponent, TranslatePipe],
   providers: [provideIcons({ heroDocumentArrowUp })],
   templateUrl: './upload-zone.component.html',
   styles: ``
@@ -14,6 +15,7 @@ import { heroDocumentArrowUp } from '@ng-icons/heroicons/outline';
 export class UploadZoneComponent {
   @Output() fileSelected = new EventEmitter<File>();
   isDragging = false;
+  private translate = inject(TranslateService);
 
   onDragOver(event: DragEvent) {
     event.preventDefault();
@@ -48,21 +50,21 @@ export class UploadZoneComponent {
 
   private handleFile(file: File) {
     if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {
-      this.errorMessage = 'Only PDF files are supported for analysis.';
+      this.errorMessage = this.translate.instant('AUDIT.UPLOAD.ERROR_PDF_ONLY');
       return;
     }
     
     this.errorMessage = '';
     this.uploadStep = 1;
-    this.uploadStatus = 'Verifying file integrity...'; // جاري التحقق من الملف
+    this.uploadStatus = this.translate.instant('AUDIT.UPLOAD.STATUS_VERIFYING');
     
     setTimeout(() => {
       this.uploadStep = 2;
-      this.uploadStatus = 'Preparing document for analysis...'; // جاري تجهيز الملف للفحص
+      this.uploadStatus = this.translate.instant('AUDIT.UPLOAD.STATUS_PREPARING');
       
       setTimeout(() => {
         this.uploadStep = 3;
-        this.uploadStatus = 'Routing to processing engine...'; // جاري التوجيه للمعالجة
+        this.uploadStatus = this.translate.instant('AUDIT.UPLOAD.STATUS_ROUTING');
         
         setTimeout(() => {
           this.fileSelected.emit(file);

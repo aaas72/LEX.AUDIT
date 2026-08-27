@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-ui-card',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   template: `
     <div [ngClass]="['border border-white/40 bg-white/10 backdrop-blur-sm p-6', customClass]">
       <div *ngIf="title" class="border-b border-white/30 pb-3 mb-4 text-center">

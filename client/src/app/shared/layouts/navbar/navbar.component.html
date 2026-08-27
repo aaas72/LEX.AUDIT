@@ -1,11 +1,13 @@
-<nav class="w-full max-w-7xl mx-auto pt-10 pb-4 px-4 md:px-8 flex flex-row justify-between items-center relative z-20" [ngClass]="theme === 'dark' ? 'text-white' : 'text-black'">
+<nav class="w-full max-w-7xl mx-auto pt-10 pb-4 px-4 md:px-8 flex flex-row justify-between items-center relative z-20" [ngClass]="theme === 'dark' ? 'text-brandYellow' : 'text-black'">
   <div class="text-3xl font-bold tracking-tight flex items-center gap-2">
     LEX.AUDIT
   </div>
   <div class="hidden md:flex gap-8 text-xs font-semibold tracking-wider uppercase items-center">
-    <a routerLink="/" class="hover:opacity-50 transition-opacity duration-300">HOME</a>
-    <a routerLink="/features" class="hover:opacity-50 transition-opacity duration-300">FEATURES</a>
-    <a routerLink="/pricing" class="hover:opacity-50 transition-opacity duration-300">PRICING</a>
-    <a routerLink="/contact" class="hover:opacity-50 transition-opacity duration-300">CONTACT</a>
+    <a routerLink="/" class="hover:opacity-50 transition-opacity duration-300">{{ 'NAVBAR.HOME' | translate }}</a>
+    <a routerLink="/features" class="hover:opacity-50 transition-opacity duration-300">{{ 'FEATURES.SECTION_LABEL' | translate }}</a>
+    <a routerLink="/pricing" class="hover:opacity-50 transition-opacity duration-300">{{ 'NAVBAR.PRICING' | translate }}</a>
+    <a routerLink="/contact" class="hover:opacity-50 transition-opacity duration-300">{{ 'NAVBAR.CONTACT' | translate }}</a>
+    
+    <app-language-selector [theme]="theme"></app-language-selector>
   </div>
 </nav>

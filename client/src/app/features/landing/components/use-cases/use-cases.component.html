@@ -2,8 +2,8 @@
   <div class="max-w-7xl mx-auto px-4 md:px-8">
     
     <div class="text-center max-w-3xl mx-auto mb-20" appAnimateOnScroll="animate-fade-in-up">
-      <h2 class="text-xs tracking-widest uppercase font-semibold text-charcoal mb-4">Who is it for?</h2>
-      <h3 class="text-4xl font-medium tracking-tight mb-6">Designed for professionals who refuse to compromise.</h3>
+      <h2 class="text-xs tracking-widest uppercase font-semibold text-charcoal mb-4">{{ 'USE_CASES.SECTION_LABEL' | translate }}</h2>
+      <h3 class="text-4xl font-medium tracking-tight mb-6">{{ 'USE_CASES.TITLE' | translate }}</h3>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
@@ -16,8 +16,8 @@
           
           <ng-icon class="relative z-10" [name]="case.icon" size="32px" strokeWidth="1.5"></ng-icon>
         </div>
-        <h4 class="relative z-10 text-2xl font-bold mb-4 text-black group-hover:text-brandYellow transition-colors duration-500">{{ case.title }}</h4>
-        <p class="relative z-10 text-charcoal/80 leading-relaxed group-hover:text-white/80 transition-colors duration-500">{{ case.description }}</p>
+        <h4 class="relative z-10 text-2xl font-bold mb-4 text-black group-hover:text-brandYellow transition-colors duration-500">{{ case.titleKey | translate }}</h4>
+        <p class="relative z-10 text-charcoalMuted leading-relaxed group-hover:text-brandYellowMuted transition-colors duration-500">{{ case.descKey | translate }}</p>
       </div>
     </div>
 

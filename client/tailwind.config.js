@@ -7,7 +7,13 @@ module.exports = {
     extend: {
       colors: {
         brandYellow: '#fabb3c',
+        brandYellowMuted: '#b58c2a',
+        brandYellowDim: '#8c6b20',
+        brandYellowFaint: '#5e4815',
         charcoal: '#2d2d2d',
+        charcoalMuted: '#555555',
+        blackMuted: '#32250c',
+        blackDim: '#644b18',
       },
       fontFamily: {
         sans: ['"IBM Plex Sans"', 'sans-serif'],

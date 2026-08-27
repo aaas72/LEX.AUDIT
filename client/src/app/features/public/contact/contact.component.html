@@ -1,0 +1,37 @@
+<div class="relative min-h-screen bg-black text-brandYellow font-sans overflow-x-hidden flex flex-col justify-between">
+  
+  <app-navbar theme="dark"></app-navbar>
+
+  <main class="flex-grow pt-16 pb-24 flex flex-col items-center">
+    <div class="w-full max-w-4xl px-4 md:px-8">
+      <div class="mb-16">
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter mb-6">{{ 'CONTACT.TITLE' | translate }}</h1>
+        <p class="text-xl md:text-2xl text-brandYellowDim font-medium">{{ 'CONTACT.SUBTITLE' | translate }}</p>
+      </div>
+
+      <form class="flex flex-col gap-8 w-full max-w-2xl">
+        <div class="flex flex-col gap-2">
+          <label class="text-xs font-bold tracking-widest uppercase text-brandYellowDim">{{ 'CONTACT.FORM.FULL_NAME' | translate }}</label>
+          <input type="text" class="bg-transparent border-b-2 border-brandYellow/20 text-brandYellow text-2xl py-2 focus:outline-none focus:border-brandYellow transition-colors placeholder:text-brandYellowFaint" [placeholder]="'CONTACT.FORM.FULL_NAME_PLACEHOLDER' | translate">
+        </div>
+        
+        <div class="flex flex-col gap-2">
+          <label class="text-xs font-bold tracking-widest uppercase text-brandYellowDim">{{ 'CONTACT.FORM.EMAIL' | translate }}</label>
+          <input type="email" class="bg-transparent border-b-2 border-brandYellow/20 text-brandYellow text-2xl py-2 focus:outline-none focus:border-brandYellow transition-colors placeholder:text-brandYellowFaint" [placeholder]="'CONTACT.FORM.EMAIL_PLACEHOLDER' | translate">
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label class="text-xs font-bold tracking-widest uppercase text-brandYellowDim">{{ 'CONTACT.FORM.MESSAGE' | translate }}</label>
+          <textarea rows="4" class="bg-transparent border-b-2 border-brandYellow/20 text-brandYellow text-2xl py-2 focus:outline-none focus:border-brandYellow transition-colors placeholder:text-brandYellowFaint resize-none" [placeholder]="'CONTACT.FORM.MESSAGE_PLACEHOLDER' | translate"></textarea>
+        </div>
+
+        <div class="mt-8 self-start">
+          <app-ui-button [text]="'CONTACT.FORM.SUBMIT' | translate" variant="yellow" rounded="full" size="lg"></app-ui-button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <app-footer></app-footer>
+
+</div>

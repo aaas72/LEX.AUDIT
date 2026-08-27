@@ -4,12 +4,13 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { lucideCheck, lucideX } from '@ng-icons/lucide';
 import { UiButtonComponent } from '../../../../../shared/components/ui/ui-button/ui-button.component';
 import { PricingPlan } from '../../pricing.component';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-pricing-card',
   standalone: true,
-  imports: [CommonModule, NgIconComponent, UiButtonComponent],
-  providers: [provideIcons({ lucideCheck, lucideX })],
+  imports: [CommonModule, NgIconComponent, UiButtonComponent, TranslatePipe],
+    providers: [provideIcons({ lucideCheck, lucideX })],
   templateUrl: './pricing-card.component.html',
   host: {
     'class': 'h-full block'

@@ -1,0 +1,247 @@
+{
+  "NAVBAR": {
+    "HOME": "Ana Sayfa",
+    "PRICING": "Fiyatlandırma",
+    "CONTACT": "İletişim",
+    "LOGIN": "Giriş Yap",
+    "START_FREE": "Ücretsiz Başla"
+  },
+  "HERO": {
+    "TITLE": "Yasal riskleri gerçekleşmeden<br/>önce keşfedin",
+    "SUBTITLE": "LEX.AUDIT platformu sözleşmeleri denetlemek, haksız maddeleri çıkarmak ve işletmenizi gizli boşluklardan korumak için gelişmiş yapay zeka kullanır.",
+    "BUTTON": "Sözleşmelerinizi denetlemeye başlayın"
+  },
+  "FEATURES": {
+    "SECTION_LABEL": "Temel Yetenekler",
+    "TITLE": "Saniyeler içinde gizli riskleri ortaya çıkarın.",
+    "SUBTITLE": "İmzalamadan önce haksız şartları çıkarmak, analiz etmek ve etkisiz hale getirmek için gelişmiş yapay zekayı sıkı yasal çerçevelerle birleştiriyoruz.",
+    "CARDS": {
+      "F1_TITLE": "Akıllı Madde Tespiti",
+      "F1_DESC": "Yapay zeka motorumuz, manuel denetimin gözden kaçırabileceği gizli veya haksız maddeleri belirlemek için anında yüzlerce sayfayı tarar.",
+      "F2_TITLE": "Şiddet Riski Derecelendirmesi",
+      "F2_DESC": "Tespit edilen her sorun risk şiddetine göre kategorize edilir, böylece yasal ekipler kritik sözleşme müzakerelerine öncelik verebilir.",
+      "F3_TITLE": "Alternatif Yeniden Yazım",
+      "F3_DESC": "LEX.AUDIT sadece sorunları göstermekle kalmaz; riskli maddeler için dengeli, adil ve yasal olarak sağlam alternatif ifadeler önerir."
+    }
+  },
+  "HOW_IT_WORKS": {
+    "TITLE": "Nasıl çalışır.",
+    "SUBTITLE": "Güvenli, şeffaf ve dengeli sözleşmeler için üç basit adım.",
+    "STEPS": {
+      "S1_TITLE": "Yükle ve Yapılandır",
+      "S1_DESC": "Sözleşmenizi güvenli bir şekilde yükleyin. Karşı taraf türünü seçin ve risk toleransınızı belirleyin (Saldırgan, Standart veya Esnek).",
+      "S2_TITLE": "Yapay Zeka Analizi ve Yeniden Yazım",
+      "S2_DESC": "Özel yapay zekamız belgeyi tarar, riskli maddeleri işaretler ve otomatik olarak dengeli, piyasa standardı düzeltmeler önerir.",
+      "S3_TITLE": "İncele ve Dışa Aktar",
+      "S3_DESC": "Yapay zeka önerilerini kabul veya reddedin. Memnun kaldığınızda, temiz bir PDF veya tam izlemeli bir Microsoft Word belgesi dışa aktarın."
+    }
+  },
+  "USE_CASES": {
+    "SECTION_LABEL": "Kimler için?",
+    "TITLE": "Taviz vermeyi reddeden profesyoneller için tasarlandı.",
+    "CASES": {
+      "C1_TITLE": "Hukuk Firmaları",
+      "C1_DESC": "Sözleşme inceleme döngülerini hızlandırın. Avukatlarınızın stratejik müzakerelere odaklanabilmesi için ilk risk tespitinin ağır yükünü yapay zekamıza bırakın.",
+      "C2_TITLE": "Serbest Çalışanlar ve Yükleniciler",
+      "C2_DESC": "Haklarınızdan vazgeçmeyin. Karmaşık yasal jargonu anında anlayın ve işe başlamadan önce müşteri sözleşmelerinizin adil ve dengeli olmasını sağlayın.",
+      "C3_TITLE": "Kurumsal Yasal Operasyonlar",
+      "C3_DESC": "Binlerce tedarikçi anlaşması genelinde risk değerlendirmesini standartlaştırın. Satın alma sürecini yavaşlatmadan kurumsal uyumu sağlayın."
+    }
+  },
+  "SOCIAL_PROOF": {
+    "TITLE": "En iyiler tarafından güveniliyor.",
+    "SUBTITLE": "Önde gelen yasal ekipler ve bağımsız profesyoneller riskleri azaltmak ve güvenle müzakere etmek için LEX.AUDIT'e güveniyor.",
+    "METRICS": {
+      "M1_LABEL": "Denetlenen Sözleşmeler",
+      "M1_VALUE": "10.000+",
+      "M2_LABEL": "Tespit Edilen Gizli Riskler",
+      "M2_VALUE": "2,5M+",
+      "M3_LABEL": "Ortalama Zaman Tasarrufu",
+      "M3_VALUE": "%85"
+    }
+  },
+  "CTA": {
+    "TITLE": "Denetime hazır mısınız?",
+    "SUBTITLE": "Sözleşmelerinizi şansa bırakmayın. İlk sözleşmenizi bugün yükleyin ve yapay zeka motorumuzun satır aralarında gizlenenleri ortaya çıkarmasına izin verin.",
+    "BUTTON": "Ücretsiz denemenizi başlatın"
+  },
+  "FEATURES_PAGE": {
+    "HERO_TITLE": "KEŞFEDİLMEMİŞ HASSASIYET.",
+    "HERO_SUBTITLE": "LEX.AUDIT'i güçlendiren son teknoloji yetenekleri keşfedin; sözleşmeleri analiz etme ve müzakere etme şeklinizi dönüştürmek için tasarlandı.",
+    "HERO_BUTTON": "Ücretsiz Denemeyi Başlat",
+    "CARDS": {
+      "F1_TITLE": "Yapay Zeka Destekli Risk Tespiti",
+      "F1_DESC": "Özel modellerimiz gizli maddeleri, çarpık sorumlulukları ve düzenleyici riskleri belirlemek için sözleşmeleri anında tarar.",
+      "F2_TITLE": "Otomatik Madde Yeniden Yazımı",
+      "F2_DESC": "Sadece sorunu bulmakla kalmayın. Yapay zekamızın standart yasal emsallere dayalı daha adil, dengeli alternatifler önermesine izin verin.",
+      "F3_TITLE": "Uyumluluk ve Yönetişim",
+      "F3_DESC": "Her sözleşmenin dahili oyun kitaplarınıza ve harici uyumluluk standartlarına otomatik olarak uymasını sağlayın.",
+      "F4_TITLE": "Gerçek Zamanlı İşbirliği",
+      "F4_DESC": "Yasal ve satış ekiplerinizle sorunsuz çalışın. Yorum bırakın, değişiklikleri onaylayın ve sürüm geçmişini tek bir yerden takip edin.",
+      "F5_TITLE": "Özel Oyun Kitabı Entegrasyonu",
+      "F5_DESC": "Denetimlerin risk toleransınıza tam olarak uygun olmasını sağlamak için yapay zekamızı şirketinize özel oyun kitaplarınızla eğitin.",
+      "F6_TITLE": "Anında Yürütme",
+      "F6_DESC": "Haftalarca süren manuel incelemeyi dakikalara dönüştürün. Anlaşma döngülerinizi hızlandırın ve sözleşmeleri her zamankinden daha hızlı kapatın."
+    },
+    "CTA_TITLE": "SÖZLEŞMELERİNİZİ YÜKSELTMEYE HAZIR MISINIZ?",
+    "CTA_SUBTITLE": "Yapay zeka hassasiyetiyle anlaşmalarını güvence altına alan yüzlerce ileri görüşlü yasal ekibe katılın.",
+    "CTA_BUTTON": "Demo Rezervasyonu Yap"
+  },
+  "CONTACT": {
+    "TITLE": "İLETİŞİM",
+    "SUBTITLE": "Yasal bir sorunuz mu var? İletişime geçin.",
+    "FORM": {
+      "FULL_NAME": "Tam Ad",
+      "FULL_NAME_PLACEHOLDER": "Ahmet Yılmaz",
+      "EMAIL": "E-posta Adresi",
+      "EMAIL_PLACEHOLDER": "ahmet@example.com",
+      "MESSAGE": "Mesaj",
+      "MESSAGE_PLACEHOLDER": "Size nasıl yardımcı olabiliriz?",
+      "SUBMIT": "MESAJ GÖNDER"
+    }
+  },
+  "AUDIT": {
+    "WORKSPACE_TITLE": "ÇALIŞMA ALANI",
+    "WORKSPACE_SUBTITLE": "Yapay zeka sözleşme analizi için güvenli ortam.",
+    "UPLOAD": {
+      "TITLE": "Denetim İçin Sözleşme Yükle",
+      "TITLE_DRAGGING": "Buraya bırakın...",
+      "SUBTITLE": "PDF belgenizi buraya sürükleyip bırakın veya göz atmak için tıklayın. Yapay zekamız anında gizli analizi başlatacak.",
+      "ERROR_PDF_ONLY": "Analiz için yalnızca PDF dosyaları desteklenmektedir.",
+      "STATUS_VERIFYING": "Dosya bütünlüğü doğrulanıyor...",
+      "STATUS_PREPARING": "Belge analiz için hazırlanıyor...",
+      "STATUS_ROUTING": "İşlem motoruna yönlendiriliyor...",
+      "STATUS_SECURE": "Güvenli sıralama başlatıldı..."
+    },
+    "SCANNING": {
+      "WATERMARK": "DENETİME GÜVEN"
+    },
+    "RESULTS": {
+      "CLASSIFICATION": "Sınıflandırma",
+      "CLASSIFICATION_NOTE": "İşaretlenen maddelerin acil incelenmesi gerekir.",
+      "ANALYZED": "Analiz Edilen",
+      "FLAGGED": "İşaretlenen",
+      "OVERALL_RISK_SCORE": "Genel Risk Puanı",
+      "EXPORT_PDF": "PDF Dışa Aktar",
+      "DETAILED_REPORT": "Detaylı Rapor"
+    }
+  },
+  "PRICING": {
+    "TITLE": "Şeffaf Fiyatlandırma.",
+    "SUBTITLE": "Gizli şartlar yok. Risk azaltma ihtiyaçlarınıza uygun planı seçin.",
+    "PLANS": {
+      "STARTER": {
+        "NAME": "Başlangıç",
+        "PRICE": "Ücretsiz",
+        "DESC": "Yapay zeka yasal denetimlerini keşfeden bireyler için.",
+        "PROS": [
+          "Ayda 3 sözleşme denetimi",
+          "Temel risk tespiti",
+          "Standart PDF raporları"
+        ],
+        "CONS": [
+          "Madde yeniden yazımı yok",
+          "Özel şablon yok",
+          "Ekip özellikleri yok"
+        ],
+        "BUTTON": "Hemen Başla"
+      },
+      "PRO": {
+        "NAME": "Profesyonel",
+        "PRICE": "$49",
+        "PERIOD": "/ay",
+        "DESC": "Düzenli hacimlerle ilgilenen serbest avukatlar için.",
+        "PROS": [
+          "Ayda 50 sözleşme denetimi",
+          "Gelişmiş yapay zeka mantığı",
+          "Öncelikli destek",
+          "Word & PDF dışa aktarma"
+        ],
+        "CONS": [
+          "Madde yeniden yazımı yok",
+          "Sadece tek kullanıcı"
+        ],
+        "BUTTON": "Denemeyi Başlat"
+      },
+      "AGENCY": {
+        "NAME": "Ajans",
+        "PRICE": "$149",
+        "PERIOD": "/ay",
+        "DESC": "Küçük firmalar ve büyüyen yasal ekipler için idealdir.",
+        "PROS": [
+          "Sınırsız sözleşme denetimi",
+          "Yapay zeka madde yeniden yazımı",
+          "Ekip işbirliği (5 kişiye kadar)",
+          "Özel şablon entegrasyonu"
+        ],
+        "CONS": [
+          "Özel hesap yöneticisi yok",
+          "Şirket içi kurulum yok"
+        ],
+        "BUTTON": "Ücretsiz Denemeyi Başlat"
+      },
+      "ENTERPRISE": {
+        "NAME": "Kurumsal",
+        "PRICE": "Özel",
+        "DESC": "Tam kontrol gerektiren kurumsal yasal operasyonlar için tasarlanmıştır.",
+        "PROS": [
+          "Ajans planındaki her şey",
+          "Sınırsız ekip üyesi",
+          "Özel hesap yöneticisi",
+          "Şirket içi kurulum",
+          "Özel API erişimi"
+        ],
+        "CONS": [
+          "Özel işe alım gerektirir"
+        ],
+        "BUTTON": "Satış Ekibiyle İletişime Geç"
+      }
+    }
+  },
+  "PRIVACY_PAGE": {
+    "TITLE": "GİZLİLİK POLİTİKASI",
+    "SEC1_TITLE": "1. VERİ TOPLAMA",
+    "SEC1_DESC": "Yalnızca yapay zeka destekli sözleşme analizi hizmetlerimizi sağlamak için gerekli olan temel verileri topluyoruz. Yüklenen tüm belgeler geçici bellekte saklanır ve analiz sonrasında kalıcı olarak silinir.",
+    "SEC2_TITLE": "2. GİZLİLİK",
+    "SEC2_DESC": "Yasal belgeleriniz kesinlikle gizlidir. Kurumsal yönetici tarafından açıkça izin verilmedikçe sözleşmelerinizi modellerimizi eğitmek için kullanmayız.",
+    "SEC3_TITLE": "3. ÜÇÜNCÜ TARAFLARLA PAYLAŞIM",
+    "SEC3_DESC": "Kişisel veya kurumsal verilerinizi üçüncü taraflara satmaz, kiralamaz veya ticaretini yapmayız. Altyapımız güvenli, izole edilmiş bulut örneklerinde çalışır.",
+    "SEC4_TITLE": "4. UYUMLULUK",
+    "SEC4_DESC": "Platformumuz, maksimum güvenlik ve gizlilik sağlamak için GDPR, CCPA ve SOC 2 Type II standartlarına uygundur."
+  },
+  "TERMS_PAGE": {
+    "TITLE": "HİZMET ŞARTLARI",
+    "SEC1_TITLE": "1. KABUL",
+    "SEC1_DESC": "LEX.AUDIT'e erişerek bu Hizmet Şartlarına bağlı kalmayı kabul edersiniz. Bu şartların herhangi bir bölümünü kabul etmiyorsanız platformumuzu kullanmamalısınız.",
+    "SEC2_TITLE": "2. SORUMLULUĞUN SINIRLANDIRILMASI",
+    "SEC2_DESC": "LEX.AUDIT tarafından sağlanan yapay zeka analizi resmi bir hukuki danışmanlık teşkil etmez. Otomatik risk değerlendirmelerine güvenilmesinden doğabilecek hiçbir zarar veya kayıptan sorumlu değiliz.",
+    "SEC3_TITLE": "3. ADİL KULLANIM",
+    "SEC3_DESC": "API'nin kötüye kullanılması, otomatik veri çekme veya denetim modellerini tersine mühendislikle çözme girişimleri, hizmet hesabının derhal sonlandırılmasıyla sonuçlanacaktır."
+  },
+  "COOKIE_PAGE": {
+    "TITLE": "ÇEREZ POLİTİKASI",
+    "SEC1_TITLE": "1. ZORUNLU ÇEREZLER",
+    "SEC1_DESC": "Kimlik doğrulama belirteçleri ve oturum tanımlayıcıları gibi platformun güvenli bir şekilde çalışması için gerekli temel çerezleri kullanıyoruz. Bunlar devre dışı bırakılamaz.",
+    "SEC2_TITLE": "2. PERFORMANS ÇEREZLERİ",
+    "SEC2_DESC": "Performans darboğazlarını anlamak için minimum düzeyde izleme uyguluyoruz. Bu süreçte kişisel olarak tanımlanabilir hiçbir bilgi izlenmez.",
+    "SEC3_TITLE": "3. TERCİHLERİ YÖNETME",
+    "SEC3_DESC": "Çerezleri tarayıcı ayarlarınızdan yönetebilir veya silebilirsiniz. Ancak bunu yapmak uygulamanın performansını ve güvenlik özelliklerini olumsuz etkileyebilir."
+  },
+  "FOOTER": {
+    "TAGLINE": "Riski azaltın. Adaleti en üst düzeye çıkarın. Yapay zeka yasal denetiminde standart.",
+    "RIGHTS": "Tüm hakları saklıdır.",
+    "WORDS": {
+      "LEX_AUDIT": "YASAL.DENETİM",
+      "UNFAIR_CLAUSE": "HAKSIZ.MADDE",
+      "HIDDEN_RISK": "GIZLI.RISK",
+      "AUTO_RENEWAL": "OTOMATIK.YENILEME",
+      "LIABILITY_TRAP": "SORUMLULUK.TUZAGI",
+      "IP_LEAKAGE": "MULKIYET.SIZINTISI"
+    },
+    "LINKS": {
+      "TERMS": "Hizmet Şartları",
+      "PRIVACY": "Gizlilik Politikası",
+      "COOKIE": "Çerez Politikası"
+    }
+  }
+}

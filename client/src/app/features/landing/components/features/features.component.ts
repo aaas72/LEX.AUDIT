@@ -4,29 +4,30 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { lucideSearch, lucideAlertCircle, lucideEdit2 } from '@ng-icons/lucide';
 import { ContainerComponent } from '../../../../shared/components/ui/container/container.component';
 import { AnimateOnScrollDirective } from '../../../../shared/directives/animate-on-scroll.directive';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-features',
   standalone: true,
-  imports: [CommonModule, NgIconComponent, ContainerComponent, AnimateOnScrollDirective],
+  imports: [CommonModule, NgIconComponent, ContainerComponent, AnimateOnScrollDirective, TranslatePipe],
   viewProviders: [provideIcons({ lucideSearch, lucideAlertCircle, lucideEdit2 })],
   templateUrl: './features.component.html',
 })
 export class FeaturesComponent {
   features = [
     {
-      title: 'Smart Clause Detection',
-      description: 'Our AI engine instantly scans hundreds of pages to identify hidden, unfair, or highly irregular clauses that manual auditing might miss.',
+      titleKey: 'FEATURES.CARDS.F1_TITLE',
+      descKey: 'FEATURES.CARDS.F1_DESC',
       icon: 'lucideSearch'
     },
     {
-      title: 'Severity Risk Rating',
-      description: 'Every detected issue is categorized by risk severity, allowing legal teams and individuals to prioritize critical contract negotiations.',
+      titleKey: 'FEATURES.CARDS.F2_TITLE',
+      descKey: 'FEATURES.CARDS.F2_DESC',
       icon: 'lucideAlertCircle'
     },
     {
-      title: 'Alternative Rewriting',
-      description: 'LEX.AUDIT doesn’t just point out problems; it suggests balanced, fair, and legally sound alternative phrasing for risky clauses.',
+      titleKey: 'FEATURES.CARDS.F3_TITLE',
+      descKey: 'FEATURES.CARDS.F3_DESC',
       icon: 'lucideEdit2'
     }
   ];

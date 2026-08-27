@@ -4,10 +4,10 @@
   <!-- Container is strictly sized to prevent page overflow -->
   <div class="absolute inset-0 overflow-hidden pointer-events-none select-none" aria-hidden="true">
     
-    <!-- Base Layer: Barely visible watermark -->
+    <!-- Base Layer: Barely visible watermark (Solid Color, No Opacity) -->
     <div class="absolute inset-0 flex items-center justify-center">
-      <p class="text-[clamp(4rem,12vw,14rem)] font-black tracking-tighter text-center whitespace-nowrap text-white/[0.03]">
-        TRUST THE AUDIT
+      <p class="text-[clamp(4rem,12vw,14rem)] font-black tracking-tighter text-center whitespace-nowrap text-blackMuted">
+        {{ 'AUDIT.SCANNING.WATERMARK' | translate }}
       </p>
     </div>
 
@@ -18,7 +18,7 @@
       [style.backgroundImage]="'radial-gradient(circle 180px at ' + spotlightX + '% 50%, #FBBF24 0%, transparent 100%)'"
     >
       <p class="text-[clamp(4rem,12vw,14rem)] font-black tracking-tighter text-center whitespace-nowrap">
-        TRUST THE AUDIT
+        {{ 'AUDIT.SCANNING.WATERMARK' | translate }}
       </p>
     </div>
     
