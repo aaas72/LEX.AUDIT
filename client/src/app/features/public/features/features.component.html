@@ -24,18 +24,18 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           <div *ngFor="let feature of features; let i = index" 
-               class="group relative overflow-hidden z-0 p-8 rounded-2xl border-2 border-brandYellow/10 bg-transparent transition-all duration-500 flex flex-col items-start text-start"
+               class="group relative overflow-hidden z-0 p-8 rounded-2xl border-2 border-brandYellowMuted/30 hover:border-brandYellow bg-transparent transition-all duration-500 flex flex-col items-start text-start cursor-pointer"
                appAnimateOnScroll="animate-fade-in-up" [animationDelay]="i * 150 + 'ms'">
             
-            <!-- The Inspection Lens (Spotlight Effect) -->
-            <span class="absolute top-[64px] left-[64px] w-0 h-0 rounded-full -translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out -z-10 group-hover:w-[600px] group-hover:h-[600px] bg-brandYellow"></span>
+            <!-- The Inspection Lens (Spotlight Effect emerging from icon in LTR & RTL) -->
+            <span class="absolute top-[64px] ltr:left-[64px] rtl:right-[64px] w-0 h-0 rounded-full ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 transition-all duration-700 ease-out -z-10 group-hover:w-[800px] group-hover:h-[800px] bg-brandYellow"></span>
 
-            <div class="relative z-10 w-16 h-16 rounded-full border border-brandYellow/20 flex items-center justify-center mb-6 shrink-0 group-hover:border-black/20 transition-all duration-500">
+            <div class="relative z-10 w-16 h-16 rounded-full border border-brandYellowMuted/50 flex items-center justify-center mb-6 shrink-0 group-hover:border-black/30 transition-all duration-500">
               <ng-icon [name]="feature.icon" size="32px" strokeWidth="2" class="text-brandYellow group-hover:text-black transition-colors duration-500"></ng-icon>
             </div>
             
-            <h3 class="relative z-10 text-2xl font-bold mb-4 text-brandYellow group-hover:text-black transition-colors duration-500">{{ feature.titleKey | translate }}</h3>
-            <p class="relative z-10 text-brandYellowDim leading-relaxed group-hover:text-blackMuted transition-colors duration-500">{{ feature.descKey | translate }}</p>
+            <h3 class="relative z-10 text-2xl font-black mb-4 text-brandYellow group-hover:text-black transition-colors duration-500">{{ feature.titleKey | translate }}</h3>
+            <p class="relative z-10 text-brandYellowMuted leading-relaxed group-hover:text-black font-medium transition-colors duration-500">{{ feature.descKey | translate }}</p>
             
           </div>
           
@@ -47,7 +47,7 @@
     <section class="py-24 md:py-32 bg-brandYellow text-black border-y-2 border-brandYellow">
       <div class="max-w-7xl mx-auto px-4 md:px-8 text-center" appAnimateOnScroll="animate-fade-in-up">
         <h2 class="text-4xl md:text-6xl font-black tracking-tighter leading-none mb-6">{{ 'FEATURES_PAGE.CTA_TITLE' | translate }}</h2>
-        <p class="text-xl md:text-2xl opacity-80 mb-10 max-w-2xl mx-auto">{{ 'FEATURES_PAGE.CTA_SUBTITLE' | translate }}</p>
+        <p class="text-xl md:text-2xl text-black font-medium mb-10 max-w-2xl mx-auto">{{ 'FEATURES_PAGE.CTA_SUBTITLE' | translate }}</p>
         <app-ui-button [text]="'FEATURES_PAGE.CTA_BUTTON' | translate" variant="dark" size="lg"></app-ui-button>
       </div>
     </section>

@@ -4,7 +4,7 @@
     "PRICING": "Pricing",
     "CONTACT": "Contact",
     "LOGIN": "Login",
-    "START_FREE": "Start Free"
+    "START_FREE": "Start Now"
   },
   "HERO": {
     "TITLE": "Discover legal risks<br/>before they happen",
@@ -118,6 +118,11 @@
     },
     "RESULTS": {
       "CLASSIFICATION": "Classification",
+      "LEVELS": {
+        "HIGH_RISK": "HIGH RISK",
+        "MEDIUM_RISK": "MEDIUM RISK",
+        "LOW_RISK": "LOW RISK"
+      },
       "CLASSIFICATION_NOTE": "Requires immediate review of flagged clauses.",
       "ANALYZED": "Analyzed",
       "FLAGGED": "Flagged",
@@ -232,16 +237,119 @@
     "RIGHTS": "All rights reserved.",
     "WORDS": {
       "LEX_AUDIT": "LEX.AUDIT",
-      "UNFAIR_CLAUSE": "UNFAIR.CLAUSE",
-      "HIDDEN_RISK": "HIDDEN.RISK",
-      "AUTO_RENEWAL": "AUTO.RENEWAL",
-      "LIABILITY_TRAP": "LIABILITY.TRAP",
-      "IP_LEAKAGE": "IP.LEAKAGE"
+      "UNFAIR_CLAUSE": "UNFAIR CLAUSE",
+      "HIDDEN_RISK": "HIDDEN RISK",
+      "AUTO_RENEWAL": "AUTO RENEWAL",
+      "LIABILITY_TRAP": "LIABILITY TRAP",
+      "IP_LEAKAGE": "IP LEAKAGE"
+    },
+    "EMAILS": {
+      "GENERAL": "General Inquiries",
+      "SUPPORT": "Support",
+      "PARTNERSHIP": "Partnerships"
     },
     "LINKS": {
       "TERMS": "Terms of Service",
       "PRIVACY": "Privacy Policy",
       "COOKIE": "Cookie Policy"
+    }
+  },
+  "AUTH": {
+    "BADGE": "ACCESS PROTOCOL // SECURE GATEWAY",
+    "TAGLINE": "Authorized access to legal intelligence engine",
+    "SHOW": "Show",
+    "HIDE": "Hide",
+    "TABS": {
+      "LOGIN": "Sign In",
+      "REGISTER": "Create Account",
+      "FORGOT": "Recovery"
+    },
+    "LOGIN": {
+      "TITLE": "Sign In",
+      "SUBTITLE": "Enter your credentials to continue auditing and analyzing legal agreements",
+      "EMAIL_LABEL": "Professional Email",
+      "EMAIL_PLACEHOLDER": "lawyer@firm.com",
+      "PASSWORD_LABEL": "Password",
+      "PASSWORD_PLACEHOLDER": "••••••••••••",
+      "REMEMBER_ME": "Remember my session",
+      "FORGOT_PASSWORD": "Forgot password?",
+      "SUBMIT_BTN": "Access Audit Workspace",
+      "SUBMITTING": "Authenticating Credentials...",
+      "DEMO_TITLE": "Instant Demo Accounts",
+      "DEMO_LAWYER": "Law Firm (Counsel)",
+      "DEMO_ENTERPRISE": "Legal Team (Corporate)",
+      "OR_DIVIDER": "OR CONTINUE WITH",
+      "SSO_GOOGLE": "Continue with Google",
+      "SSO_APPLE": "Continue with Apple",
+      "SSO_ENTERPRISE": "Enterprise Portal (SSO)",
+      "NO_ACCOUNT": "Don't have an account yet?",
+      "SIGNUP_LINK": "Create Account"
+    },
+    "REGISTER": {
+      "TITLE": "Create Account",
+      "SUBTITLE": "Start using the advanced AI engine to audit contracts and eliminate unfair clauses",
+      "ACCOUNT_TYPE_LABEL": "Account Type",
+      "ROLES": {
+        "LAWYER": "Lawyer",
+        "ENTERPRISE": "Company",
+        "INDIVIDUAL": "Individual"
+      },
+      "FULL_NAME_LABEL": "Full Name / Organization",
+      "FULL_NAME_PLACEHOLDER": "Alexander Vance",
+      "EMAIL_LABEL": "Work Email",
+      "EMAIL_PLACEHOLDER": "name@company.com",
+      "PASSWORD_LABEL": "Encrypted Password",
+      "PASSWORD_PLACEHOLDER": "Min 8 chars, numbers & symbols",
+      "CONFIRM_PASSWORD_LABEL": "Confirm Password",
+      "CONFIRM_PASSWORD_PLACEHOLDER": "Re-enter your password",
+      "TERMS_AGREE_PREFIX": "I agree to the",
+      "TERMS_LINK": "Terms of Service",
+      "TERMS_AND": "and",
+      "PRIVACY_LINK": "Privacy Policy",
+      "SUBMIT_BTN": "Activate Account & Begin",
+      "SUBMITTING": "Initializing Workspace...",
+      "ALREADY_HAVE_ACCOUNT": "Already have an account?",
+      "LOGIN_LINK": "Sign In"
+    },
+    "FORGOT": {
+      "TITLE": "Reset Password",
+      "SUBTITLE": "Enter your registered email and we will dispatch an encrypted OTP token to reset your password",
+      "EMAIL_LABEL": "Registered Email Address",
+      "EMAIL_PLACEHOLDER": "counsel@domain.com",
+      "SUBMIT_BTN": "Send Recovery Code (OTP)",
+      "SUBMITTING": "Verifying & Sending OTP...",
+      "SUCCESS_TITLE": "Verification Code Dispatched",
+      "SUCCESS_MSG": "A 6-digit cryptographic security code was sent to your email. Please check your inbox.",
+      "OTP_LABEL": "6-Digit Security Code (OTP)",
+      "OTP_PLACEHOLDER": "123456",
+      "NEW_PASSWORD_LABEL": "New Password",
+      "NEW_PASSWORD_PLACEHOLDER": "Create strong new password",
+      "VERIFY_BTN": "Update Password & Sign In",
+      "RESEND_IN": "Resend in",
+      "RESEND_BTN": "Resend Code",
+      "BACK_TO_LOGIN": "Back to Sign In"
+    },
+    "SIDEBAR": {
+      "SECURE_HEADING": "High-Precision Legal Audit Engine",
+      "FEATURE_1_TITLE": "Instant Unfair Clause Detection",
+      "FEATURE_1_DESC": "Scan and surface aggressive indemnity, termination, and liability traps in seconds.",
+      "FEATURE_2_TITLE": "Zero-Retention Volatile Architecture",
+      "FEATURE_2_DESC": "Documents are analyzed in encrypted volatile memory and never stored or used for public training.",
+      "FEATURE_3_TITLE": "Standardized Contract Integrity",
+      "FEATURE_3_DESC": "Receive legally sound, balanced rewrites matching international corporate benchmarks.",
+      "NODE_STATUS": "Audit Node: Active & Guarded",
+      "NODE_ENCRYPTION": "256-BIT SSL ENCRYPTION"
+    },
+    "ERRORS": {
+      "EMAIL_REQUIRED": "Please enter your email address",
+      "EMAIL_INVALID": "Please enter a valid email address",
+      "PASSWORD_REQUIRED": "Please enter your password",
+      "PASSWORD_MIN": "Password must be at least 8 characters",
+      "NAME_REQUIRED": "Please enter your full name or company",
+      "PASSWORD_MISMATCH": "Passwords do not match",
+      "TERMS_REQUIRED": "You must agree to the terms to proceed",
+      "OTP_REQUIRED": "Please enter the 6-digit verification code",
+      "NEW_PASSWORD_REQUIRED": "Please enter your new password"
     }
   }
 }

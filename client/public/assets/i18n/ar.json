@@ -4,7 +4,7 @@
     "PRICING": "الأسعار",
     "CONTACT": "تواصل معنا",
     "LOGIN": "تسجيل الدخول",
-    "START_FREE": "ابدأ مجاناً"
+    "START_FREE": "ابدأ الآن"
   },
   "HERO": {
     "TITLE": "اكتشف المخاطر القانونية<br/>قبل وقوعها",
@@ -118,6 +118,11 @@
     },
     "RESULTS": {
       "CLASSIFICATION": "التصنيف",
+      "LEVELS": {
+        "HIGH_RISK": "مخاطر عالية",
+        "MEDIUM_RISK": "مخاطر متوسطة",
+        "LOW_RISK": "مخاطر منخفضة"
+      },
       "CLASSIFICATION_NOTE": "يتطلب مراجعة فورية للبنود المُعلّمة.",
       "ANALYZED": "تم تحليلها",
       "FLAGGED": "تم تحديدها",
@@ -231,17 +236,120 @@
     "TAGLINE": "الحد من المخاطر. تعزيز العدالة. المعيار في التدقيق القانوني بالذكاء الاصطناعي.",
     "RIGHTS": "جميع الحقوق محفوظة.",
     "WORDS": {
-      "LEX_AUDIT": "التدقيق.القانوني",
-      "UNFAIR_CLAUSE": "البنود.المجحفة",
-      "HIDDEN_RISK": "المخاطر.الخفية",
-      "AUTO_RENEWAL": "التجديد.التلقائي",
-      "LIABILITY_TRAP": "فخ.المسؤولية",
-      "IP_LEAKAGE": "تسريب.الملكية"
+      "LEX_AUDIT": "التدقيق القانوني",
+      "UNFAIR_CLAUSE": "البنود المجحفة",
+      "HIDDEN_RISK": "المخاطر الخفية",
+      "AUTO_RENEWAL": "التجديد التلقائي",
+      "LIABILITY_TRAP": "فخ المسؤولية",
+      "IP_LEAKAGE": "تسريب الملكية"
+    },
+    "EMAILS": {
+      "GENERAL": "التواصل العام",
+      "SUPPORT": "الدعم الفني",
+      "PARTNERSHIP": "الشراكات المؤسسية"
     },
     "LINKS": {
       "TERMS": "شروط الخدمة",
       "PRIVACY": "سياسة الخصوصية",
       "COOKIE": "سياسة ملفات الارتباط"
+    }
+  },
+  "AUTH": {
+    "BADGE": "بروتوكول الوصول // بوابة التدقيق الآمنة",
+    "TAGLINE": "الوصول المصرح لمنصة التدقيق القانوني الذكي",
+    "SHOW": "إظهار",
+    "HIDE": "إخفاء",
+    "TABS": {
+      "LOGIN": "تسجيل الدخول",
+      "REGISTER": "إنشاء حساب جديد",
+      "FORGOT": "استعادة الحساب"
+    },
+    "LOGIN": {
+      "TITLE": "تسجيل الدخول",
+      "SUBTITLE": "أدخل بيانات اعتمادك لمتابعة تدقيق وتحليل العقود القانونية",
+      "EMAIL_LABEL": "البريد الإلكتروني المهني",
+      "EMAIL_PLACEHOLDER": "lawyer@firm.com",
+      "PASSWORD_LABEL": "كلمة المرور",
+      "PASSWORD_PLACEHOLDER": "••••••••••••",
+      "REMEMBER_ME": "تذكر جلستي",
+      "FORGOT_PASSWORD": "نسيت كلمة المرور؟",
+      "SUBMIT_BTN": "الدخول إلى منصة التدقيق",
+      "SUBMITTING": "جارٍ التحقق من الهوية...",
+      "DEMO_TITLE": "حسابات تجريبية سريعة",
+      "DEMO_LAWYER": "مكتب محاماة (محامي)",
+      "DEMO_ENTERPRISE": "فريق قانوني (شركة)",
+      "OR_DIVIDER": "أو الدخول عبر",
+      "SSO_GOOGLE": "متابعة بحساب Google",
+      "SSO_APPLE": "متابعة بحساب Apple",
+      "SSO_ENTERPRISE": "بوابة المؤسسات (SSO)",
+      "NO_ACCOUNT": "ليس لديك حساب بعد؟",
+      "SIGNUP_LINK": "إنشاء حساب الآن"
+    },
+    "REGISTER": {
+      "TITLE": "إنشاء حساب جديد",
+      "SUBTITLE": "ابدأ استخدام أقوى محرك ذكاء اصطناعي لتدقيق العقود واكتشاف البنود المجحفة",
+      "ACCOUNT_TYPE_LABEL": "نوع الحساب",
+      "ROLES": {
+        "LAWYER": "محامي",
+        "ENTERPRISE": "شركة",
+        "INDIVIDUAL": "مستقل"
+      },
+      "FULL_NAME_LABEL": "الاسم الكامل / اسم المنشأة",
+      "FULL_NAME_PLACEHOLDER": "أحمد الشمري",
+      "EMAIL_LABEL": "البريد الإلكتروني المهني",
+      "EMAIL_PLACEHOLDER": "name@company.com",
+      "PASSWORD_LABEL": "كلمة المرور المشفرة",
+      "PASSWORD_PLACEHOLDER": "8 أحرف على الأقل مع رموز",
+      "CONFIRM_PASSWORD_LABEL": "تأكيد كلمة المرور",
+      "CONFIRM_PASSWORD_PLACEHOLDER": "أعد إدخال كلمة المرور",
+      "TERMS_AGREE_PREFIX": "أوافق على",
+      "TERMS_LINK": "شروط الخدمة",
+      "TERMS_AND": "و",
+      "PRIVACY_LINK": "سياسة الخصوصية",
+      "SUBMIT_BTN": "تفعيل الحساب والبدء فوراً",
+      "SUBMITTING": "جارٍ تهيئة مساحة العمل...",
+      "ALREADY_HAVE_ACCOUNT": "هل لديك حساب بالفعل؟",
+      "LOGIN_LINK": "تسجيل الدخول"
+    },
+    "FORGOT": {
+      "TITLE": "استعادة كلمة المرور",
+      "SUBTITLE": "أدخل بريدك الإلكتروني المسجل وسنرسل لك رمز أمان مشفر لتعيين كلمة مرور جديدة",
+      "EMAIL_LABEL": "البريد الإلكتروني المسجل",
+      "EMAIL_PLACEHOLDER": "counsel@domain.com",
+      "SUBMIT_BTN": "إرسال رمز الاستعادة (OTP)",
+      "SUBMITTING": "جارٍ التحقق وإرسال الرمز...",
+      "SUCCESS_TITLE": "تم إرسال رمز التحقق بنجاح",
+      "SUCCESS_MSG": "تم إرسال رمز أمان مكون من 6 أرقام إلى بريدك الإلكتروني. يرجى التحقق من صندوق الوارد.",
+      "OTP_LABEL": "رمز التحقق (OTP)",
+      "OTP_PLACEHOLDER": "123456",
+      "NEW_PASSWORD_LABEL": "كلمة المرور الجديدة",
+      "NEW_PASSWORD_PLACEHOLDER": "كلمة مرور قوية جديدة",
+      "VERIFY_BTN": "تحديث كلمة المرور والدخول",
+      "RESEND_IN": "إعادة الإرسال خلال",
+      "RESEND_BTN": "إعادة إرسال الرمز",
+      "BACK_TO_LOGIN": "العودة لتسجيل الدخول"
+    },
+    "SIDEBAR": {
+      "SECURE_HEADING": "نظام تدقيق قانوني عالي الدقة",
+      "FEATURE_1_TITLE": "كشف فوري للشروط المجحفة",
+      "FEATURE_1_DESC": "مسح وتحليل بنود الإعفاء والمسؤولية والتعويضات غير المتكافئة في ثوانٍ معدودة.",
+      "FEATURE_2_TITLE": "بروتوكول الذاكرة المؤقتة (Zero-Retention)",
+      "FEATURE_2_DESC": "مستنداتك القانونية مشفرة بالكامل ولا تُحفظ أو تُستخدم في تدريب النماذج العامة.",
+      "FEATURE_3_TITLE": "مطابقة المعايير والأنظمة المعتمدة",
+      "FEATURE_3_DESC": "اقتراح صياغات بديلة متوازنة قانونياً ومتوافقة مع الممارسات التعاقدية الاحترافية.",
+      "NODE_STATUS": "نقطة التدقيق: نشطة ومحمية",
+      "NODE_ENCRYPTION": "تشفير 256-BIT SSL"
+    },
+    "ERRORS": {
+      "EMAIL_REQUIRED": "يرجى إدخال البريد الإلكتروني",
+      "EMAIL_INVALID": "صيغة البريد الإلكتروني غير صحيحة",
+      "PASSWORD_REQUIRED": "يرجى إدخال كلمة المرور",
+      "PASSWORD_MIN": "كلمة المرور يجب ألا تقل عن 8 خانات",
+      "NAME_REQUIRED": "يرجى إدخال الاسم الكامل أو اسم المنشأة",
+      "PASSWORD_MISMATCH": "كلمتا المرور غير متطابقتين",
+      "TERMS_REQUIRED": "يجب الموافقة على الشروط للمتابعة",
+      "OTP_REQUIRED": "يرجى إدخال رمز التحقق المكون من 6 أرقام",
+      "NEW_PASSWORD_REQUIRED": "يرجى إدخال كلمة المرور الجديدة"
     }
   }
 }

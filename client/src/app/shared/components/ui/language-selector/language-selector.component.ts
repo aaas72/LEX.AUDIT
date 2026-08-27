@@ -28,10 +28,10 @@ export interface LanguageOption {
         (click)="toggleDropdown()"
         [attr.aria-expanded]="isOpen"
         aria-haspopup="listbox"
-        class="relative overflow-hidden group rounded-xl border transition-colors duration-500 flex items-center justify-between gap-2 px-3 py-1.5 cursor-pointer text-xs font-bold tracking-widest uppercase focus:outline-none z-0 min-w-[58px]"
+        class="relative overflow-hidden group rounded-lg border-2 transition-colors duration-500 flex items-center justify-between gap-2 px-3.5 h-[38px] cursor-pointer text-xs font-bold tracking-widest uppercase focus:outline-none z-0 min-w-[62px]"
         [ngClass]="theme === 'dark' 
-          ? (isOpen ? 'border-brandYellow bg-brandYellow text-black' : 'border-brandYellow/40 hover:border-brandYellow text-brandYellow bg-transparent') 
-          : (isOpen ? 'border-black bg-black text-brandYellow' : 'border-black/40 hover:border-black text-black bg-transparent')"
+          ? (isOpen ? 'border-brandYellow bg-brandYellow text-black' : 'border-brandYellow text-brandYellow bg-transparent') 
+          : (isOpen ? 'border-black bg-black text-brandYellow' : 'border-black text-black bg-transparent')"
       >
         <!-- Inspection Lens Hover Effect -->
         <span 

@@ -1,13 +1,30 @@
-<nav class="w-full max-w-7xl mx-auto pt-10 pb-4 px-4 md:px-8 flex flex-row justify-between items-center relative z-20" [ngClass]="theme === 'dark' ? 'text-brandYellow' : 'text-black'">
-  <div class="text-3xl font-bold tracking-tight flex items-center gap-2">
-    LEX.AUDIT
+<nav class="w-full max-w-7xl mx-auto pt-8 pb-4 px-4 md:px-8 grid grid-cols-2 md:grid-cols-[auto_1fr_auto] items-center gap-4 relative z-20" [ngClass]="theme === 'dark' ? 'text-brandYellow' : 'text-black'">
+  
+  <!-- Column 1: Brand Logo (Auto Width) -->
+  <div class="w-fit flex items-center justify-start">
+    <a routerLink="/" class="text-2xl sm:text-3xl font-black tracking-tight flex items-center gap-2 hover:opacity-80 transition-opacity whitespace-nowrap">
+      LEX.AUDIT
+    </a>
   </div>
-  <div class="hidden md:flex gap-8 text-xs font-semibold tracking-wider uppercase items-center">
-    <a routerLink="/" class="hover:opacity-50 transition-opacity duration-300">{{ 'NAVBAR.HOME' | translate }}</a>
-    <a routerLink="/features" class="hover:opacity-50 transition-opacity duration-300">{{ 'FEATURES.SECTION_LABEL' | translate }}</a>
-    <a routerLink="/pricing" class="hover:opacity-50 transition-opacity duration-300">{{ 'NAVBAR.PRICING' | translate }}</a>
-    <a routerLink="/contact" class="hover:opacity-50 transition-opacity duration-300">{{ 'NAVBAR.CONTACT' | translate }}</a>
-    
+
+  <!-- Column 2: Navigation Links (Centered & Auto Width) -->
+  <div class="hidden md:flex items-center justify-center gap-8 text-xs font-bold tracking-wider uppercase whitespace-nowrap">
+    <a routerLink="/" routerLinkActive="opacity-100 font-extrabold" [routerLinkActiveOptions]="{exact: true}" class="opacity-75 hover:opacity-100 transition-opacity duration-200">{{ 'NAVBAR.HOME' | translate }}</a>
+    <a routerLink="/features" routerLinkActive="opacity-100 font-extrabold" class="opacity-75 hover:opacity-100 transition-opacity duration-200">{{ 'FEATURES.SECTION_LABEL' | translate }}</a>
+    <a routerLink="/pricing" routerLinkActive="opacity-100 font-extrabold" class="opacity-75 hover:opacity-100 transition-opacity duration-200">{{ 'NAVBAR.PRICING' | translate }}</a>
+    <a routerLink="/contact" routerLinkActive="opacity-100 font-extrabold" class="opacity-75 hover:opacity-100 transition-opacity duration-200">{{ 'NAVBAR.CONTACT' | translate }}</a>
+  </div>
+
+  <!-- Column 3: Actions & Language (Auto Width on End) -->
+  <div class="flex items-center justify-end gap-3.5 sm:gap-4 w-fit ms-auto whitespace-nowrap">
+    <app-ui-button 
+      [text]="'NAVBAR.START_FREE' | translate" 
+      [variant]="theme === 'dark' ? 'yellow' : 'dark'" 
+      size="sm" 
+      routerLink="/register">
+    </app-ui-button>
+
     <app-language-selector [theme]="theme"></app-language-selector>
   </div>
+
 </nav>

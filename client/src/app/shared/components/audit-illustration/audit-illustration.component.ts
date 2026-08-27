@@ -60,8 +60,8 @@ export class AuditIllustrationComponent implements OnInit, OnDestroy, OnChanges 
 
   get iconClasses(): string {
     return this.theme === 'dark'
-      ? 'border-[#332a08] text-[#997a17] bg-[#120f03]' // Solid colors matching dark yellow/black aesthetic
-      : 'border-[#d49a1c] text-[#a87a15] bg-[#e6aa1e]'; // Solid colors matching lighter yellow aesthetic
+      ? 'border-2 border-brandYellow text-brandYellow bg-black'
+      : 'border-2 border-black text-brandYellow bg-black';
   }
 
   ngOnChanges(changes: SimpleChanges) {

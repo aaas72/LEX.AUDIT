@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { lucideDownload, lucideShieldAlert, lucideFileText } from '@ng-icons/lucide';
 import { PdfExportService } from '../../../../core/services/pdf-export.service';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-audit-results',
@@ -15,18 +15,20 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class AuditResultsComponent {
   private pdfExportService = inject(PdfExportService);
+  private translateService = inject(TranslateService);
 
   overallScore = 78;
-  riskClassification = 'HIGH RISK';
+  riskClassificationKey = 'AUDIT.RESULTS.LEVELS.HIGH_RISK';
   totalClauses = 85;
   flaggedIssues = 14;
 
   exportPdf() {
+    const translatedClassification = this.translateService.instant(this.riskClassificationKey);
     this.pdfExportService.exportAuditReport({
       documentName: 'Master_Cloud_Services_Agreement.pdf',
       date: new Date().toLocaleDateString(),
       overallScore: this.overallScore,
-      riskClassification: this.riskClassification,
+      riskClassification: translatedClassification,
       totalClauses: this.totalClauses,
       flaggedIssues: this.flaggedIssues,
       findings: [

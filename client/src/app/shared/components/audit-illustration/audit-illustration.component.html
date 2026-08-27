@@ -3,175 +3,168 @@
   <div class="relative w-full scale-[1.25] origin-[50%_40%]">
     <!-- Main SVG -->
     <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
-    <defs>
-      <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-        <feDropShadow dx="0" dy="15" stdDeviation="20" flood-opacity="0.1" flood-color="#000000"/>
-      </filter>
-      <linearGradient id="boardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="#0F172A" /> <!-- Very Dark Slate / Midnight -->
-        <stop offset="100%" stop-color="#1E293B" /> <!-- Dark Slate -->
-      </linearGradient>
-      <!-- X-Ray Lens Clip Path -->
-      <clipPath id="lensClip">
-        <circle [attr.cx]="glassLeft * 5" [attr.cy]="glassTop * 5" r="41" />
-      </clipPath>
-      <clipPath id="paperClip">
-        <rect x="145" y="115" width="210" height="297" rx="10" />
-      </clipPath>
-      <linearGradient id="clipGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#E5A62D" /> <!-- Darker than brandYellow -->
-        <stop offset="100%" stop-color="#B87A13" /> <!-- Even darker -->
-      </linearGradient>
-    </defs>
-
-    <!-- Clipboard Board -->
-    <rect x="130" y="100" width="240" height="327" rx="20" fill="url(#clipGradient)" />
-    
-    <!-- Paper -->
-    <rect x="145" y="115" width="210" height="297" rx="10" fill="#FFFFFF" />
-
-    <!-- Clip -->
-    <rect x="210" y="85" width="80" height="30" rx="5" fill="url(#clipGradient)" />
-    <rect x="225" y="80" width="50" height="10" rx="3" fill="#8A5A0A" />
-
-    <!-- Contract Lines -->
-    
-    <!-- Real Text Layer (Normal) -->
-    <foreignObject *ngIf="!pdfPageImageUrl" x="150" y="135" width="200" height="237">
-      <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 6px; font-family: 'Inter', sans-serif; color: #4B5563; line-height: 1.4; padding: 0 4px; pointer-events: none; text-align: start;">
-        <h3 style="font-size: 8px; font-weight: 900; margin-bottom: 4px; text-align: center; color: #111827;">MASTER CLOUD SERVICES AGREEMENT</h3>
-        <p style="margin-bottom: 4px;">This Master Cloud Services Agreement ("Agreement") is entered into by and between the service provider ("Provider") and the entity purchasing the services ("Customer"). By accessing or utilizing the software services, Customer explicitly agrees to all terms and conditions set forth herein.</p>
-        <p style="margin-bottom: 4px;"><strong>1. Limitation of Liability.</strong> Notwithstanding anything to the contrary contained within this Agreement, the Provider's aggregate liability arising out of or related to this Agreement shall not be limited in any capacity, and Provider shall be held fully liable for any indirect, special, incidental, punitive, or consequential damages, including loss of profits.</p>
-        <p style="margin-bottom: 4px;"><strong>2. Auto-Renewal &amp; Termination.</strong> This Agreement shall automatically renew for successive five (5) year terms without requiring further action. Customer must provide a written notice of intent to terminate no less than three hundred and sixty-five (365) days prior to the expiration of the current term to prevent auto-renewal.</p>
-        <p style="margin-bottom: 4px;"><strong>3. Data Monetization &amp; Privacy.</strong> The Provider explicitly retains the absolute and irrevocable right to aggregate, anonymize, and sell any and all Customer Data to third-party data brokers without obtaining prior written or verbal consent from the Customer.</p>
-        <p style="margin-bottom: 4px;"><strong>4. Governing Law &amp; Jurisdiction.</strong> This Agreement shall be governed exclusively by the laws of a jurisdiction selected solely by the Provider at the time of any dispute, and Customer waives all rights to a trial by jury.</p>
-      </div>
-    </foreignObject>
-
-    <!-- Highlighted Text Layer (X-Ray Lens) -->
-    <foreignObject *ngIf="!pdfPageImageUrl" x="150" y="135" width="200" height="237" style="clip-path: url(#lensClip); -webkit-clip-path: url(#lensClip);">
-      <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 6px; font-family: 'Inter', sans-serif; color: #4B5563; line-height: 1.4; padding: 0 4px; pointer-events: none; text-align: start;">
-        <h3 style="font-size: 8px; font-weight: 900; margin-bottom: 4px; text-align: center; color: #111827;">MASTER CLOUD SERVICES AGREEMENT</h3>
-        <p style="margin-bottom: 4px;">This Master Cloud Services Agreement ("Agreement") is entered into by and between the service provider ("Provider") and the entity purchasing the services ("Customer"). By accessing or utilizing the software services, Customer explicitly agrees to all terms and conditions set forth herein.</p>
-        <p style="margin-bottom: 4px;"><strong>1. Limitation of Liability.</strong> <span style="background-color: #FEE2E2; color: #B91C1C; font-weight: 700; border-bottom: 1px solid #DC2626; border-radius: 1px;">Notwithstanding anything to the contrary contained within this Agreement, the Provider's aggregate liability arising out of or related to this Agreement shall not be limited in any capacity, and Provider shall be held fully liable for any indirect, special, incidental, punitive, or consequential damages, including loss of profits.</span></p>
-        <p style="margin-bottom: 4px;"><strong>2. Auto-Renewal &amp; Termination.</strong> <span style="background-color: #FEE2E2; color: #B91C1C; font-weight: 700; border-bottom: 1px solid #DC2626; border-radius: 1px;">This Agreement shall automatically renew for successive five (5) year terms without requiring further action. Customer must provide a written notice of intent to terminate no less than three hundred and sixty-five (365) days prior to the expiration of the current term to prevent auto-renewal.</span></p>
-        <p style="margin-bottom: 4px;"><strong>3. Data Monetization &amp; Privacy.</strong> <span style="background-color: #FEE2E2; color: #B91C1C; font-weight: 700; border-bottom: 1px solid #DC2626; border-radius: 1px;">The Provider explicitly retains the absolute and irrevocable right to aggregate, anonymize, and sell any and all Customer Data to third-party data brokers without obtaining prior written or verbal consent from the Customer.</span></p>
-        <p style="margin-bottom: 4px;"><strong>4. Governing Law &amp; Jurisdiction.</strong> This Agreement shall be governed exclusively by the laws of a jurisdiction selected solely by the Provider at the time of any dispute, and Customer waives all rights to a trial by jury.</p>
-      </div>
-    </foreignObject>
-    
-    <!-- Uploaded File Image Layer (rendered via pdf.js) -->
-    <image *ngIf="pdfPageImageUrl" [attr.href]="pdfPageImageUrl" x="145" y="115" width="210" height="297" preserveAspectRatio="xMidYMin slice" clip-path="url(#paperClip)" />
-    
-    <!-- Uploaded File X-Ray Tint -->
-    <rect *ngIf="pdfPageImageUrl" x="145" y="115" width="210" height="297" fill="#E5A62D" opacity="0.3" style="clip-path: url(#lensClip); pointer-events: none;" />
-    
-    <!-- Signatures & Seal area -->
-    <g *ngIf="!pdfPageImageUrl" transform="translate(165, 382)">
-      <!-- Signature Line 1 -->
-      <rect x="0" y="0" width="50" height="1" rx="0.5" fill="#000000" />
-      <path d="M 5 -3 C 10 -8, 15 1, 20 -4 S 28 -6, 33 -1 S 40 -7, 45 -2" fill="none" stroke="#000000" stroke-width="1" opacity="0.8" />
-      
-      <!-- Seal / Stamp (Centered) -->
-      <circle cx="85" cy="-2" r="10" fill="none" stroke="#000000" stroke-width="1.5" stroke-dasharray="2 2"/>
-      <circle cx="85" cy="-2" r="5" fill="#000000" opacity="0.2"/>
-
-      <!-- Signature Line 2 -->
-      <rect x="120" y="0" width="50" height="1" rx="0.5" fill="#000000" />
-      <path d="M 125 -1 Q 130 -8 135 -3 T 142 -5 T 150 -1 T 160 -4" fill="none" stroke="#000000" stroke-width="1" opacity="0.8" />
-    </g>
-
-    <!-- Magnifying glass has been moved to HTML layer -->
-  </svg>
-
-  <!-- Magnifying Glass HTML Layer (Draggable) -->
-  <div class="absolute text-black drop-shadow-xl transition-transform duration-200" 
-       [style.top.%]="glassTop" 
-       [style.left.%]="glassLeft" 
-       [ngStyle]="{'transform': 'translate(-50%, -50%) rotate(10deg) scale(' + (isDragging ? 1.05 : 1) + ')', 'cursor': isDragging ? 'grabbing' : 'grab'}"
-       (mousedown)="onDragStart($event)"
-       (touchstart)="onDragStart($event)"
-       style="width: 33%; aspect-ratio: 1/1; z-index: 20;">
-
-    <!-- Custom SVG Frame (Centered) -->
-    <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full pointer-events-none relative z-10">
       <defs>
-        <radialGradient id="lensGradient" cx="50%" cy="50%" r="50%">
-          <!-- Transparent center for X-Ray effect -->
-          <stop offset="60%" stop-color="#FBBF24" stop-opacity="0.0" />
-          <!-- White inner rim to simulate glass edge thickness -->
-          <stop offset="95%" stop-color="#FBBF24" stop-opacity="0.2" />
-          <!-- Dark outer inner-shadow for 3D depth -->
-          <stop offset="100%" stop-color="black" stop-opacity="0.15" />
-        </radialGradient>
+        <!-- X-Ray Lens Clip Path -->
+        <clipPath id="lensClip">
+          <circle [attr.cx]="glassLeft * 5" [attr.cy]="glassTop * 5" r="41" />
+        </clipPath>
+        <clipPath id="paperClip">
+          <rect x="145" y="115" width="210" height="297" rx="8" />
+        </clipPath>
       </defs>
-      <!-- Center shifted to 16,16 for perfect alignment with clipPath -->
-      <circle cx="16" cy="16" r="8" fill="url(#lensGradient)" />
-      <line x1="21.65" y1="21.65" x2="30" y2="30" />
+
+      <!-- Clipboard Board (Pure Black Heavyweight Board with Sharp Contrast) -->
+      <rect x="130" y="100" width="240" height="327" rx="16" fill="#050505" stroke="#000000" stroke-width="2" />
+      <rect x="133" y="103" width="234" height="321" rx="13" fill="none" stroke="#EED202" stroke-width="1" opacity="0.15" />
       
-      <!-- Realistic Concentric Highlights (Shifted +5) -->
-      <path d="M 11.4 11.4 A 6.5 6.5 0 0 1 20.6 11.4" stroke="#FBBF24" stroke-width="1" stroke-linecap="round" opacity="0.8" />
-      <path d="M 20.6 20.6 A 6.5 6.5 0 0 1 16 22.5" stroke="#FBBF24" stroke-width="0.8" stroke-linecap="round" opacity="0.4" />
+      <!-- Paper (Crisp Bright White Sheet with Solid Border) -->
+      <rect x="145" y="115" width="210" height="297" rx="8" fill="#FFFFFF" stroke="#000000" stroke-width="1.5" />
+
+      <!-- Heavy Industrial Metal Clip (Black & Scientific Yellow) -->
+      <rect x="205" y="86" width="90" height="28" rx="6" fill="#111111" stroke="#000000" stroke-width="2" />
+      <rect x="220" y="80" width="60" height="12" rx="4" fill="#EED202" stroke="#000000" stroke-width="1.5" />
+      <!-- Clip Rivets / Bolts -->
+      <circle cx="215" cy="100" r="2.5" fill="#EED202" />
+      <circle cx="285" cy="100" r="2.5" fill="#EED202" />
+
+      <!-- Contract Content -->
+      
+      <!-- Real Text Layer (Normal State) -->
+      <foreignObject *ngIf="!pdfPageImageUrl" x="150" y="135" width="200" height="237">
+        <div xmlns="http://www.w3.org/1999/xhtml" dir="ltr" style="font-size: 5.8px; font-family: 'Inter', system-ui, sans-serif; color: #374151; line-height: 1.42; padding: 0 4px; pointer-events: none; text-align: left;">
+          <h3 style="font-size: 7.8px; font-weight: 900; margin-bottom: 5px; text-align: center; color: #000000; letter-spacing: -0.2px;">MASTER CLOUD SERVICES AGREEMENT</h3>
+          <p style="margin-bottom: 4px;">This Master Cloud Services Agreement ("Agreement") is entered into by and between the service provider ("Provider") and the entity purchasing the services ("Customer"). By accessing or utilizing the software services, Customer explicitly agrees to all terms and conditions set forth herein.</p>
+          <p style="margin-bottom: 4px;"><strong>1. Limitation of Liability.</strong> Notwithstanding anything to the contrary contained within this Agreement, the Provider's aggregate liability arising out of or related to this Agreement shall not be limited in any capacity, and Provider shall be held fully liable for any indirect, special, incidental, punitive, or consequential damages, including loss of profits.</p>
+          <p style="margin-bottom: 4px;"><strong>2. Auto-Renewal &amp; Termination.</strong> This Agreement shall automatically renew for successive five (5) year terms without requiring further action. Customer must provide a written notice of intent to terminate no less than three hundred and sixty-five (365) days prior to the expiration of the current term to prevent auto-renewal.</p>
+          <p style="margin-bottom: 4px;"><strong>3. Data Monetization &amp; Privacy.</strong> The Provider explicitly retains the absolute and irrevocable right to aggregate, anonymize, and sell any and all Customer Data to third-party data brokers without obtaining prior written or verbal consent from the Customer.</p>
+          <p style="margin-bottom: 4px;"><strong>4. Governing Law &amp; Jurisdiction.</strong> This Agreement shall be governed exclusively by the laws of a jurisdiction selected solely by the Provider at the time of any dispute, and Customer waives all rights to a trial by jury.</p>
+        </div>
+      </foreignObject>
+
+      <!-- Highlighted Text Layer (X-Ray Scientific Yellow Detection) -->
+      <foreignObject *ngIf="!pdfPageImageUrl" x="150" y="135" width="200" height="237" style="clip-path: url(#lensClip); -webkit-clip-path: url(#lensClip);">
+        <div xmlns="http://www.w3.org/1999/xhtml" dir="ltr" style="font-size: 5.8px; font-family: 'Inter', system-ui, sans-serif; color: #111827; line-height: 1.42; padding: 0 4px; pointer-events: none; text-align: left;">
+          <h3 style="font-size: 7.8px; font-weight: 900; margin-bottom: 5px; text-align: center; color: #000000; letter-spacing: -0.2px;">MASTER CLOUD SERVICES AGREEMENT</h3>
+          <p style="margin-bottom: 4px;">This Master Cloud Services Agreement ("Agreement") is entered into by and between the service provider ("Provider") and the entity purchasing the services ("Customer"). By accessing or utilizing the software services, Customer explicitly agrees to all terms and conditions set forth herein.</p>
+          <p style="margin-bottom: 4px;"><strong>1. Limitation of Liability.</strong> <span style="background-color: #EED202; color: #000000; font-weight: 800; padding: 1px 2px; border-radius: 2px; border-bottom: 1.5px solid #000000;">Notwithstanding anything to the contrary contained within this Agreement, the Provider's aggregate liability arising out of or related to this Agreement shall not be limited in any capacity, and Provider shall be held fully liable for any indirect, special, incidental, punitive, or consequential damages, including loss of profits.</span></p>
+          <p style="margin-bottom: 4px;"><strong>2. Auto-Renewal &amp; Termination.</strong> <span style="background-color: #EED202; color: #000000; font-weight: 800; padding: 1px 2px; border-radius: 2px; border-bottom: 1.5px solid #000000;">This Agreement shall automatically renew for successive five (5) year terms without requiring further action. Customer must provide a written notice of intent to terminate no less than three hundred and sixty-five (365) days prior to the expiration of the current term to prevent auto-renewal.</span></p>
+          <p style="margin-bottom: 4px;"><strong>3. Data Monetization &amp; Privacy.</strong> <span style="background-color: #EED202; color: #000000; font-weight: 800; padding: 1px 2px; border-radius: 2px; border-bottom: 1.5px solid #000000;">The Provider explicitly retains the absolute and irrevocable right to aggregate, anonymize, and sell any and all Customer Data to third-party data brokers without obtaining prior written or verbal consent from the Customer.</span></p>
+          <p style="margin-bottom: 4px;"><strong>4. Governing Law &amp; Jurisdiction.</strong> This Agreement shall be governed exclusively by the laws of a jurisdiction selected solely by the Provider at the time of any dispute, and Customer waives all rights to a trial by jury.</p>
+        </div>
+      </foreignObject>
+      
+      <!-- Uploaded File Image Layer (rendered via pdf.js) -->
+      <image *ngIf="pdfPageImageUrl" [attr.href]="pdfPageImageUrl" x="145" y="115" width="210" height="297" preserveAspectRatio="xMidYMin slice" clip-path="url(#paperClip)" />
+      
+      <!-- Uploaded File X-Ray Tint -->
+      <rect *ngIf="pdfPageImageUrl" x="145" y="115" width="210" height="297" fill="#EED202" opacity="0.35" style="clip-path: url(#lensClip); pointer-events: none;" />
+      
+      <!-- Signatures & Official Audit Seal -->
+      <g *ngIf="!pdfPageImageUrl" transform="translate(165, 382)">
+        <!-- Signature Line 1 -->
+        <rect x="0" y="0" width="48" height="1" rx="0.5" fill="#000000" />
+        <path d="M 5 -3 C 10 -8, 15 1, 20 -4 S 28 -6, 33 -1 S 40 -7, 45 -2" fill="none" stroke="#000000" stroke-width="1.2" opacity="0.9" />
+        
+        <!-- Audit Seal (High-Contrast Black & Yellow) -->
+        <circle cx="85" cy="-2" r="11" fill="#000000" stroke="#EED202" stroke-width="1.5" stroke-dasharray="2 2"/>
+        <circle cx="85" cy="-2" r="6" fill="#EED202" />
+        <polygon points="85,-5 87,-1 83,-1" fill="#000000" />
+
+        <!-- Signature Line 2 -->
+        <rect x="122" y="0" width="48" height="1" rx="0.5" fill="#000000" />
+        <path d="M 125 -1 Q 130 -8 135 -3 T 142 -5 T 150 -1 T 160 -4" fill="none" stroke="#000000" stroke-width="1.2" opacity="0.9" />
+      </g>
     </svg>
-  </div>
+
+    <!-- Magnifying Glass HTML Layer (Draggable) -->
+    <div class="absolute text-black transition-transform duration-200" 
+         [style.top.%]="glassTop" 
+         [style.left.%]="glassLeft" 
+         [ngStyle]="{'transform': 'translate(-50%, -50%) rotate(10deg) scale(' + (isDragging ? 1.05 : 1) + ')', 'cursor': isDragging ? 'grabbing' : 'grab'}"
+         (mousedown)="onDragStart($event)"
+         (touchstart)="onDragStart($event)"
+         style="width: 33%; aspect-ratio: 1/1; z-index: 20;">
+
+      <!-- Custom High-Contrast Brutalist Magnifying Glass -->
+      <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-full h-full pointer-events-none relative z-10">
+        <defs>
+          <radialGradient id="lensGradient" cx="50%" cy="50%" r="50%">
+            <stop offset="60%" stop-color="#EED202" stop-opacity="0.0" />
+            <stop offset="90%" stop-color="#EED202" stop-opacity="0.25" />
+            <stop offset="100%" stop-color="#000000" stop-opacity="0.2" />
+          </radialGradient>
+        </defs>
+        
+        <!-- Glass Area -->
+        <circle cx="16" cy="16" r="8" fill="url(#lensGradient)" stroke="#000000" stroke-width="2.5" />
+        <!-- Inner Yellow Precision Bezel -->
+        <circle cx="16" cy="16" r="7" fill="none" stroke="#EED202" stroke-width="0.8" opacity="0.9" />
+        <!-- Handle -->
+        <line x1="21.65" y1="21.65" x2="30" y2="30" stroke="#000000" stroke-width="3" stroke-linecap="round" />
+        
+        <!-- Precision Optical Reflection -->
+        <path d="M 11.4 11.4 A 6.5 6.5 0 0 1 20.6 11.4" stroke="#EED202" stroke-width="1" stroke-linecap="round" opacity="0.9" />
+        <path d="M 20.6 20.6 A 6.5 6.5 0 0 1 16 22.5" stroke="#EED202" stroke-width="0.8" stroke-linecap="round" opacity="0.5" />
+      </svg>
+    </div>
   </div>
 
-  <!-- Orbiting Icons Ring Layer -->
+  <!-- Orbiting Icons Ring Layer (Solid Black & Yellow Capsules) -->
   <div class="absolute top-[40%] left-1/2 w-0 h-0 -z-10 spin-ring">
     
     <!-- Icon 1: Scale (0deg) -->
     <div class="absolute" style="transform: rotate(0deg) translateY(-200px) rotate(0deg);">
-      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideScale" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full" [ngClass]="iconClasses">
+        <ng-icon name="lucideScale" size="26px" strokeWidth="2"></ng-icon>
       </div>
     </div>
 
     <!-- Icon 2: FileSearch (45deg) -->
     <div class="absolute" style="transform: rotate(45deg) translateY(-200px) rotate(-45deg);">
-      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideFileSearch" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full" [ngClass]="iconClasses">
+        <ng-icon name="lucideFileSearch" size="26px" strokeWidth="2"></ng-icon>
       </div>
     </div>
 
     <!-- Icon 3: ShieldAlert (90deg) -->
     <div class="absolute" style="transform: rotate(90deg) translateY(-200px) rotate(-90deg);">
-      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideShieldAlert" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full" [ngClass]="iconClasses">
+        <ng-icon name="lucideShieldAlert" size="26px" strokeWidth="2"></ng-icon>
       </div>
     </div>
 
     <!-- Icon 4: Landmark (135deg) -->
     <div class="absolute" style="transform: rotate(135deg) translateY(-200px) rotate(-135deg);">
-      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideLandmark" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full" [ngClass]="iconClasses">
+        <ng-icon name="lucideLandmark" size="26px" strokeWidth="2"></ng-icon>
       </div>
     </div>
 
     <!-- Icon 5: FileSignature (180deg) -->
     <div class="absolute" style="transform: rotate(180deg) translateY(-200px) rotate(-180deg);">
-      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideFileSignature" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full" [ngClass]="iconClasses">
+        <ng-icon name="lucideFileSignature" size="26px" strokeWidth="2"></ng-icon>
       </div>
     </div>
 
     <!-- Icon 6: AlertTriangle (225deg) -->
     <div class="absolute" style="transform: rotate(225deg) translateY(-200px) rotate(-225deg);">
-      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideAlertTriangle" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full" [ngClass]="iconClasses">
+        <ng-icon name="lucideAlertTriangle" size="26px" strokeWidth="2"></ng-icon>
       </div>
     </div>
 
     <!-- Icon 7: FileCheck (270deg) -->
     <div class="absolute" style="transform: rotate(270deg) translateY(-200px) rotate(-270deg);">
-      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideFileCheck" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full" [ngClass]="iconClasses">
+        <ng-icon name="lucideFileCheck" size="26px" strokeWidth="2"></ng-icon>
       </div>
     </div>
 
     <!-- Icon 8: Eye (315deg) -->
     <div class="absolute" style="transform: rotate(315deg) translateY(-200px) rotate(-315deg);">
-      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full border" [ngClass]="iconClasses">
-        <ng-icon name="lucideEye" size="28px" strokeWidth="1.5"></ng-icon>
+      <div class="counter-spin flex items-center justify-center -ms-8 -mt-8 w-16 h-16 rounded-full" [ngClass]="iconClasses">
+        <ng-icon name="lucideEye" size="26px" strokeWidth="2"></ng-icon>
       </div>
     </div>
 

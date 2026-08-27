@@ -1,0 +1,623 @@
+<div class="min-h-screen grid grid-cols-1 lg:grid-cols-10 font-sans overflow-x-hidden selection:bg-brandYellow selection:text-black">
+  
+  <!-- ==================================================== -->
+  <!-- 70% YELLOW SIDE (Holds the Auth Card)                -->
+  <!-- ==================================================== -->
+  <section class="lg:col-span-7 bg-brandYellow text-black flex flex-col justify-between p-6 sm:p-8 lg:p-12 min-h-screen">
+    
+    <!-- Header on Yellow Side (Aligned to Container) -->
+    <header class="w-full max-w-5xl mx-auto flex items-center justify-between z-10">
+      <a routerLink="/" class="text-2xl sm:text-3xl font-black tracking-tight text-black hover:opacity-80 transition-opacity">
+        LEX.AUDIT
+      </a>
+
+      <!-- Mobile-only Language & Home links -->
+      <div class="flex lg:hidden items-center gap-3">
+        <a routerLink="/" class="text-xs font-bold uppercase tracking-wider text-black/80 hover:text-black transition-colors flex items-center gap-1">
+          <ng-icon [name]="langService.currentLang() === 'ar' ? 'lucideArrowRight' : 'lucideArrowLeft'" size="13px"></ng-icon>
+          <span>{{ 'NAVBAR.HOME' | translate }}</span>
+        </a>
+        <div class="h-3.5 w-px bg-black/20"></div>
+        <app-language-selector theme="light"></app-language-selector>
+      </div>
+    </header>
+
+    <!-- Center: The Black Auth Card Container -->
+    <div class="w-full max-w-md mx-auto my-auto py-6">
+      
+      <div class="rounded-2xl bg-black text-brandYellow p-6 sm:p-8">
+
+        <!-- Mode Switcher (Segmented Tabs with Official Hover) -->
+        <div class="mb-6 p-1 rounded-xl border border-brandYellow/20 bg-black flex items-center gap-1">
+          
+          <!-- Login Tab -->
+          <button 
+            type="button" 
+            (click)="setMode('login')"
+            class="group relative overflow-hidden z-0 flex-1 py-2 px-3 rounded-lg text-xs font-bold tracking-wider uppercase transition-all duration-300 text-center cursor-pointer select-none"
+            [ngClass]="mode() === 'login' ? 'bg-brandYellow text-black font-extrabold' : 'text-brandYellow bg-transparent'">
+            @if (mode() !== 'login') {
+              <span class="absolute top-[50%] ltr:left-[50%] rtl:right-[50%] w-0 h-0 rounded-full ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out -z-10 group-hover:w-[250px] group-hover:h-[250px] bg-brandYellow"></span>
+            }
+            <span class="relative z-10 transition-colors duration-300" [ngClass]="mode() !== 'login' ? 'group-hover:text-black' : ''">
+              {{ 'AUTH.TABS.LOGIN' | translate }}
+            </span>
+          </button>
+
+          <!-- Register Tab -->
+          <button 
+            type="button" 
+            (click)="setMode('register')"
+            class="group relative overflow-hidden z-0 flex-1 py-2 px-3 rounded-lg text-xs font-bold tracking-wider uppercase transition-all duration-300 text-center cursor-pointer select-none"
+            [ngClass]="mode() === 'register' ? 'bg-brandYellow text-black font-extrabold' : 'text-brandYellow bg-transparent'">
+            @if (mode() !== 'register') {
+              <span class="absolute top-[50%] ltr:left-[50%] rtl:right-[50%] w-0 h-0 rounded-full ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out -z-10 group-hover:w-[250px] group-hover:h-[250px] bg-brandYellow"></span>
+            }
+            <span class="relative z-10 transition-colors duration-300" [ngClass]="mode() !== 'register' ? 'group-hover:text-black' : ''">
+              {{ 'AUTH.TABS.REGISTER' | translate }}
+            </span>
+          </button>
+
+          <!-- Forgot Tab (appears when in forgot mode) -->
+          @if (mode() === 'forgot') {
+            <button 
+              type="button" 
+              (click)="setMode('forgot')"
+              class="flex-1 py-2 px-3 rounded-lg text-xs font-bold tracking-wider uppercase transition-all duration-300 text-center bg-brandYellow text-black font-extrabold cursor-pointer select-none">
+              {{ 'AUTH.TABS.FORGOT' | translate }}
+            </button>
+          }
+
+        </div>
+
+        <!-- Success Notice -->
+        @if (successMessage()) {
+          <div class="mb-5 p-3 rounded-lg border border-brandYellow/40 bg-brandYellow/10 text-brandYellow text-xs font-bold">
+            <span>{{ successMessage() }}</span>
+          </div>
+        }
+
+        <!-- ==================================================== -->
+        <!-- MODE 1: LOGIN (تسجيل الدخول)                           -->
+        <!-- ==================================================== -->
+        @if (mode() === 'login') {
+          <form (ngSubmit)="onLoginSubmit()" class="space-y-4 text-start">
+            
+            <!-- Email Input -->
+            <div class="space-y-1.5">
+              <label class="text-xs font-bold tracking-wider uppercase text-brandYellowDim">
+                {{ 'AUTH.LOGIN.EMAIL_LABEL' | translate }}
+              </label>
+              <input 
+                type="email" 
+                [(ngModel)]="loginEmail" 
+                name="loginEmail"
+                required
+                autocomplete="email"
+                class="w-full bg-transparent border rounded-lg px-3.5 py-2.5 text-white placeholder:text-brandYellowFaint focus:outline-none transition-colors text-sm font-medium"
+                [ngClass]="fieldErrors()['loginEmail'] ? 'border-brandYellow text-white' : 'border-brandYellow/25 focus:border-brandYellow'"
+                [placeholder]="'AUTH.LOGIN.EMAIL_PLACEHOLDER' | translate">
+              @if (fieldErrors()['loginEmail']) {
+                <p class="text-[11px] font-semibold text-brandYellow mt-1 flex items-center gap-1.5">
+                  <span class="inline-block w-1.5 h-1.5 rounded-full bg-brandYellow shrink-0"></span>
+                  <span>{{ fieldErrors()['loginEmail'] }}</span>
+                </p>
+              }
+            </div>
+
+            <!-- Password Input -->
+            <div class="space-y-1.5">
+              <div class="flex items-center justify-between">
+                <label class="text-xs font-bold tracking-wider uppercase text-brandYellowDim">
+                  {{ 'AUTH.LOGIN.PASSWORD_LABEL' | translate }}
+                </label>
+                <button 
+                  type="button" 
+                  (click)="setMode('forgot')"
+                  class="text-[11px] font-bold text-brandYellow hover:underline cursor-pointer">
+                  {{ 'AUTH.LOGIN.FORGOT_PASSWORD' | translate }}
+                </button>
+              </div>
+              <div class="relative flex items-center">
+                <input 
+                  [type]="showPassword() ? 'text' : 'password'" 
+                  [(ngModel)]="loginPassword" 
+                  name="loginPassword"
+                  required
+                  autocomplete="current-password"
+                  class="w-full bg-transparent border rounded-lg ps-3.5 pe-14 py-2.5 text-white placeholder:text-brandYellowFaint focus:outline-none transition-colors text-sm font-medium"
+                  [ngClass]="fieldErrors()['loginPassword'] ? 'border-brandYellow text-white' : 'border-brandYellow/25 focus:border-brandYellow'"
+                  [placeholder]="'AUTH.LOGIN.PASSWORD_PLACEHOLDER' | translate">
+                <button 
+                  type="button"
+                  (click)="togglePasswordVisibility()"
+                  class="absolute end-3 text-xs font-bold text-brandYellowDim hover:text-brandYellow transition-colors cursor-pointer select-none">
+                  {{ showPassword() ? ('AUTH.HIDE' | translate) : ('AUTH.SHOW' | translate) }}
+                </button>
+              </div>
+              @if (fieldErrors()['loginPassword']) {
+                <p class="text-[11px] font-semibold text-brandYellow mt-1 flex items-center gap-1.5">
+                  <span class="inline-block w-1.5 h-1.5 rounded-full bg-brandYellow shrink-0"></span>
+                  <span>{{ fieldErrors()['loginPassword'] }}</span>
+                </p>
+              }
+            </div>
+
+            <!-- Remember Me -->
+            <div class="flex items-center gap-2 pt-0.5">
+              <label class="flex items-center gap-2 cursor-pointer select-none">
+                <input 
+                  type="checkbox" 
+                  [(ngModel)]="rememberMe" 
+                  name="rememberMe"
+                  class="sr-only peer">
+                <div class="w-4 h-4 rounded border border-brandYellow/30 peer-checked:border-brandYellow peer-checked:bg-brandYellow flex items-center justify-center transition-all">
+                  <ng-icon name="lucideCheck" size="11px" class="text-black opacity-0 peer-checked:opacity-100 transition-opacity font-black"></ng-icon>
+                </div>
+                <span class="text-xs font-medium text-brandYellowMuted">
+                  {{ 'AUTH.LOGIN.REMEMBER_ME' | translate }}
+                </span>
+              </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-2">
+              <app-ui-button 
+                [text]="'AUTH.LOGIN.SUBMIT_BTN' | translate" 
+                variant="yellow" 
+                size="md" 
+                [fullWidth]="true"
+                type="submit"
+                [disabled]="isLoading()">
+              </app-ui-button>
+            </div>
+
+            <!-- Switch to Register -->
+            <div class="pt-3 border-t border-brandYellow/15 text-xs text-brandYellowMuted text-center">
+              <span>{{ 'AUTH.LOGIN.NO_ACCOUNT' | translate }}</span>
+              <button 
+                type="button" 
+                (click)="setMode('register')"
+                class="ms-1.5 font-bold text-brandYellow hover:underline cursor-pointer">
+                {{ 'AUTH.LOGIN.SIGNUP_LINK' | translate }}
+              </button>
+            </div>
+
+          </form>
+        }
+
+        <!-- ==================================================== -->
+        <!-- MODE 2: REGISTER (إنشاء حساب جديد)                    -->
+        <!-- ==================================================== -->
+        @if (mode() === 'register') {
+          <form (ngSubmit)="onRegisterSubmit()" class="space-y-3.5 text-start">
+            
+            <!-- Role Selector -->
+            <div class="space-y-1.5">
+              <label class="text-xs font-bold tracking-wider uppercase text-brandYellowDim">
+                {{ 'AUTH.REGISTER.ACCOUNT_TYPE_LABEL' | translate }}
+              </label>
+              <div class="grid grid-cols-3 gap-2">
+                <!-- Lawyer -->
+                <button 
+                  type="button"
+                  (click)="setRole('LAWYER')"
+                  class="group relative overflow-hidden z-0 py-2.5 px-2 rounded-lg border text-center text-xs transition-all duration-300 cursor-pointer select-none"
+                  [ngClass]="selectedRole() === 'LAWYER' ? 'border-brandYellow bg-brandYellow text-black font-extrabold' : 'border-brandYellow/25 bg-black text-brandYellow font-bold'">
+                  @if (selectedRole() !== 'LAWYER') {
+                    <span class="absolute top-[50%] ltr:left-[50%] rtl:right-[50%] w-0 h-0 rounded-full ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out -z-10 group-hover:w-[220px] group-hover:h-[220px] bg-brandYellow"></span>
+                  }
+                  <span class="relative z-10 transition-colors duration-300" [ngClass]="selectedRole() !== 'LAWYER' ? 'group-hover:text-black' : ''">
+                    {{ 'AUTH.REGISTER.ROLES.LAWYER' | translate }}
+                  </span>
+                </button>
+
+                <!-- Enterprise -->
+                <button 
+                  type="button"
+                  (click)="setRole('ENTERPRISE')"
+                  class="group relative overflow-hidden z-0 py-2.5 px-2 rounded-lg border text-center text-xs transition-all duration-300 cursor-pointer select-none"
+                  [ngClass]="selectedRole() === 'ENTERPRISE' ? 'border-brandYellow bg-brandYellow text-black font-extrabold' : 'border-brandYellow/25 bg-black text-brandYellow font-bold'">
+                  @if (selectedRole() !== 'ENTERPRISE') {
+                    <span class="absolute top-[50%] ltr:left-[50%] rtl:right-[50%] w-0 h-0 rounded-full ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out -z-10 group-hover:w-[220px] group-hover:h-[220px] bg-brandYellow"></span>
+                  }
+                  <span class="relative z-10 transition-colors duration-300" [ngClass]="selectedRole() !== 'ENTERPRISE' ? 'group-hover:text-black' : ''">
+                    {{ 'AUTH.REGISTER.ROLES.ENTERPRISE' | translate }}
+                  </span>
+                </button>
+
+                <!-- Individual -->
+                <button 
+                  type="button"
+                  (click)="setRole('INDIVIDUAL')"
+                  class="group relative overflow-hidden z-0 py-2.5 px-2 rounded-lg border text-center text-xs transition-all duration-300 cursor-pointer select-none"
+                  [ngClass]="selectedRole() === 'INDIVIDUAL' ? 'border-brandYellow bg-brandYellow text-black font-extrabold' : 'border-brandYellow/25 bg-black text-brandYellow font-bold'">
+                  @if (selectedRole() !== 'INDIVIDUAL') {
+                    <span class="absolute top-[50%] ltr:left-[50%] rtl:right-[50%] w-0 h-0 rounded-full ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out -z-10 group-hover:w-[220px] group-hover:h-[220px] bg-brandYellow"></span>
+                  }
+                  <span class="relative z-10 transition-colors duration-300" [ngClass]="selectedRole() !== 'INDIVIDUAL' ? 'group-hover:text-black' : ''">
+                    {{ 'AUTH.REGISTER.ROLES.INDIVIDUAL' | translate }}
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Full Name -->
+            <div class="space-y-1.5">
+              <label class="text-xs font-bold tracking-wider uppercase text-brandYellowDim">
+                {{ 'AUTH.REGISTER.FULL_NAME_LABEL' | translate }}
+              </label>
+              <input 
+                type="text" 
+                [(ngModel)]="registerName" 
+                name="registerName"
+                required
+                class="w-full bg-transparent border rounded-lg px-3.5 py-2.5 text-white placeholder:text-brandYellowFaint focus:outline-none transition-colors text-sm font-medium"
+                [ngClass]="fieldErrors()['registerName'] ? 'border-brandYellow text-white' : 'border-brandYellow/25 focus:border-brandYellow'"
+                [placeholder]="'AUTH.REGISTER.FULL_NAME_PLACEHOLDER' | translate">
+              @if (fieldErrors()['registerName']) {
+                <p class="text-[11px] font-semibold text-brandYellow mt-1 flex items-center gap-1.5">
+                  <span class="inline-block w-1.5 h-1.5 rounded-full bg-brandYellow shrink-0"></span>
+                  <span>{{ fieldErrors()['registerName'] }}</span>
+                </p>
+              }
+            </div>
+
+            <!-- Email -->
+            <div class="space-y-1.5">
+              <label class="text-xs font-bold tracking-wider uppercase text-brandYellowDim">
+                {{ 'AUTH.REGISTER.EMAIL_LABEL' | translate }}
+              </label>
+              <input 
+                type="email" 
+                [(ngModel)]="registerEmail" 
+                name="registerEmail"
+                required
+                autocomplete="email"
+                class="w-full bg-transparent border rounded-lg px-3.5 py-2.5 text-white placeholder:text-brandYellowFaint focus:outline-none transition-colors text-sm font-medium"
+                [ngClass]="fieldErrors()['registerEmail'] ? 'border-brandYellow text-white' : 'border-brandYellow/25 focus:border-brandYellow'"
+                [placeholder]="'AUTH.REGISTER.EMAIL_PLACEHOLDER' | translate">
+              @if (fieldErrors()['registerEmail']) {
+                <p class="text-[11px] font-semibold text-brandYellow mt-1 flex items-center gap-1.5">
+                  <span class="inline-block w-1.5 h-1.5 rounded-full bg-brandYellow shrink-0"></span>
+                  <span>{{ fieldErrors()['registerEmail'] }}</span>
+                </p>
+              }
+            </div>
+
+            <!-- Password & Confirm Password -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              
+              <div class="space-y-1.5">
+                <label class="text-xs font-bold tracking-wider uppercase text-brandYellowDim">
+                  {{ 'AUTH.REGISTER.PASSWORD_LABEL' | translate }}
+                </label>
+                <div class="relative flex items-center">
+                  <input 
+                    [type]="showPassword() ? 'text' : 'password'" 
+                    [(ngModel)]="registerPassword" 
+                    name="registerPassword"
+                    required
+                    class="w-full bg-transparent border rounded-lg ps-3.5 pe-12 py-2 text-white placeholder:text-brandYellowFaint focus:outline-none transition-colors text-xs font-medium"
+                    [ngClass]="fieldErrors()['registerPassword'] ? 'border-brandYellow text-white' : 'border-brandYellow/25 focus:border-brandYellow'"
+                    [placeholder]="'AUTH.REGISTER.PASSWORD_PLACEHOLDER' | translate">
+                  <button 
+                    type="button"
+                    (click)="togglePasswordVisibility()"
+                    class="absolute end-2 text-[10px] font-bold text-brandYellowDim hover:text-brandYellow transition-colors cursor-pointer select-none">
+                    {{ showPassword() ? ('AUTH.HIDE' | translate) : ('AUTH.SHOW' | translate) }}
+                  </button>
+                </div>
+                @if (fieldErrors()['registerPassword']) {
+                  <p class="text-[11px] font-semibold text-brandYellow mt-1 flex items-center gap-1.5">
+                    <span class="inline-block w-1.5 h-1.5 rounded-full bg-brandYellow shrink-0"></span>
+                    <span>{{ fieldErrors()['registerPassword'] }}</span>
+                  </p>
+                }
+              </div>
+
+              <div class="space-y-1.5">
+                <label class="text-xs font-bold tracking-wider uppercase text-brandYellowDim">
+                  {{ 'AUTH.REGISTER.CONFIRM_PASSWORD_LABEL' | translate }}
+                </label>
+                <div class="relative flex items-center">
+                  <input 
+                    [type]="showConfirmPassword() ? 'text' : 'password'" 
+                    [(ngModel)]="registerConfirmPassword" 
+                    name="registerConfirmPassword"
+                    required
+                    class="w-full bg-transparent border rounded-lg ps-3.5 pe-12 py-2 text-white placeholder:text-brandYellowFaint focus:outline-none transition-colors text-xs font-medium"
+                    [ngClass]="fieldErrors()['registerConfirmPassword'] ? 'border-brandYellow text-white' : 'border-brandYellow/25 focus:border-brandYellow'"
+                    [placeholder]="'AUTH.REGISTER.CONFIRM_PASSWORD_PLACEHOLDER' | translate">
+                  <button 
+                    type="button"
+                    (click)="toggleConfirmPasswordVisibility()"
+                    class="absolute end-2 text-[10px] font-bold text-brandYellowDim hover:text-brandYellow transition-colors cursor-pointer select-none">
+                    {{ showConfirmPassword() ? ('AUTH.HIDE' | translate) : ('AUTH.SHOW' | translate) }}
+                  </button>
+                </div>
+                @if (fieldErrors()['registerConfirmPassword']) {
+                  <p class="text-[11px] font-semibold text-brandYellow mt-1 flex items-center gap-1.5">
+                    <span class="inline-block w-1.5 h-1.5 rounded-full bg-brandYellow shrink-0"></span>
+                    <span>{{ fieldErrors()['registerConfirmPassword'] }}</span>
+                  </p>
+                }
+              </div>
+
+            </div>
+
+            <!-- Terms -->
+            <div class="space-y-1 pt-0.5">
+              <label class="flex items-start gap-2 cursor-pointer select-none">
+                <input 
+                  type="checkbox" 
+                  [(ngModel)]="agreeTerms" 
+                  name="agreeTerms"
+                  class="sr-only peer">
+                <div class="mt-0.5 w-4 h-4 rounded border border-brandYellow/30 peer-checked:border-brandYellow peer-checked:bg-brandYellow flex items-center justify-center shrink-0 transition-all">
+                  <ng-icon name="lucideCheck" size="11px" class="text-black opacity-0 peer-checked:opacity-100 transition-opacity font-black"></ng-icon>
+                </div>
+                <span class="text-[11px] text-brandYellowMuted leading-tight">
+                  {{ 'AUTH.REGISTER.TERMS_AGREE_PREFIX' | translate }}
+                  <a routerLink="/terms" target="_blank" class="text-brandYellow font-bold underline">{{ 'AUTH.REGISTER.TERMS_LINK' | translate }}</a>
+                  {{ 'AUTH.REGISTER.TERMS_AND' | translate }}
+                  <a routerLink="/privacy" target="_blank" class="text-brandYellow font-bold underline">{{ 'AUTH.REGISTER.PRIVACY_LINK' | translate }}</a>
+                </span>
+              </label>
+              @if (fieldErrors()['agreeTerms']) {
+                <p class="text-[11px] font-semibold text-brandYellow mt-1 flex items-center gap-1.5">
+                  <span class="inline-block w-1.5 h-1.5 rounded-full bg-brandYellow shrink-0"></span>
+                  <span>{{ fieldErrors()['agreeTerms'] }}</span>
+                </p>
+              }
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-2">
+              <app-ui-button 
+                [text]="'AUTH.REGISTER.SUBMIT_BTN' | translate" 
+                variant="yellow" 
+                size="md" 
+                [fullWidth]="true"
+                type="submit"
+                [disabled]="isLoading()">
+              </app-ui-button>
+            </div>
+
+            <!-- Switch to Login -->
+            <div class="pt-3 border-t border-brandYellow/15 text-xs text-brandYellowMuted text-center">
+              <span>{{ 'AUTH.REGISTER.ALREADY_HAVE_ACCOUNT' | translate }}</span>
+              <button 
+                type="button" 
+                (click)="setMode('login')"
+                class="ms-1.5 font-bold text-brandYellow hover:underline cursor-pointer">
+                {{ 'AUTH.REGISTER.LOGIN_LINK' | translate }}
+              </button>
+            </div>
+
+          </form>
+        }
+
+        <!-- ==================================================== -->
+        <!-- MODE 3: FORGOT PASSWORD (استعادة كلمة المرور)          -->
+        <!-- ==================================================== -->
+        @if (mode() === 'forgot') {
+          <div class="space-y-4 text-start">
+            
+            <!-- Step 1: Request OTP -->
+            @if (forgotStep() === 'request') {
+              <form (ngSubmit)="onForgotRequestSubmit()" class="space-y-4">
+                
+                <div class="space-y-1.5">
+                  <label class="text-xs font-bold tracking-wider uppercase text-brandYellowDim">
+                    {{ 'AUTH.FORGOT.EMAIL_LABEL' | translate }}
+                  </label>
+                  <input 
+                    type="email" 
+                    [(ngModel)]="forgotEmail" 
+                    name="forgotEmail"
+                    required
+                    autocomplete="email"
+                    class="w-full bg-transparent border rounded-lg px-3.5 py-2.5 text-white placeholder:text-brandYellowFaint focus:outline-none transition-colors text-sm font-medium"
+                    [ngClass]="fieldErrors()['forgotEmail'] ? 'border-brandYellow text-white' : 'border-brandYellow/25 focus:border-brandYellow'"
+                    [placeholder]="'AUTH.FORGOT.EMAIL_PLACEHOLDER' | translate">
+                  @if (fieldErrors()['forgotEmail']) {
+                    <p class="text-[11px] font-semibold text-brandYellow mt-1 flex items-center gap-1.5">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-brandYellow shrink-0"></span>
+                      <span>{{ fieldErrors()['forgotEmail'] }}</span>
+                    </p>
+                  }
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-2">
+                  <app-ui-button 
+                    [text]="'AUTH.FORGOT.SUBMIT_BTN' | translate" 
+                    variant="yellow" 
+                    size="md" 
+                    [fullWidth]="true"
+                    type="submit"
+                    [disabled]="isLoading()">
+                  </app-ui-button>
+                </div>
+
+              </form>
+            }
+
+            <!-- Step 2: Verify OTP & Set New Password -->
+            @if (forgotStep() === 'verify') {
+              <form (ngSubmit)="onForgotVerifySubmit()" class="space-y-4">
+                
+                <div class="p-3 rounded-lg border border-brandYellow/20 bg-brandYellow/5 text-xs text-brandYellowMuted">
+                  {{ 'AUTH.FORGOT.SUCCESS_MSG' | translate }}
+                </div>
+
+                <!-- OTP Field -->
+                <div class="space-y-1.5">
+                  <label class="text-xs font-bold tracking-wider uppercase text-brandYellowDim">
+                    {{ 'AUTH.FORGOT.OTP_LABEL' | translate }}
+                  </label>
+                  <input 
+                    type="text" 
+                    [(ngModel)]="forgotOtp" 
+                    name="forgotOtp"
+                    required
+                    maxlength="6"
+                    class="w-full bg-transparent border rounded-lg px-3.5 py-2 text-white tracking-widest font-mono text-base placeholder:text-brandYellowFaint focus:outline-none transition-colors"
+                    [ngClass]="fieldErrors()['forgotOtp'] ? 'border-brandYellow text-white' : 'border-brandYellow/25 focus:border-brandYellow'"
+                    [placeholder]="'AUTH.FORGOT.OTP_PLACEHOLDER' | translate">
+                  @if (fieldErrors()['forgotOtp']) {
+                    <p class="text-[11px] font-semibold text-brandYellow mt-1 flex items-center gap-1.5">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-brandYellow shrink-0"></span>
+                      <span>{{ fieldErrors()['forgotOtp'] }}</span>
+                    </p>
+                  }
+                </div>
+
+                <!-- New Password -->
+                <div class="space-y-1.5">
+                  <label class="text-xs font-bold tracking-wider uppercase text-brandYellowDim">
+                    {{ 'AUTH.FORGOT.NEW_PASSWORD_LABEL' | translate }}
+                  </label>
+                  <div class="relative flex items-center">
+                    <input 
+                      [type]="showPassword() ? 'text' : 'password'" 
+                      [(ngModel)]="forgotNewPassword" 
+                      name="forgotNewPassword"
+                      required
+                      class="w-full bg-transparent border rounded-lg ps-3.5 pe-14 py-2.5 text-white placeholder:text-brandYellowFaint focus:outline-none transition-colors text-sm font-medium"
+                      [ngClass]="fieldErrors()['forgotNewPassword'] ? 'border-brandYellow text-white' : 'border-brandYellow/25 focus:border-brandYellow'"
+                      [placeholder]="'AUTH.FORGOT.NEW_PASSWORD_PLACEHOLDER' | translate">
+                    <button 
+                      type="button"
+                      (click)="togglePasswordVisibility()"
+                      class="absolute end-3 text-xs font-bold text-brandYellowDim hover:text-brandYellow transition-colors cursor-pointer select-none">
+                      {{ showPassword() ? ('AUTH.HIDE' | translate) : ('AUTH.SHOW' | translate) }}
+                    </button>
+                  </div>
+                  @if (fieldErrors()['forgotNewPassword']) {
+                    <p class="text-[11px] font-semibold text-brandYellow mt-1 flex items-center gap-1.5">
+                      <span class="inline-block w-1.5 h-1.5 rounded-full bg-brandYellow shrink-0"></span>
+                      <span>{{ fieldErrors()['forgotNewPassword'] }}</span>
+                    </p>
+                  }
+                </div>
+
+                <!-- Resend Timer -->
+                <div class="flex items-center justify-between text-xs text-brandYellowDim">
+                  <span>
+                    {{ 'AUTH.FORGOT.RESEND_IN' | translate }} 
+                    <strong class="text-brandYellow font-mono">{{ forgotTimer() }}s</strong>
+                  </span>
+                  <button 
+                    type="button" 
+                    (click)="resendOtp()" 
+                    [disabled]="forgotTimer() > 0"
+                    class="font-bold text-brandYellow hover:underline disabled:opacity-40 disabled:no-underline cursor-pointer">
+                    {{ 'AUTH.FORGOT.RESEND_BTN' | translate }}
+                  </button>
+                </div>
+
+                <!-- Verify Button -->
+                <div class="pt-2">
+                  <app-ui-button 
+                    [text]="'AUTH.FORGOT.VERIFY_BTN' | translate" 
+                    variant="yellow" 
+                    size="md" 
+                    [fullWidth]="true"
+                    type="submit"
+                    [disabled]="isLoading()">
+                  </app-ui-button>
+                </div>
+
+              </form>
+            }
+
+            <!-- Back to Login -->
+            <div class="pt-3 border-t border-brandYellow/15 text-xs text-brandYellowMuted text-center">
+              <button 
+                type="button" 
+                (click)="setMode('login')"
+                class="font-bold text-brandYellow hover:underline cursor-pointer">
+                {{ 'AUTH.FORGOT.BACK_TO_LOGIN' | translate }}
+              </button>
+            </div>
+
+          </div>
+        }
+
+      </div>
+
+    </div>
+
+    <!-- Footer on Yellow Side: Copyright (Aligned to Container) -->
+    <footer class="w-full max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between text-xs text-black/70 gap-2 font-medium z-10">
+      <div>
+        © 2026 LEX.AUDIT. {{ 'FOOTER.RIGHTS' | translate }}
+      </div>
+      <!-- Mobile-only legal links -->
+      <div class="flex lg:hidden items-center gap-4">
+        <a routerLink="/terms" class="hover:text-black transition-colors">{{ 'FOOTER.LINKS.TERMS' | translate }}</a>
+        <a routerLink="/privacy" class="hover:text-black transition-colors">{{ 'FOOTER.LINKS.PRIVACY' | translate }}</a>
+        <a routerLink="/cookie" class="hover:text-black transition-colors">{{ 'FOOTER.LINKS.COOKIE' | translate }}</a>
+      </div>
+    </footer>
+
+  </section>
+
+  <!-- ==================================================== -->
+  <!-- 30% BLACK SIDE (Super Footer Phrases Showcase)       -->
+  <!-- ==================================================== -->
+  <section class="lg:col-span-3 bg-black hidden lg:flex flex-col justify-between p-6 sm:p-8 lg:p-12 min-h-screen text-brandYellow overflow-hidden relative">
+    
+    <!-- Top Header on Black Side: Language & Home -->
+    <div class="w-full flex items-center justify-end gap-4 z-10">
+      <a routerLink="/" class="text-xs font-bold uppercase tracking-wider text-brandYellowDim hover:text-brandYellow transition-colors flex items-center gap-1.5">
+        <ng-icon [name]="langService.currentLang() === 'ar' ? 'lucideArrowRight' : 'lucideArrowLeft'" size="13px"></ng-icon>
+        <span>{{ 'NAVBAR.HOME' | translate }}</span>
+      </a>
+      <div class="h-3.5 w-px bg-brandYellow/20"></div>
+      <app-language-selector theme="dark"></app-language-selector>
+    </div>
+
+    <!-- Center: Super Footer Massive Typography Lens Beam Sweep -->
+    <div class="my-auto space-y-5 py-8 z-10 text-start">
+      
+      <!-- Rotating Super Footer Brand Phrase -->
+      <h2 class="relative text-5xl xl:text-6xl 2xl:text-7xl font-black tracking-tighter leading-[1.2] py-3 px-1 select-none overflow-visible">
+        <!-- Base Text: Pure Black against bg-black -->
+        <span class="text-black block break-words select-none py-1">{{ currentWordKey | translate }}</span>
+        
+        <!-- Spotlight / Lens Overlay Sweep (Tighter focused circle) -->
+        <span 
+          (animationiteration)="onSweepIteration()"
+          class="absolute start-0 top-0 w-full h-full text-transparent pointer-events-none block break-words py-1"
+          [ngClass]="isRtl ? 'animate-sweep-rtl' : 'animate-sweep-ltr'"
+          style="
+            background-clip: text; 
+            -webkit-background-clip: text;
+            background-image: radial-gradient(circle 55px at center, #EED202 0%, transparent 100%);
+            background-size: 200% 100%;
+          "
+        >
+          {{ currentWordKey | translate }}
+        </span>
+      </h2>
+
+      <!-- Official Platform Super Footer Tagline -->
+      <p class="text-xs text-brandYellowDim leading-relaxed max-w-xs font-medium">
+        {{ 'FOOTER.TAGLINE' | translate }}
+      </p>
+
+    </div>
+
+    <!-- Bottom Footer on Black Side: Legal Links -->
+    <footer class="w-full flex items-center justify-end gap-5 text-xs text-brandYellowDim font-medium z-10">
+      <a routerLink="/terms" class="hover:text-brandYellow transition-colors">{{ 'FOOTER.LINKS.TERMS' | translate }}</a>
+      <a routerLink="/privacy" class="hover:text-brandYellow transition-colors">{{ 'FOOTER.LINKS.PRIVACY' | translate }}</a>
+      <a routerLink="/cookie" class="hover:text-brandYellow transition-colors">{{ 'FOOTER.LINKS.COOKIE' | translate }}</a>
+    </footer>
+
+  </section>
+
+</div>

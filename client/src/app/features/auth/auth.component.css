@@ -1,0 +1,33 @@
+/* Custom styling for Auth component */
+:host {
+  display: block;
+  width: 100%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #ffffff;
+  -webkit-box-shadow: 0 0 0px 1000px #000000 inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* LTR: Sweeps from LEFT to RIGHT */
+@keyframes sweep-ltr {
+  0% { background-position: 150% 50%; }
+  100% { background-position: -50% 50%; }
+}
+
+/* RTL: Sweeps from RIGHT to LEFT */
+@keyframes sweep-rtl {
+  0% { background-position: -50% 50%; }
+  100% { background-position: 150% 50%; }
+}
+
+.animate-sweep-ltr {
+  animation: sweep-ltr 3.5s infinite linear;
+}
+
+.animate-sweep-rtl {
+  animation: sweep-rtl 3.5s infinite linear;
+}

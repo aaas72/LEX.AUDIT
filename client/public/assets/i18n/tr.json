@@ -4,7 +4,7 @@
     "PRICING": "Fiyatlandırma",
     "CONTACT": "İletişim",
     "LOGIN": "Giriş Yap",
-    "START_FREE": "Ücretsiz Başla"
+    "START_FREE": "Şimdi Başla"
   },
   "HERO": {
     "TITLE": "Yasal riskleri gerçekleşmeden<br/>önce keşfedin",
@@ -118,11 +118,16 @@
     },
     "RESULTS": {
       "CLASSIFICATION": "Sınıflandırma",
-      "CLASSIFICATION_NOTE": "İşaretlenen maddelerin acil incelenmesi gerekir.",
+      "LEVELS": {
+        "HIGH_RISK": "YÜKSEK RİSK",
+        "MEDIUM_RISK": "ORTA RİSK",
+        "LOW_RISK": "DÜŞÜK RİSK"
+      },
+      "CLASSIFICATION_NOTE": "İşaretlenen maddelerin derhal gözden geçirilmesi gerekir.",
       "ANALYZED": "Analiz Edilen",
       "FLAGGED": "İşaretlenen",
       "OVERALL_RISK_SCORE": "Genel Risk Puanı",
-      "EXPORT_PDF": "PDF Dışa Aktar",
+      "EXPORT_PDF": "PDF Olarak İndir",
       "DETAILED_REPORT": "Detaylı Rapor"
     }
   },
@@ -231,17 +236,120 @@
     "TAGLINE": "Riski azaltın. Adaleti en üst düzeye çıkarın. Yapay zeka yasal denetiminde standart.",
     "RIGHTS": "Tüm hakları saklıdır.",
     "WORDS": {
-      "LEX_AUDIT": "YASAL.DENETİM",
-      "UNFAIR_CLAUSE": "HAKSIZ.MADDE",
-      "HIDDEN_RISK": "GIZLI.RISK",
-      "AUTO_RENEWAL": "OTOMATIK.YENILEME",
-      "LIABILITY_TRAP": "SORUMLULUK.TUZAGI",
-      "IP_LEAKAGE": "MULKIYET.SIZINTISI"
+      "LEX_AUDIT": "YASAL DENETİM",
+      "UNFAIR_CLAUSE": "HAKSIZ MADDE",
+      "HIDDEN_RISK": "GİZLİ RİSK",
+      "AUTO_RENEWAL": "OTOMATİK YENİLEME",
+      "LIABILITY_TRAP": "SORUMLULUK TUZAĞI",
+      "IP_LEAKAGE": "MÜLKİYET SIZINTISI"
+    },
+    "EMAILS": {
+      "GENERAL": "Genel İletişim",
+      "SUPPORT": "Destek",
+      "PARTNERSHIP": "Ortaklıklar"
     },
     "LINKS": {
       "TERMS": "Hizmet Şartları",
       "PRIVACY": "Gizlilik Politikası",
       "COOKIE": "Çerez Politikası"
+    }
+  },
+  "AUTH": {
+    "BADGE": "ERİŞİM PROTOKOLÜ // GÜVENLİ DENETİM",
+    "TAGLINE": "Yapay Zeka Hukuk Denetim Motoruna Yetkili Erişim",
+    "SHOW": "Göster",
+    "HIDE": "Gizle",
+    "TABS": {
+      "LOGIN": "Giriş Yap",
+      "REGISTER": "Kayıt Ol",
+      "FORGOT": "Kurtarma"
+    },
+    "LOGIN": {
+      "TITLE": "Giriş Yap",
+      "SUBTITLE": "Sözleşmeleri denetlemeye ve analiz etmeye devam etmek için giriş yapın",
+      "EMAIL_LABEL": "Kurumsal E-posta",
+      "EMAIL_PLACEHOLDER": "avukat@hukuk.com",
+      "PASSWORD_LABEL": "Şifre",
+      "PASSWORD_PLACEHOLDER": "••••••••••••",
+      "REMEMBER_ME": "Oturumumu hatırla",
+      "FORGOT_PASSWORD": "Şifrenizi mi unuttunuz?",
+      "SUBMIT_BTN": "Denetim Alanına Gir",
+      "SUBMITTING": "Kimlik Doğrulanıyor...",
+      "DEMO_TITLE": "Hızlı Demo Hesapları",
+      "DEMO_LAWYER": "Hukuk Bürosu (Avukat)",
+      "DEMO_ENTERPRISE": "Hukuk Departmanı (Şirket)",
+      "OR_DIVIDER": "VEYA ŞUNUNLA DEVAM EDİN",
+      "SSO_GOOGLE": "Google ile Devam Et",
+      "SSO_APPLE": "Apple ile Devam Et",
+      "SSO_ENTERPRISE": "Kurumsal Portalı (SSO)",
+      "NO_ACCOUNT": "Henüz hesabınız yok mu?",
+      "SIGNUP_LINK": "Hemen Hesap Oluşturun"
+    },
+    "REGISTER": {
+      "TITLE": "Yeni Hesap Oluştur",
+      "SUBTITLE": "Sözleşmeleri denetlemek ve haksız maddeleri tespit etmek için gelişmiş yapay zekayı kullanmaya başlayın",
+      "ACCOUNT_TYPE_LABEL": "Hesap Türü",
+      "ROLES": {
+        "LAWYER": "Avukat",
+        "ENTERPRISE": "Şirket",
+        "INDIVIDUAL": "Bireysel"
+      },
+      "FULL_NAME_LABEL": "Tam Ad / Şirket Adı",
+      "FULL_NAME_PLACEHOLDER": "Emre Yılmaz",
+      "EMAIL_LABEL": "İş E-postası",
+      "EMAIL_PLACEHOLDER": "ad@sirket.com",
+      "PASSWORD_LABEL": "Şifrelenmiş Parola",
+      "PASSWORD_PLACEHOLDER": "En az 8 karakter, sayı ve sembol",
+      "CONFIRM_PASSWORD_LABEL": "Şifreyi Onayla",
+      "CONFIRM_PASSWORD_PLACEHOLDER": "Şifrenizi tekrar girin",
+      "TERMS_AGREE_PREFIX": "Kabul ediyorum:",
+      "TERMS_LINK": "Hizmet Şartları",
+      "TERMS_AND": "ve",
+      "PRIVACY_LINK": "Gizlilik Politikası",
+      "SUBMIT_BTN": "Hesabı Etkinleştir ve Başla",
+      "SUBMITTING": "Çalışma Alanı Hazırlanıyor...",
+      "ALREADY_HAVE_ACCOUNT": "Zaten hesabınız var mı?",
+      "LOGIN_LINK": "Giriş Yap"
+    },
+    "FORGOT": {
+      "TITLE": "Şifre Sıfırlama",
+      "SUBTITLE": "Kayıtlı e-postanızı girin, şifrenizi sıfırlamak için şifreli bir güvenlik kodu gönderelim",
+      "EMAIL_LABEL": "Kayıtlı E-posta Adresi",
+      "EMAIL_PLACEHOLDER": "danisman@alanadi.com",
+      "SUBMIT_BTN": "Kurtarma Kodu Gönder (OTP)",
+      "SUBMITTING": "Doğrulanıyor ve Kod Gönderiliyor...",
+      "SUCCESS_TITLE": "Doğrulama Kodu Gönderildi",
+      "SUCCESS_MSG": "E-postanıza 6 haneli bir güvenlik kodu gönderildi. Lütfen gelen kutunuzu kontrol edin.",
+      "OTP_LABEL": "6 Haneli Güvenlik Kodu (OTP)",
+      "OTP_PLACEHOLDER": "123456",
+      "NEW_PASSWORD_LABEL": "Yeni Şifre",
+      "NEW_PASSWORD_PLACEHOLDER": "Güçlü yeni şifre belirleyin",
+      "VERIFY_BTN": "Şifreyi Güncelle ve Giriş Yap",
+      "RESEND_IN": "Yeniden gönderim süresi:",
+      "RESEND_BTN": "Kodu Tekrar Gönder",
+      "BACK_TO_LOGIN": "Giriş Ekranına Dön"
+    },
+    "SIDEBAR": {
+      "SECURE_HEADING": "Yüksek Hassasiyetli Hukuki Denetim Motoru",
+      "FEATURE_1_TITLE": "Anında Haksız Madde Tespiti",
+      "FEATURE_1_DESC": "Ağır tazminat, tek taraflı fesih ve sorumluluk tuzaklarını saniyeler içinde tarayın.",
+      "FEATURE_2_TITLE": "Sıfır Saklama Uçucu Bellek Mimarisi",
+      "FEATURE_2_DESC": "Belgeler şifrelenmiş geçici bellekte taranır, asla saklanmaz veya genel modellerde eğitilmez.",
+      "FEATURE_3_TITLE": "Standartlaştırılmış Sözleşme Bütünlüğü",
+      "FEATURE_3_DESC": "Uluslararası kurumsal standartlara uygun, dengeli ve yasal olarak sağlam alternatifler alın.",
+      "NODE_STATUS": "Denetim Düğümü: Aktif & Korumalı",
+      "NODE_ENCRYPTION": "256-BIT SSL ŞİFRELEME"
+    },
+    "ERRORS": {
+      "EMAIL_REQUIRED": "Lütfen e-posta adresinizi girin",
+      "EMAIL_INVALID": "Geçerli bir e-posta adresi girin",
+      "PASSWORD_REQUIRED": "Lütfen şifrenizi girin",
+      "PASSWORD_MIN": "Şifre en az 8 karakter olmalıdır",
+      "NAME_REQUIRED": "Lütfen adınızı veya şirket adını girin",
+      "PASSWORD_MISMATCH": "Şifreler eşleşmiyor",
+      "TERMS_REQUIRED": "Devam etmek için şartları kabul etmelisiniz",
+      "OTP_REQUIRED": "Lütfen 6 haneli doğrulama kodunu girin",
+      "NEW_PASSWORD_REQUIRED": "Lütfen yeni şifrenizi girin"
     }
   }
 }

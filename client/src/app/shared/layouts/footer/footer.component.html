@@ -5,28 +5,64 @@
       
       <!-- Massive Brand & Contact with Lens Effect -->
       <div>
-        <h2 class="relative text-7xl md:text-[11rem] leading-none font-black tracking-tighter mb-4 w-fit select-none">
+        <h2 class="relative text-7xl md:text-[11rem] leading-[1.2] py-4 px-2 font-black tracking-tighter mb-4 w-fit select-none overflow-visible">
           <!-- Base Text is Pure Black (invisible against bg-black) -->
-          <span class="text-black inline-block">{{ currentWordKey | translate }}</span>
+          <span class="text-black inline-block py-2 px-1">{{ currentWordKey | translate }}</span>
           
           <!-- Spotlight/Lens Overlay (Reveals text in glowing gold as beam sweeps) -->
           <span 
             (animationiteration)="onSweepIteration()"
-            class="absolute start-0 top-0 w-full h-full text-transparent pointer-events-none inline-block"
+            class="absolute start-0 top-0 w-full h-full text-transparent pointer-events-none inline-block py-2 px-1"
             [ngClass]="isRtl ? 'animate-sweep-rtl' : 'animate-sweep-ltr'"
             style="
               background-clip: text; 
               -webkit-background-clip: text;
-              background-image: radial-gradient(circle 240px at center, #fabb3c 0%, transparent 100%);
+              background-image: radial-gradient(circle 125px at center, #EED202 0%, transparent 100%);
               background-size: 200% 100%;
             "
           >
             {{ currentWordKey | translate }}
           </span>
         </h2>
-        <a href="mailto:contact&#64;lex.audit" class="text-2xl md:text-4xl font-medium text-brandYellow hover:text-white transition-colors">
-          contact&#64;lex.audit
-        </a>
+
+        <!-- Multiple Categorized Emails (General, Support, Partnership) -->
+        <div class="flex flex-wrap items-center gap-5 sm:gap-7 pt-4">
+          
+          <!-- General -->
+          <div class="flex flex-col gap-0.5">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandYellowDim">
+              {{ 'FOOTER.EMAILS.GENERAL' | translate }}
+            </span>
+            <a href="mailto:contact&#64;lex.audit" class="text-sm sm:text-base font-bold text-brandYellow hover:text-white transition-colors">
+              contact&#64;lex.audit
+            </a>
+          </div>
+
+          <div class="hidden sm:block h-6 w-px bg-brandYellow/20"></div>
+
+          <!-- Support -->
+          <div class="flex flex-col gap-0.5">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandYellowDim">
+              {{ 'FOOTER.EMAILS.SUPPORT' | translate }}
+            </span>
+            <a href="mailto:support&#64;lex.audit" class="text-sm sm:text-base font-bold text-brandYellow hover:text-white transition-colors">
+              support&#64;lex.audit
+            </a>
+          </div>
+
+          <div class="hidden sm:block h-6 w-px bg-brandYellow/20"></div>
+
+          <!-- Partnership -->
+          <div class="flex flex-col gap-0.5">
+            <span class="text-[10px] font-bold uppercase tracking-widest text-brandYellowDim">
+              {{ 'FOOTER.EMAILS.PARTNERSHIP' | translate }}
+            </span>
+            <a href="mailto:partners&#64;lex.audit" class="text-sm sm:text-base font-bold text-brandYellow hover:text-white transition-colors">
+              partners&#64;lex.audit
+            </a>
+          </div>
+
+        </div>
       </div>
 
     </div>

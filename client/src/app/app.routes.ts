@@ -32,5 +32,25 @@ export const routes: Routes = [
   {
     path: 'cookie',
     loadComponent: () => import('./features/public/cookie/cookie.component').then(m => m.CookieComponent)
+  },
+  {
+    path: 'auth',
+    loadComponent: () => import('./features/auth/auth.component').then(m => m.AuthComponent)
+  },
+  {
+    path: 'login',
+    loadComponent: () => import('./features/auth/auth.component').then(m => m.AuthComponent)
+  },
+  {
+    path: 'register',
+    loadComponent: () => import('./features/auth/auth.component').then(m => m.AuthComponent)
+  },
+  {
+    path: 'signup',
+    loadComponent: () => import('./features/auth/auth.component').then(m => m.AuthComponent)
+  },
+  {
+    path: 'forgot-password',
+    loadComponent: () => import('./features/auth/auth.component').then(m => m.AuthComponent)
   }
 ];
