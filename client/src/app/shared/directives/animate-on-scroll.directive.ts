@@ -15,6 +15,7 @@ export class AnimateOnScrollDirective implements OnInit, OnDestroy {
   ngOnInit() {
     // Initial state: hide the element before the animation triggers
     this.renderer.setStyle(this.el.nativeElement, 'opacity', '0');
+    this.renderer.setStyle(this.el.nativeElement, 'will-change', 'opacity');
     
     const options = {
       root: null,
@@ -25,9 +26,11 @@ export class AnimateOnScrollDirective implements OnInit, OnDestroy {
     this.observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          if (this.animationDelay !== '0ms') {
-            this.renderer.setStyle(this.el.nativeElement, 'animation-delay', this.animationDelay);
-          }
+          // Remove initial inline opacity so CSS animation takes full control
+          this.renderer.removeStyle(this.el.nativeElement, 'opacity');
+          
+          const delay = this.animationDelay !== '0ms' ? this.animationDelay : '200ms';
+          this.renderer.setStyle(this.el.nativeElement, 'animation-delay', delay);
           this.renderer.addClass(this.el.nativeElement, this.animationClass);
           
           // Stop observing once animated

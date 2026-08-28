@@ -4,20 +4,20 @@
     
     <!-- Text Column -->
     <div class="flex-1 flex flex-col items-start text-start w-full max-w-2xl">
-      <h1 class="text-5xl lg:text-6xl font-medium tracking-tight leading-snug text-black mb-8" appAnimateOnScroll="animate-fade-in-up" animationDelay="0ms" [innerHTML]="'HERO.TITLE' | translate">
+      <h1 class="text-5xl lg:text-6xl font-medium tracking-tight leading-snug text-black mb-8" appAnimateOnScroll="animate-fade-in" animationDelay="100ms" [innerHTML]="'HERO.TITLE' | translate">
       </h1>
-      <p class="text-base md:text-lg text-black leading-relaxed mb-12" appAnimateOnScroll="animate-fade-in-up" animationDelay="150ms">
+      <p class="text-base md:text-lg text-black leading-relaxed mb-12" appAnimateOnScroll="animate-fade-in" animationDelay="250ms">
         {{ 'HERO.SUBTITLE' | translate }}
       </p>
       
-      <div appAnimateOnScroll="animate-fade-in-up" animationDelay="300ms">
+      <div appAnimateOnScroll="animate-fade-in" animationDelay="400ms">
         <app-ui-button [text]="'HERO.BUTTON' | translate"></app-ui-button>
       </div>
 
     </div>
 
     <!-- Illustration Column -->
-    <div class="flex-1 w-full flex justify-center items-center mt-16 lg:mt-0">
+    <div class="flex-1 w-full flex justify-center items-center mt-16 lg:mt-0" appAnimateOnScroll="animate-fade-in" animationDelay="200ms">
       <app-audit-illustration class="w-full max-w-2xl lg:max-w-3xl"></app-audit-illustration>
     </div>
 

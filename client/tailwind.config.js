@@ -34,8 +34,8 @@ module.exports = {
         },
       },
       animation: {
-        'fade-in': 'fade-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-        'fade-in-up': 'fade-in 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'fade-in': 'fade-in 1.4s cubic-bezier(0.22, 1, 0.36, 1) both',
+        'fade-in-up': 'fade-in 1.4s cubic-bezier(0.22, 1, 0.36, 1) both',
         'draw-line': 'draw-line 2s ease-in-out forwards',
       },
     },
