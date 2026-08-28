@@ -5,7 +5,7 @@ import { Directive, ElementRef, Input, OnInit, OnDestroy, Renderer2 } from '@ang
   standalone: true
 })
 export class AnimateOnScrollDirective implements OnInit, OnDestroy {
-  @Input('appAnimateOnScroll') animationClass: string = 'animate-fade-in-up';
+  @Input('appAnimateOnScroll') animationClass: string = 'animate-fade-in';
   @Input() animationDelay: string = '0ms';
 
   private observer: IntersectionObserver | null = null;
