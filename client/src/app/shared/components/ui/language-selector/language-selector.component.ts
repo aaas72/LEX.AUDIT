@@ -21,17 +21,17 @@ export interface LanguageOption {
     })
   ],
   template: `
-    <div class="relative inline-block text-start select-none" #dropdownRef>
+    <div class="relative inline-block text-start select-none z-50" #dropdownRef>
       <!-- Trigger Button -->
       <button
         type="button"
-        (click)="toggleDropdown()"
+        (click)="toggleDropdown($event)"
         [attr.aria-expanded]="isOpen"
         aria-haspopup="listbox"
         class="relative overflow-hidden group rounded-lg border-2 transition-colors duration-500 flex items-center justify-between gap-2 px-3.5 h-[38px] cursor-pointer text-xs font-bold tracking-widest uppercase focus:outline-none z-0 min-w-[62px]"
         [ngClass]="theme === 'dark' 
-          ? (isOpen ? 'border-brandYellow bg-brandYellow text-black' : 'border-brandYellow text-brandYellow bg-transparent') 
-          : (isOpen ? 'border-black bg-black text-brandYellow' : 'border-black text-black bg-transparent')"
+          ? (isOpen ? 'border-brandYellow bg-brandYellow text-black' : 'border-brandYellow text-brandYellow bg-transparent hover:border-brandYellow') 
+          : (isOpen ? 'border-black bg-black text-brandYellow' : 'border-black text-black bg-transparent hover:border-black')"
       >
         <!-- Inspection Lens Hover Effect -->
         <span 
@@ -69,7 +69,8 @@ export interface LanguageOption {
       <div
         *ngIf="isOpen"
         role="listbox"
-        class="absolute top-full mt-1.5 start-0 end-0 w-full z-50 rounded-xl border border-brandYellow/30 bg-black p-1 animate-fade-in transition-all duration-200 shadow-none"
+        class="absolute top-full mt-1.5 start-0 end-0 w-full z-50 rounded-xl border border-brandYellow/30 bg-black p-1 transition-all duration-200 shadow-xl"
+        (click)="$event.stopPropagation()"
       >
         <div class="flex flex-col gap-1">
           <button
@@ -77,7 +78,7 @@ export interface LanguageOption {
             type="button"
             role="option"
             [attr.aria-selected]="languageService.currentLang() === lang.code"
-            (click)="selectLanguage(lang.code)"
+            (click)="selectLanguage(lang.code, $event)"
             class="relative overflow-hidden group/item w-full rounded-lg py-1.5 flex items-center justify-center text-xs font-black tracking-widest uppercase cursor-pointer transition-colors duration-300 focus:outline-none"
             [ngClass]="languageService.currentLang() === lang.code 
               ? 'bg-brandYellow text-black font-black' 
@@ -109,11 +110,17 @@ export class LanguageSelectorComponent {
     return this.languages.find(l => l.code === active) || this.languages[0];
   }
 
-  toggleDropdown() {
+  toggleDropdown(event?: MouseEvent) {
+    if (event) {
+      event.stopPropagation();
+    }
     this.isOpen = !this.isOpen;
   }
 
-  selectLanguage(lang: SupportedLanguage) {
+  selectLanguage(lang: SupportedLanguage, event?: MouseEvent) {
+    if (event) {
+      event.stopPropagation();
+    }
     this.languageService.setLanguage(lang);
     this.isOpen = false;
   }
@@ -132,5 +139,3 @@ export class LanguageSelectorComponent {
     }
   }
 }
-
-
