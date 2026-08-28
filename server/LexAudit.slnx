@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/LexAudit.Api/LexAudit.Api.csproj" />
+    <Project Path="src/LexAudit.Application/LexAudit.Application.csproj" />
+    <Project Path="src/LexAudit.Domain/LexAudit.Domain.csproj" />
+    <Project Path="src/LexAudit.Infrastructure/LexAudit.Infrastructure.csproj" />
+  </Folder>
+</Solution>

@@ -1,9 +1,9 @@
-<div class="min-h-screen grid grid-cols-1 lg:grid-cols-10 font-sans overflow-x-hidden selection:bg-brandYellow selection:text-black">
+<div class="h-screen grid grid-cols-1 lg:grid-cols-10 font-sans overflow-hidden selection:bg-brandYellow selection:text-black">
   
   <!-- ==================================================== -->
   <!-- 70% YELLOW SIDE (Holds the Auth Card)                -->
   <!-- ==================================================== -->
-  <section class="lg:col-span-7 bg-brandYellow text-black flex flex-col justify-between p-6 sm:p-8 lg:p-12 min-h-screen">
+  <section class="lg:col-span-7 bg-brandYellow text-black flex flex-col justify-between p-6 sm:p-8 lg:p-12 h-screen overflow-y-auto">
     
     <!-- Header on Yellow Side (Aligned to Container) -->
     <header class="w-full max-w-5xl mx-auto flex items-center justify-between z-10">
@@ -27,53 +27,18 @@
       
       <div class="rounded-2xl bg-black text-brandYellow p-6 sm:p-8">
 
-        <!-- Mode Switcher (Segmented Tabs with Official Hover) -->
-        <div class="mb-6 p-1 rounded-xl border border-brandYellow/20 bg-black flex items-center gap-1">
-          
-          <!-- Login Tab -->
-          <button 
-            type="button" 
-            (click)="setMode('login')"
-            class="group relative overflow-hidden z-0 flex-1 py-2 px-3 rounded-lg text-xs font-bold tracking-wider uppercase transition-all duration-300 text-center cursor-pointer select-none"
-            [ngClass]="mode() === 'login' ? 'bg-brandYellow text-black font-extrabold' : 'text-brandYellow bg-transparent'">
-            @if (mode() !== 'login') {
-              <span class="absolute top-[50%] ltr:left-[50%] rtl:right-[50%] w-0 h-0 rounded-full ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out -z-10 group-hover:w-[250px] group-hover:h-[250px] bg-brandYellow"></span>
-            }
-            <span class="relative z-10 transition-colors duration-300" [ngClass]="mode() !== 'login' ? 'group-hover:text-black' : ''">
-              {{ 'AUTH.TABS.LOGIN' | translate }}
-            </span>
-          </button>
-
-          <!-- Register Tab -->
-          <button 
-            type="button" 
-            (click)="setMode('register')"
-            class="group relative overflow-hidden z-0 flex-1 py-2 px-3 rounded-lg text-xs font-bold tracking-wider uppercase transition-all duration-300 text-center cursor-pointer select-none"
-            [ngClass]="mode() === 'register' ? 'bg-brandYellow text-black font-extrabold' : 'text-brandYellow bg-transparent'">
-            @if (mode() !== 'register') {
-              <span class="absolute top-[50%] ltr:left-[50%] rtl:right-[50%] w-0 h-0 rounded-full ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out -z-10 group-hover:w-[250px] group-hover:h-[250px] bg-brandYellow"></span>
-            }
-            <span class="relative z-10 transition-colors duration-300" [ngClass]="mode() !== 'register' ? 'group-hover:text-black' : ''">
-              {{ 'AUTH.TABS.REGISTER' | translate }}
-            </span>
-          </button>
-
-          <!-- Forgot Tab (appears when in forgot mode) -->
-          @if (mode() === 'forgot') {
-            <button 
-              type="button" 
-              (click)="setMode('forgot')"
-              class="flex-1 py-2 px-3 rounded-lg text-xs font-bold tracking-wider uppercase transition-all duration-300 text-center bg-brandYellow text-black font-extrabold cursor-pointer select-none">
-              {{ 'AUTH.TABS.FORGOT' | translate }}
-            </button>
-          }
-
-        </div>
-
         <!-- Success Notice -->
         @if (successMessage()) {
           <div class="mb-5 p-3 rounded-lg border border-brandYellow/40 bg-brandYellow/10 text-brandYellow text-xs font-bold">
             <span>{{ successMessage() }}</span>
+          </div>
+        }
+
+        <!-- Error Notice -->
+        @if (errorMessage()) {
+          <div class="mb-5 p-3 rounded-lg border border-red-500/50 bg-red-500/10 text-red-500 text-xs font-bold flex items-start gap-2">
+            <ng-icon name="lucideAlertTriangle" size="14px" class="shrink-0 mt-0.5"></ng-icon>
+            <span>{{ errorMessage() }}</span>
           </div>
         }
 
@@ -90,7 +55,8 @@
               </label>
               <input 
                 type="email" 
-                [(ngModel)]="loginEmail" 
+                [ngModel]="loginEmail()" 
+                (ngModelChange)="loginEmail.set($event)"
                 name="loginEmail"
                 required
                 autocomplete="email"
@@ -121,7 +87,8 @@
               <div class="relative flex items-center">
                 <input 
                   [type]="showPassword() ? 'text' : 'password'" 
-                  [(ngModel)]="loginPassword" 
+                  [ngModel]="loginPassword()" 
+                  (ngModelChange)="loginPassword.set($event)"
                   name="loginPassword"
                   required
                   autocomplete="current-password"
@@ -148,7 +115,8 @@
               <label class="flex items-center gap-2 cursor-pointer select-none">
                 <input 
                   type="checkbox" 
-                  [(ngModel)]="rememberMe" 
+                  [ngModel]="rememberMe()" 
+                  (ngModelChange)="rememberMe.set($event)"
                   name="rememberMe"
                   class="sr-only peer">
                 <div class="w-4 h-4 rounded border border-brandYellow/30 peer-checked:border-brandYellow peer-checked:bg-brandYellow flex items-center justify-center transition-all">
@@ -249,7 +217,8 @@
               </label>
               <input 
                 type="text" 
-                [(ngModel)]="registerName" 
+                [ngModel]="registerName()" 
+                (ngModelChange)="registerName.set($event)"
                 name="registerName"
                 required
                 class="w-full bg-transparent border rounded-lg px-3.5 py-2.5 text-white placeholder:text-brandYellowFaint focus:outline-none transition-colors text-sm font-medium"
@@ -270,7 +239,8 @@
               </label>
               <input 
                 type="email" 
-                [(ngModel)]="registerEmail" 
+                [ngModel]="registerEmail()" 
+                (ngModelChange)="registerEmail.set($event)"
                 name="registerEmail"
                 required
                 autocomplete="email"
@@ -295,7 +265,8 @@
                 <div class="relative flex items-center">
                   <input 
                     [type]="showPassword() ? 'text' : 'password'" 
-                    [(ngModel)]="registerPassword" 
+                    [ngModel]="registerPassword()" 
+                    (ngModelChange)="registerPassword.set($event)"
                     name="registerPassword"
                     required
                     class="w-full bg-transparent border rounded-lg ps-3.5 pe-12 py-2 text-white placeholder:text-brandYellowFaint focus:outline-none transition-colors text-xs font-medium"
@@ -323,7 +294,8 @@
                 <div class="relative flex items-center">
                   <input 
                     [type]="showConfirmPassword() ? 'text' : 'password'" 
-                    [(ngModel)]="registerConfirmPassword" 
+                    [ngModel]="registerConfirmPassword()" 
+                    (ngModelChange)="registerConfirmPassword.set($event)"
                     name="registerConfirmPassword"
                     required
                     class="w-full bg-transparent border rounded-lg ps-3.5 pe-12 py-2 text-white placeholder:text-brandYellowFaint focus:outline-none transition-colors text-xs font-medium"
@@ -351,7 +323,8 @@
               <label class="flex items-start gap-2 cursor-pointer select-none">
                 <input 
                   type="checkbox" 
-                  [(ngModel)]="agreeTerms" 
+                  [ngModel]="agreeTerms()" 
+                  (ngModelChange)="agreeTerms.set($event)"
                   name="agreeTerms"
                   class="sr-only peer">
                 <div class="mt-0.5 w-4 h-4 rounded border border-brandYellow/30 peer-checked:border-brandYellow peer-checked:bg-brandYellow flex items-center justify-center shrink-0 transition-all">
@@ -414,7 +387,8 @@
                   </label>
                   <input 
                     type="email" 
-                    [(ngModel)]="forgotEmail" 
+                    [ngModel]="forgotEmail()" 
+                    (ngModelChange)="forgotEmail.set($event)"
                     name="forgotEmail"
                     required
                     autocomplete="email"
@@ -459,7 +433,8 @@
                   </label>
                   <input 
                     type="text" 
-                    [(ngModel)]="forgotOtp" 
+                    [ngModel]="forgotOtp()" 
+                    (ngModelChange)="forgotOtp.set($event)"
                     name="forgotOtp"
                     required
                     maxlength="6"
@@ -482,7 +457,8 @@
                   <div class="relative flex items-center">
                     <input 
                       [type]="showPassword() ? 'text' : 'password'" 
-                      [(ngModel)]="forgotNewPassword" 
+                      [ngModel]="forgotNewPassword()" 
+                      (ngModelChange)="forgotNewPassword.set($event)"
                       name="forgotNewPassword"
                       required
                       class="w-full bg-transparent border rounded-lg ps-3.5 pe-14 py-2.5 text-white placeholder:text-brandYellowFaint focus:outline-none transition-colors text-sm font-medium"
@@ -568,16 +544,62 @@
   <!-- ==================================================== -->
   <!-- 30% BLACK SIDE (Super Footer Phrases Showcase)       -->
   <!-- ==================================================== -->
-  <section class="lg:col-span-3 bg-black hidden lg:flex flex-col justify-between p-6 sm:p-8 lg:p-12 min-h-screen text-brandYellow overflow-hidden relative">
+  <section class="lg:col-span-3 bg-black hidden lg:flex flex-col justify-between p-6 sm:p-8 lg:p-12 h-screen text-brandYellow overflow-hidden relative">
     
-    <!-- Top Header on Black Side: Language & Home -->
-    <div class="w-full flex items-center justify-end gap-4 z-10">
-      <a routerLink="/" class="text-xs font-bold uppercase tracking-wider text-brandYellowDim hover:text-brandYellow transition-colors flex items-center gap-1.5">
-        <ng-icon [name]="langService.currentLang() === 'ar' ? 'lucideArrowRight' : 'lucideArrowLeft'" size="13px"></ng-icon>
-        <span>{{ 'NAVBAR.HOME' | translate }}</span>
-      </a>
-      <div class="h-3.5 w-px bg-brandYellow/20"></div>
-      <app-language-selector theme="dark"></app-language-selector>
+    <!-- Top Section on Black Side -->
+    <div class="w-full flex flex-col gap-6 z-10">
+      <!-- Language & Home -->
+      <div class="w-full flex items-center justify-end gap-4">
+        <a routerLink="/" class="text-xs font-bold uppercase tracking-wider text-brandYellowDim hover:text-brandYellow transition-colors flex items-center gap-1.5">
+          <ng-icon [name]="langService.currentLang() === 'ar' ? 'lucideArrowRight' : 'lucideArrowLeft'" size="13px"></ng-icon>
+          <span>{{ 'NAVBAR.HOME' | translate }}</span>
+        </a>
+        <div class="h-3.5 w-px bg-brandYellow/20"></div>
+        <app-language-selector theme="dark"></app-language-selector>
+      </div>
+
+      <!-- Mode Switcher (Segmented Tabs with Official Hover) -->
+      <div class="w-full max-w-sm self-center p-1.5 rounded-xl border border-brandYellow/20 bg-[#1a1a1a] flex items-center gap-1 mt-4">
+        
+        <!-- Login Tab -->
+        <button 
+          type="button" 
+          (click)="setMode('login')"
+          class="group relative overflow-hidden z-0 flex-1 py-2 px-3 rounded-lg text-xs font-bold tracking-wider uppercase transition-all duration-300 text-center cursor-pointer select-none"
+          [ngClass]="mode() === 'login' ? 'bg-brandYellow text-black font-extrabold shadow-md scale-100' : 'text-brandYellow/60 bg-transparent scale-95 hover:bg-white/5'">
+          @if (mode() !== 'login') {
+            <span class="absolute top-[50%] ltr:left-[50%] rtl:right-[50%] w-0 h-0 rounded-full ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out -z-10 group-hover:w-[250px] group-hover:h-[250px] bg-brandYellow"></span>
+          }
+          <span class="relative z-10 transition-colors duration-300" [ngClass]="mode() !== 'login' ? 'group-hover:text-black' : ''">
+            {{ 'AUTH.TABS.LOGIN' | translate }}
+          </span>
+        </button>
+
+        <!-- Register Tab -->
+        <button 
+          type="button" 
+          (click)="setMode('register')"
+          class="group relative overflow-hidden z-0 flex-1 py-2 px-3 rounded-lg text-xs font-bold tracking-wider uppercase transition-all duration-300 text-center cursor-pointer select-none"
+          [ngClass]="mode() === 'register' ? 'bg-brandYellow text-black font-extrabold shadow-md scale-100' : 'text-brandYellow/60 bg-transparent scale-95 hover:bg-white/5'">
+          @if (mode() !== 'register') {
+            <span class="absolute top-[50%] ltr:left-[50%] rtl:right-[50%] w-0 h-0 rounded-full ltr:-translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2 transition-all duration-500 ease-out -z-10 group-hover:w-[250px] group-hover:h-[250px] bg-brandYellow"></span>
+          }
+          <span class="relative z-10 transition-colors duration-300" [ngClass]="mode() !== 'register' ? 'group-hover:text-black' : ''">
+            {{ 'AUTH.TABS.REGISTER' | translate }}
+          </span>
+        </button>
+
+        <!-- Forgot Tab (appears when in forgot mode) -->
+        @if (mode() === 'forgot') {
+          <button 
+            type="button" 
+            (click)="setMode('forgot')"
+            class="flex-1 py-2 px-3 rounded-lg text-xs font-bold tracking-wider uppercase transition-all duration-300 text-center bg-brandYellow text-black font-extrabold cursor-pointer select-none">
+            {{ 'AUTH.TABS.FORGOT' | translate }}
+          </button>
+        }
+
+      </div>
     </div>
 
     <!-- Center: Super Footer Massive Typography Lens Beam Sweep -->

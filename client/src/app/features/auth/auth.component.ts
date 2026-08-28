@@ -31,6 +31,7 @@ import { LanguageSelectorComponent } from '../../shared/components/ui/language-s
 import { UiButtonComponent } from '../../shared/components/ui/ui-button/ui-button.component';
 import { ContainerComponent } from '../../shared/components/ui/container/container.component';
 import { LanguageService } from '../../core/services/language.service';
+import { AuthService } from '../../core/services/auth.service';
 
 export type AuthMode = 'login' | 'register' | 'forgot';
 export type AccountRole = 'LAWYER' | 'ENTERPRISE' | 'INDIVIDUAL';
@@ -81,6 +82,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   private route = inject(ActivatedRoute);
   public langService = inject(LanguageService);
   private translate = inject(TranslateService);
+  private authService = inject(AuthService);
 
   // Active Mode: 'login' | 'register' | 'forgot'
   mode = signal<AuthMode>('login');
@@ -223,20 +225,26 @@ export class AuthComponent implements OnInit, OnDestroy {
 
     this.isLoading.set(true);
 
-    setTimeout(() => {
-      this.isLoading.set(false);
-      this.successMessage.set(
-        this.langService.currentLang() === 'ar'
-          ? 'تم التحقق من الهوية بنجاح. جارٍ نقلك إلى مساحة العمل...'
-          : this.langService.currentLang() === 'tr'
-          ? 'Kimlik başarıyla doğrulandı. Çalışma alanına yönlendiriliyorsunuz...'
-          : 'Authentication successful. Redirecting to Audit Workspace...'
-      );
+    this.authService.login({ email, password }).subscribe({
+      next: () => {
+        this.isLoading.set(false);
+        this.successMessage.set(
+          this.langService.currentLang() === 'ar'
+            ? 'تم التحقق من الهوية بنجاح. جارٍ نقلك إلى مساحة العمل...'
+            : this.langService.currentLang() === 'tr'
+            ? 'Kimlik başarıyla doğrulandı. Çalışma alanına yönlendiriliyorsunuz...'
+            : 'Authentication successful. Redirecting to Audit Workspace...'
+        );
 
-      setTimeout(() => {
-        this.router.navigate(['/audit']);
-      }, 1000);
-    }, 1200);
+        setTimeout(() => {
+          this.router.navigate(['/audit']);
+        }, 1000);
+      },
+      error: (err) => {
+        this.isLoading.set(false);
+        this.errorMessage.set(err.error?.error || 'Authentication failed. Please check your credentials.');
+      }
+    });
   }
 
   // Register Submission
@@ -280,20 +288,30 @@ export class AuthComponent implements OnInit, OnDestroy {
 
     this.isLoading.set(true);
 
-    setTimeout(() => {
-      this.isLoading.set(false);
-      this.successMessage.set(
-        this.langService.currentLang() === 'ar'
-          ? 'تم إنشاء الحساب وتشفير مساحة العمل بنجاح! جارٍ الدخول...'
-          : this.langService.currentLang() === 'tr'
-          ? 'Hesap oluşturuldu ve çalışma alanı şifrelendi! Giriş yapılıyor...'
-          : 'Account created and workspace initialized! Launching...'
-      );
+    this.authService.register({
+      fullName: name,
+      email: email,
+      password: password
+    }).subscribe({
+      next: () => {
+        this.isLoading.set(false);
+        this.successMessage.set(
+          this.langService.currentLang() === 'ar'
+            ? 'تم إنشاء الحساب بنجاح! جارٍ الدخول...'
+            : this.langService.currentLang() === 'tr'
+            ? 'Hesap oluşturuldu! Giriş yapılıyor...'
+            : 'Account created! Launching...'
+        );
 
-      setTimeout(() => {
-        this.router.navigate(['/audit']);
-      }, 1200);
-    }, 1500);
+        setTimeout(() => {
+          this.router.navigate(['/audit']);
+        }, 1200);
+      },
+      error: (err) => {
+        this.isLoading.set(false);
+        this.errorMessage.set(err.error?.error || 'Registration failed. Please try again.');
+      }
+    });
   }
 
   // Forgot Password: Step 1 Request
