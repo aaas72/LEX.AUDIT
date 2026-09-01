@@ -38,8 +38,7 @@ public class JwtTokenService : ITokenService
         {
             new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Email, user.Email),
-            new Claim(ClaimTypes.Name, user.FullName),
-            new Claim("Plan", user.CurrentPlan.ToString())
+            new Claim(ClaimTypes.Name, user.FullName)
         };
 
         var tokenDescriptor = new SecurityTokenDescriptor

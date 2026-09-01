@@ -14,27 +14,24 @@ namespace LexAudit.Infrastructure.Services;
 public class GeminiProvider : IGeminiProvider
 {
     private readonly HttpClient _httpClient;
-    private readonly string _apiKey;
     private readonly string _baseUrl;
     private readonly AuditPromptsOptions _prompts;
 
     public GeminiProvider(HttpClient httpClient, IConfiguration config, IOptions<AuditPromptsOptions> options)
     {
         _httpClient = httpClient;
-        _apiKey = config["Gemini:ApiKey"] ?? string.Empty;
         _baseUrl = config["Gemini:BaseUrl"] ?? "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=";
         _prompts = options.Value;
     }
 
-    public async Task<string> GenerateContentAsync(string systemInstruction, string userPrompt, CancellationToken ct)
+    public async Task<string> GenerateContentAsync(string systemInstruction, string userPrompt, string apiKey, CancellationToken ct)
     {
-        if (string.IsNullOrEmpty(_apiKey))
+        if (string.IsNullOrEmpty(apiKey))
         {
-            // Fallback for development if no key is set
-            return "{\"mock_response\": \"Gemini API Key missing, returning mock data.\"}";
+            throw new Exception("Gemini API Key is required.");
         }
 
-        var requestUri = $"{_baseUrl}{_apiKey}";
+        var requestUri = $"{_baseUrl}{apiKey}";
         
         var payload = new
         {
@@ -67,9 +64,26 @@ public class GeminiProvider : IGeminiProvider
         return textResult ?? string.Empty;
     }
 
-    public async Task<string> AnalyzeHolisticRiskAsync(string contractText, string userRole, string language, CancellationToken ct)
+    public async Task<string> AnalyzeHolisticRiskAsync(string contractText, string userRole, string language, string apiKey, CancellationToken ct)
     {
         var systemInstruction = string.Format(_prompts.HolisticRiskSystemInstruction, userRole, language);
-        return await GenerateContentAsync(systemInstruction, contractText, ct);
+        return await GenerateContentAsync(systemInstruction, contractText, apiKey, ct);
+    }
+
+    public async Task<bool> ValidateApiKeyAsync(string apiKey, CancellationToken ct)
+    {
+        if (string.IsNullOrWhiteSpace(apiKey)) return false;
+
+        try
+        {
+            // Lightweight call to fetch models to verify the API key is active
+            var testUri = $"https://generativelanguage.googleapis.com/v1beta/models?key={apiKey}";
+            var response = await _httpClient.GetAsync(testUri, ct);
+            return response.IsSuccessStatusCode;
+        }
+        catch
+        {
+            return false;
+        }
     }
 }

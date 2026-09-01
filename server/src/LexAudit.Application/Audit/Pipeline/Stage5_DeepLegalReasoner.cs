@@ -22,7 +22,7 @@ public class Stage5_DeepLegalReasoner
         _prompts = options.Value;
     }
 
-    public async Task ReasonOverFindingsAsync(List<AuditFinding> findings, UserRole role, string language, CancellationToken ct)
+    public async Task ReasonOverFindingsAsync(List<AuditFinding> findings, UserRole role, string language, string apiKey, CancellationToken ct)
     {
         // Only run deep reasoning on Medium or higher risk clauses to save tokens
         var highRiskFindings = findings.Where(f => f.RiskLevel >= RiskLevel.Medium).ToList();
@@ -36,7 +36,7 @@ public class Stage5_DeepLegalReasoner
             
             try 
             {
-                var worstCase = await _geminiProvider.GenerateContentAsync(systemInstruction, prompt, ct);
+                var worstCase = await _geminiProvider.GenerateContentAsync(systemInstruction, prompt, apiKey, ct);
                 finding.WorstCaseScenario = worstCase;
             }
             catch (Exception)

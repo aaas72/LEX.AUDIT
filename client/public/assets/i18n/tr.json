@@ -1,7 +1,6 @@
 {
   "NAVBAR": {
     "HOME": "Ana Sayfa",
-    "PRICING": "Fiyatlandırma",
     "CONTACT": "İletişim",
     "LOGIN": "Giriş Yap",
     "START_FREE": "Şimdi Başla"
@@ -108,6 +107,11 @@
       "TITLE_DRAGGING": "Buraya bırakın...",
       "SUBTITLE": "PDF belgenizi buraya sürükleyip bırakın veya göz atmak için tıklayın. Yapay zekamız anında gizli analizi başlatacak.",
       "ERROR_PDF_ONLY": "Analiz için yalnızca PDF dosyaları desteklenmektedir.",
+      "ERROR_GENERIC": "Sözleşme yüklenemedi.",
+      "ERROR_NETWORK": "Sunucuya bağlanılamıyor. Lütfen internet bağlantınızı kontrol edin veya daha sonra tekrar deneyin.",
+      "ERROR_SERVER": "Belge analiz edilirken dahili bir sunucu hatası oluştu.",
+      "ERROR_NO_FILE": "Herhangi bir dosya eklenmedi.",
+      "ERROR_PDF_ONLY_API": "Dosya PDF formatında olmalıdır.",
       "STATUS_VERIFYING": "Dosya bütünlüğü doğrulanıyor...",
       "STATUS_PREPARING": "Belge analiz için hazırlanıyor...",
       "STATUS_ROUTING": "İşlem motoruna yönlendiriliyor...",
@@ -129,78 +133,6 @@
       "OVERALL_RISK_SCORE": "Genel Risk Puanı",
       "EXPORT_PDF": "PDF Olarak İndir",
       "DETAILED_REPORT": "Detaylı Rapor"
-    }
-  },
-  "PRICING": {
-    "TITLE": "Şeffaf Fiyatlandırma.",
-    "SUBTITLE": "Gizli şartlar yok. Risk azaltma ihtiyaçlarınıza uygun planı seçin.",
-    "PLANS": {
-      "STARTER": {
-        "NAME": "Başlangıç",
-        "PRICE": "Ücretsiz",
-        "DESC": "Yapay zeka yasal denetimlerini keşfeden bireyler için.",
-        "PROS": [
-          "Ayda 3 sözleşme denetimi",
-          "Temel risk tespiti",
-          "Standart PDF raporları"
-        ],
-        "CONS": [
-          "Madde yeniden yazımı yok",
-          "Özel şablon yok",
-          "Ekip özellikleri yok"
-        ],
-        "BUTTON": "Hemen Başla"
-      },
-      "PRO": {
-        "NAME": "Profesyonel",
-        "PRICE": "$49",
-        "PERIOD": "/ay",
-        "DESC": "Düzenli hacimlerle ilgilenen serbest avukatlar için.",
-        "PROS": [
-          "Ayda 50 sözleşme denetimi",
-          "Gelişmiş yapay zeka mantığı",
-          "Öncelikli destek",
-          "Word & PDF dışa aktarma"
-        ],
-        "CONS": [
-          "Madde yeniden yazımı yok",
-          "Sadece tek kullanıcı"
-        ],
-        "BUTTON": "Denemeyi Başlat"
-      },
-      "AGENCY": {
-        "NAME": "Ajans",
-        "PRICE": "$149",
-        "PERIOD": "/ay",
-        "DESC": "Küçük firmalar ve büyüyen yasal ekipler için idealdir.",
-        "PROS": [
-          "Sınırsız sözleşme denetimi",
-          "Yapay zeka madde yeniden yazımı",
-          "Ekip işbirliği (5 kişiye kadar)",
-          "Özel şablon entegrasyonu"
-        ],
-        "CONS": [
-          "Özel hesap yöneticisi yok",
-          "Şirket içi kurulum yok"
-        ],
-        "BUTTON": "Ücretsiz Denemeyi Başlat"
-      },
-      "ENTERPRISE": {
-        "NAME": "Kurumsal",
-        "PRICE": "Özel",
-        "DESC": "Tam kontrol gerektiren kurumsal yasal operasyonlar için tasarlanmıştır.",
-        "PROS": [
-          "Ajans planındaki her şey",
-          "Sınırsız ekip üyesi",
-          "Özel hesap yöneticisi",
-          "Şirket içi kurulum",
-          "Özel API erişimi"
-        ],
-        "CONS": [
-          "Özel işe alım gerektirir"
-        ],
-        "BUTTON": "Satış Ekibiyle İletişime Geç"
-      }
     }
   },
   "PRIVACY_PAGE": {
@@ -349,7 +281,49 @@
       "PASSWORD_MISMATCH": "Şifreler eşleşmiyor",
       "TERMS_REQUIRED": "Devam etmek için şartları kabul etmelisiniz",
       "OTP_REQUIRED": "Lütfen 6 haneli doğrulama kodunu girin",
-      "NEW_PASSWORD_REQUIRED": "Lütfen yeni şifrenizi girin"
+      "NEW_PASSWORD_REQUIRED": "Lütfen yeni şifrenizi girin",
+      "EMAIL_ALREADY_REGISTERED": "E-posta zaten kayıtlı.",
+      "INVALID_CREDENTIALS": "Geçersiz e-posta veya şifre.",
+      "INVALID_OR_EXPIRED_TOKEN": "Geçersiz veya süresi dolmuş şifre sıfırlama bağlantısı."
     }
+  },
+  "USER_MENU": {
+    "SETTINGS": "Ayarlar",
+    "AUDIT_PAGE": "Tarama Sayfası",
+    "CONTRACTS": "Kayıtlar",
+    "LOGOUT": "Çıkış Yap"
+  },
+  "SETTINGS": {
+    "PAGE_TITLE": "Ayarlar",
+    "ACCOUNT_DETAILS": {
+      "TITLE": "Hesap Detayları",
+      "FULL_NAME": "Tam Ad",
+      "EMAIL": "E-posta Adresi",
+      "SAVE_CHANGES": "Değişiklikleri Kaydet",
+      "SUCCESS": "Profil başarıyla güncellendi!",
+      "FULL_NAME_PLACEHOLDER": "Tam adınızı girin"
+    },
+    "SECURITY": {
+      "TITLE": "Güvenlik",
+      "CURRENT_PASSWORD": "Mevcut Şifre",
+      "NEW_PASSWORD": "Yeni Şifre",
+      "CONFIRM_PASSWORD": "Şifreyi Onayla",
+      "UPDATE_PASSWORD": "Şifreyi Güncelle",
+      "SUCCESS": "Şifre başarıyla değiştirildi!",
+      "PASSWORD_MISMATCH": "Şifreler eşleşmiyor",
+      "PASSWORD_PLACEHOLDER": "Şifre girin"
+    },
+    "PREFERENCES": {
+      "TITLE": "Tercihler",
+      "SUBTITLE": "Tercih ettiğiniz uygulama dilini seçin"
+    },
+    "DESCRIPTION": "Hesap tercihlerinizi yönetin ve kullanımınızı görüntüleyin."
+  },
+  "CONTRACTS_PAGE": {
+    "SUBTITLE": "Daha önce denetlediğiniz sözleşmeleri ve belgeleri inceleyin.",
+    "NEW_AUDIT": "Yeni Denetim",
+    "EMPTY_TITLE": "Sözleşme Bulunamadı",
+    "EMPTY_DESC": "Henüz herhangi bir sözleşmeyi denetlemediniz.",
+    "RISK": "Riski"
   }
 }

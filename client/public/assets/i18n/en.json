@@ -1,7 +1,6 @@
 {
   "NAVBAR": {
     "HOME": "Home",
-    "PRICING": "Pricing",
     "CONTACT": "Contact",
     "LOGIN": "Login",
     "START_FREE": "Start Now"
@@ -108,6 +107,11 @@
       "TITLE_DRAGGING": "Drop it here...",
       "SUBTITLE": "Drag & drop your PDF document here, or click to browse. Our AI will instantly begin the stealth analysis.",
       "ERROR_PDF_ONLY": "Only PDF files are supported for analysis.",
+      "ERROR_GENERIC": "Failed to upload contract.",
+      "ERROR_NETWORK": "Cannot connect to the server. Please check your internet connection or try again later.",
+      "ERROR_SERVER": "An internal server error occurred while analyzing the document.",
+      "ERROR_NO_FILE": "No file was attached.",
+      "ERROR_PDF_ONLY_API": "File must be in PDF format.",
       "STATUS_VERIFYING": "Verifying file integrity...",
       "STATUS_PREPARING": "Preparing document for analysis...",
       "STATUS_ROUTING": "Routing to processing engine...",
@@ -129,78 +133,6 @@
       "OVERALL_RISK_SCORE": "Overall Risk Score",
       "EXPORT_PDF": "Export PDF",
       "DETAILED_REPORT": "Detailed Report"
-    }
-  },
-  "PRICING": {
-    "TITLE": "Transparent Pricing.",
-    "SUBTITLE": "No hidden terms. Choose the plan that fits your risk mitigation needs.",
-    "PLANS": {
-      "STARTER": {
-        "NAME": "Starter",
-        "PRICE": "Free",
-        "DESC": "For individuals exploring AI legal audits.",
-        "PROS": [
-          "3 contract audits per month",
-          "Basic risk detection",
-          "Standard PDF reports"
-        ],
-        "CONS": [
-          "No clause rewriting",
-          "No custom templates",
-          "No team features"
-        ],
-        "BUTTON": "Get Started"
-      },
-      "PRO": {
-        "NAME": "Professional",
-        "PRICE": "$49",
-        "PERIOD": "/mo",
-        "DESC": "For solo lawyers handling steady volumes.",
-        "PROS": [
-          "50 contract audits per month",
-          "Advanced AI logic",
-          "Priority support",
-          "Word & PDF exports"
-        ],
-        "CONS": [
-          "No clause rewriting",
-          "Single user only"
-        ],
-        "BUTTON": "Start Trial"
-      },
-      "AGENCY": {
-        "NAME": "Agency",
-        "PRICE": "$149",
-        "PERIOD": "/mo",
-        "DESC": "Ideal for small firms and growing legal teams.",
-        "PROS": [
-          "Unlimited contract audits",
-          "AI clause rewriting",
-          "Team collaboration (up to 5)",
-          "Custom templates integration"
-        ],
-        "CONS": [
-          "No dedicated account manager",
-          "No on-premise deployment"
-        ],
-        "BUTTON": "Start Free Trial"
-      },
-      "ENTERPRISE": {
-        "NAME": "Enterprise",
-        "PRICE": "Custom",
-        "DESC": "Built for corporate legal operations demanding full control.",
-        "PROS": [
-          "Everything in Agency",
-          "Unlimited team members",
-          "Dedicated account manager",
-          "On-premise deployment",
-          "Custom API access"
-        ],
-        "CONS": [
-          "Requires custom onboarding"
-        ],
-        "BUTTON": "Contact Sales"
-      }
     }
   },
   "PRIVACY_PAGE": {
@@ -349,7 +281,49 @@
       "PASSWORD_MISMATCH": "Passwords do not match",
       "TERMS_REQUIRED": "You must agree to the terms to proceed",
       "OTP_REQUIRED": "Please enter the 6-digit verification code",
-      "NEW_PASSWORD_REQUIRED": "Please enter your new password"
+      "NEW_PASSWORD_REQUIRED": "Please enter your new password",
+      "EMAIL_ALREADY_REGISTERED": "Email is already registered.",
+      "INVALID_CREDENTIALS": "Invalid email or password.",
+      "INVALID_OR_EXPIRED_TOKEN": "Invalid or expired password reset token."
     }
+  },
+  "USER_MENU": {
+    "SETTINGS": "Settings",
+    "AUDIT_PAGE": "Scan Page",
+    "CONTRACTS": "Records",
+    "LOGOUT": "Logout"
+  },
+  "SETTINGS": {
+    "PAGE_TITLE": "Settings",
+    "ACCOUNT_DETAILS": {
+      "TITLE": "Account Details",
+      "FULL_NAME": "Full Name",
+      "EMAIL": "Email Address",
+      "SAVE_CHANGES": "Save Changes",
+      "SUCCESS": "Profile updated successfully!",
+      "FULL_NAME_PLACEHOLDER": "Enter your full name"
+    },
+    "SECURITY": {
+      "TITLE": "Security",
+      "CURRENT_PASSWORD": "Current Password",
+      "NEW_PASSWORD": "New Password",
+      "CONFIRM_PASSWORD": "Confirm Password",
+      "UPDATE_PASSWORD": "Update Password",
+      "SUCCESS": "Password changed successfully!",
+      "PASSWORD_MISMATCH": "Passwords do not match",
+      "PASSWORD_PLACEHOLDER": "Enter password"
+    },
+    "PREFERENCES": {
+      "TITLE": "Preferences",
+      "SUBTITLE": "Select your preferred application language"
+    },
+    "DESCRIPTION": "Manage your account preferences and view your usage."
+  },
+  "CONTRACTS_PAGE": {
+    "SUBTITLE": "Review your previously audited contracts and documents.",
+    "NEW_AUDIT": "New Audit",
+    "EMPTY_TITLE": "No Contracts Found",
+    "EMPTY_DESC": "You haven't audited any contracts yet.",
+    "RISK": "Risk"
   }
 }

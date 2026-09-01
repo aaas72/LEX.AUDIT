@@ -169,14 +169,8 @@ namespace LexAudit.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("AuditsUsedThisMonth")
-                        .HasColumnType("INTEGER");
-
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("CurrentPlan")
-                        .HasColumnType("INTEGER");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -184,6 +178,9 @@ namespace LexAudit.Infrastructure.Migrations
 
                     b.Property<string>("FullName")
                         .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("GeminiApiKey")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PasswordHash")
@@ -194,9 +191,6 @@ namespace LexAudit.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PasswordResetToken")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("SubscriptionExpiry")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

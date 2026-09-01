@@ -15,8 +15,8 @@ export const appConfig: ApplicationConfig = {
     provideTranslateService({
       lang: 'en',
       loader: provideTranslateHttpLoader({
-        prefix: './assets/i18n/',
-        suffix: '.json'
+        prefix: '/assets/i18n/',
+        suffix: '.json?v=' + new Date().getTime()
       })
     })
   ]

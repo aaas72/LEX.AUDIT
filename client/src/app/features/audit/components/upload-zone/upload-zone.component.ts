@@ -1,5 +1,5 @@
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { Component, EventEmitter, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Output, inject, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroDocumentArrowUp } from '@ng-icons/heroicons/outline';
@@ -46,7 +46,7 @@ export class UploadZoneComponent {
 
   uploadStep = 0;
   uploadStatus = '';
-  errorMessage = '';
+  @Input() errorMessage = '';
 
   private handleFile(file: File) {
     if (file.type !== 'application/pdf' && !file.name.toLowerCase().endsWith('.pdf')) {

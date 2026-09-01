@@ -22,7 +22,7 @@ public class Stage6_RemediationAgent
         _prompts = options.Value;
     }
 
-    public async Task GenerateAlternativesAsync(List<AuditFinding> findings, UserRole role, string language, CancellationToken ct)
+    public async Task GenerateAlternativesAsync(List<AuditFinding> findings, UserRole role, string language, string apiKey, CancellationToken ct)
     {
         // Only run remediation on high-risk clauses
         var highRiskFindings = findings.Where(f => f.RiskLevel == RiskLevel.High || f.RiskLevel == RiskLevel.Critical).ToList();
@@ -35,7 +35,7 @@ public class Stage6_RemediationAgent
 
             try 
             {
-                var alternativesJson = await _geminiProvider.GenerateContentAsync(_prompts.RemediationAgentSystemInstruction, prompt, ct);
+                var alternativesJson = await _geminiProvider.GenerateContentAsync(_prompts.RemediationAgentSystemInstruction, prompt, apiKey, ct);
                 
                 // Clean markdown if Gemini accidentally adds it
                 alternativesJson = alternativesJson.Replace("```json", "").Replace("```", "").Trim();

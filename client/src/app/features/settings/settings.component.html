@@ -1,0 +1,146 @@
+<div class="min-h-screen bg-black font-outfit text-brandYellow">
+  <app-navbar theme="dark"></app-navbar>
+
+  <div class="max-w-4xl mx-auto pt-12 pb-12 px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="mb-12 border-b border-brandYellow/20 pb-8">
+      <h1 class="text-4xl md:text-5xl font-black tracking-tight uppercase text-brandYellow">{{ 'USER_MENU.SETTINGS' | translate }}</h1>
+      <p class="mt-2 text-lg text-brandYellow font-medium">{{ 'SETTINGS.DESCRIPTION' | translate }}</p>
+    </div>
+
+    <!-- Content Sections -->
+    <div class="flex flex-col space-y-12" *ngIf="profile$ | async as profile">
+      
+      <!-- Profile Section -->
+      <div class="pb-12 border-b border-brandYellow/20">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-12 rounded-full border border-brandYellow/30 flex items-center justify-center shrink-0">
+             <ng-icon name="lucideUser" size="24" class="text-brandYellow"></ng-icon>
+          </div>
+          <h2 class="text-2xl font-black uppercase tracking-tight text-brandYellow">{{ 'SETTINGS.ACCOUNT_DETAILS.TITLE' | translate }}</h2>
+        </div>
+        
+        <form [formGroup]="profileForm" (ngSubmit)="updateProfile()" class="space-y-8 max-w-2xl">
+          <!-- Success/Error Messages -->
+          <div *ngIf="profileSuccess" class="bg-green-500/10 border border-green-500/20 text-green-400 p-4 rounded-xl flex items-center gap-3">
+            <ng-icon name="lucideCheck" class="shrink-0"></ng-icon> {{ 'SETTINGS.ACCOUNT_DETAILS.SUCCESS' | translate }}
+          </div>
+          <div *ngIf="profileError" class="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl flex items-center gap-3">
+            <ng-icon name="lucideX" class="shrink-0"></ng-icon> {{ profileError }}
+          </div>
+
+          <div class="flex-1 w-full">
+            <label class="block text-xs font-bold tracking-widest uppercase text-brandYellow mb-2">{{ 'SETTINGS.ACCOUNT_DETAILS.FULL_NAME' | translate }}</label>
+            <input type="text" formControlName="fullName" class="w-full bg-transparent border-b-2 border-brandYellow/20 text-brandYellow text-2xl py-2 focus:outline-none focus:border-brandYellow transition-colors placeholder-brandYellow" [placeholder]="'SETTINGS.ACCOUNT_DETAILS.FULL_NAME_PLACEHOLDER' | translate">
+          </div>
+
+          <div class="flex-1 w-full">
+            <label class="block text-xs font-bold tracking-widest uppercase text-brandYellow mb-2">{{ 'SETTINGS.ACCOUNT_DETAILS.EMAIL' | translate }}</label>
+            <div class="w-full bg-transparent border-b-2 border-brandYellow/20 text-brandYellow text-2xl py-2 flex items-center gap-3">
+               <ng-icon name="lucideMail" size="24" class="text-brandYellow"></ng-icon>
+               <span>{{ profile.email }}</span>
+            </div>
+          </div>
+
+          <div class="pt-4 flex justify-start">
+             <app-ui-button [text]="'SETTINGS.ACCOUNT_DETAILS.SAVE_CHANGES' | translate" type="submit" [disabled]="profileForm.invalid" variant="yellow" size="md"></app-ui-button>
+          </div>
+        </form>
+      </div>
+
+      <!-- API Key Section -->
+      <div class="pb-12 border-b border-brandYellow/20">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-12 rounded-full border border-brandYellow/30 flex items-center justify-center shrink-0">
+             <ng-icon name="lucideKey" size="24" class="text-brandYellow"></ng-icon>
+          </div>
+          <h2 class="text-2xl font-black uppercase tracking-tight text-brandYellow">Gemini API Key</h2>
+        </div>
+        
+        <form [formGroup]="apiKeyForm" (ngSubmit)="updateApiKey()" class="space-y-8 max-w-2xl">
+          <!-- Current Key Status -->
+          <div *ngIf="profile.hasApiKey" class="bg-green-500/10 border border-green-500/20 text-green-400 p-4 rounded-xl flex items-center gap-3">
+            <ng-icon name="lucideCheck" class="shrink-0"></ng-icon> You have an active and validated Gemini API Key.
+          </div>
+          <div *ngIf="!profile.hasApiKey" class="bg-brandYellow/10 border border-brandYellow/20 text-brandYellow p-4 rounded-xl flex items-center gap-3">
+            <ng-icon name="lucideX" class="shrink-0"></ng-icon> You have not set a Gemini API Key. Audits will fail.
+          </div>
+
+          <!-- Success/Error Messages -->
+          <div *ngIf="apiKeySuccess" class="bg-green-500/10 border border-green-500/20 text-green-400 p-4 rounded-xl flex items-center gap-3">
+            <ng-icon name="lucideCheck" class="shrink-0"></ng-icon> API Key validated and saved successfully.
+          </div>
+          <div *ngIf="apiKeyError" class="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl flex items-center gap-3">
+            <ng-icon name="lucideX" class="shrink-0"></ng-icon> {{ apiKeyError }}
+          </div>
+
+          <div class="flex-1 w-full">
+            <label class="block text-xs font-bold tracking-widest uppercase text-brandYellow mb-2">Google Gemini API Key (BYOK)</label>
+            <input type="password" formControlName="apiKey" class="w-full bg-transparent border-b-2 border-brandYellow/20 text-brandYellow text-2xl py-2 focus:outline-none focus:border-brandYellow transition-colors placeholder-brandYellow" placeholder="AIzaSy...">
+            <p class="text-xs text-brandYellow mt-2">Your key will be securely saved and continuously validated before each audit.</p>
+          </div>
+
+          <div class="pt-4 flex justify-start">
+             <app-ui-button [text]="isVerifyingKey ? 'Verifying...' : 'Validate & Save Key'" type="submit" [disabled]="apiKeyForm.invalid || isVerifyingKey" variant="yellow" size="md"></app-ui-button>
+          </div>
+        </form>
+      </div>
+      <!-- Security / Password Section -->
+      <div class="pb-12 border-b border-brandYellow/20">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-12 rounded-full border border-brandYellow/30 flex items-center justify-center shrink-0">
+             <ng-icon name="lucideLock" size="24" class="text-brandYellow"></ng-icon>
+          </div>
+          <h2 class="text-2xl font-black uppercase tracking-tight text-brandYellow">{{ 'SETTINGS.SECURITY.TITLE' | translate }}</h2>
+        </div>
+        
+        <form [formGroup]="passwordForm" (ngSubmit)="changePassword()" class="space-y-8 max-w-2xl">
+          <!-- Success/Error Messages -->
+          <div *ngIf="passwordSuccess" class="bg-green-500/10 border border-green-500/20 text-green-400 p-4 rounded-xl flex items-center gap-3">
+            <ng-icon name="lucideCheck" class="shrink-0"></ng-icon> {{ 'SETTINGS.SECURITY.SUCCESS' | translate }}
+          </div>
+          <div *ngIf="passwordError" class="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-xl flex items-center gap-3">
+            <ng-icon name="lucideX" class="shrink-0"></ng-icon> {{ passwordError }}
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div class="flex-1 w-full sm:col-span-2">
+              <label class="block text-xs font-bold tracking-widest uppercase text-brandYellow mb-2">{{ 'SETTINGS.SECURITY.CURRENT_PASSWORD' | translate }}</label>
+              <input type="password" formControlName="currentPassword" class="w-full bg-transparent border-b-2 border-brandYellow/20 text-brandYellow text-2xl py-2 focus:outline-none focus:border-brandYellow transition-colors placeholder-brandYellow" [placeholder]="'SETTINGS.SECURITY.PASSWORD_PLACEHOLDER' | translate">
+            </div>
+            
+            <div class="flex-1 w-full">
+              <label class="block text-xs font-bold tracking-widest uppercase text-brandYellow mb-2">{{ 'SETTINGS.SECURITY.NEW_PASSWORD' | translate }}</label>
+              <input type="password" formControlName="newPassword" class="w-full bg-transparent border-b-2 border-brandYellow/20 text-brandYellow text-2xl py-2 focus:outline-none focus:border-brandYellow transition-colors placeholder-brandYellow" [placeholder]="'SETTINGS.SECURITY.PASSWORD_PLACEHOLDER' | translate">
+            </div>
+
+            <div class="flex-1 w-full">
+              <label class="block text-xs font-bold tracking-widest uppercase text-brandYellow mb-2">{{ 'SETTINGS.SECURITY.CONFIRM_PASSWORD' | translate }}</label>
+              <input type="password" formControlName="confirmPassword" class="w-full bg-transparent border-b-2 border-brandYellow/20 text-brandYellow text-2xl py-2 focus:outline-none focus:border-brandYellow transition-colors placeholder-brandYellow" [placeholder]="'SETTINGS.SECURITY.PASSWORD_PLACEHOLDER' | translate">
+              <div *ngIf="passwordForm.errors?.['mismatch'] && passwordForm.get('confirmPassword')?.touched" class="text-red-500 text-xs mt-2 font-bold">{{ 'SETTINGS.SECURITY.PASSWORD_MISMATCH' | translate }}</div>
+            </div>
+          </div>
+
+          <div class="pt-4 flex justify-start">
+             <app-ui-button [text]="'SETTINGS.SECURITY.UPDATE_PASSWORD' | translate" type="submit" [disabled]="passwordForm.invalid" variant="yellow" size="md"></app-ui-button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Preferences Section -->
+      <div class="pb-12">
+        <div class="flex items-center justify-between max-w-2xl">
+          <div>
+            <h2 class="text-2xl font-black uppercase tracking-tight text-brandYellow mb-1">{{ 'SETTINGS.PREFERENCES.TITLE' | translate }}</h2>
+            <p class="text-sm text-brandYellow font-bold uppercase">{{ 'SETTINGS.PREFERENCES.SUBTITLE' | translate }}</p>
+          </div>
+          
+          <div>
+            <app-language-selector theme="dark"></app-language-selector>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

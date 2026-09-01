@@ -304,7 +304,7 @@ export class AuthComponent implements OnInit, OnDestroy {
         );
 
         setTimeout(() => {
-          this.router.navigate(['/audit']);
+          this.router.navigate(['/']);
         }, 1200);
       },
       error: (err) => {

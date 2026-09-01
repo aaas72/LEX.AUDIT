@@ -1,0 +1,53 @@
+<div class="min-h-screen bg-black font-outfit text-brandYellow">
+  <app-navbar theme="dark"></app-navbar>
+
+  <div class="max-w-4xl mx-auto pt-12 pb-12 px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="mb-12 border-b border-brandYellow/20 pb-8 flex flex-col md:flex-row md:justify-between md:items-end gap-6">
+      <div>
+        <h1 class="text-4xl md:text-5xl font-black tracking-tight uppercase text-brandYellow">{{ 'USER_MENU.CONTRACTS' | translate }}</h1>
+        <p class="mt-2 text-lg text-brandYellow font-medium">{{ 'CONTRACTS_PAGE.SUBTITLE' | translate }}</p>
+      </div>
+      <div>
+        <app-ui-button [text]="'CONTRACTS_PAGE.NEW_AUDIT' | translate" routerLink="/audit" variant="yellow" size="md"></app-ui-button>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <ng-container *ngIf="contracts$ | async as contracts">
+      <div *ngIf="contracts.length === 0" class="text-center py-16">
+        <div class="w-16 h-16 rounded-full border border-brandYellow flex items-center justify-center mx-auto mb-6">
+          <ng-icon name="lucideFileText" size="32" class="text-brandYellow"></ng-icon>
+        </div>
+        <h2 class="text-3xl font-black uppercase tracking-tight text-brandYellow">{{ 'CONTRACTS_PAGE.EMPTY_TITLE' | translate }}</h2>
+        <p class="mt-4 text-brandYellow font-bold">{{ 'CONTRACTS_PAGE.EMPTY_DESC' | translate }}</p>
+      </div>
+
+      <!-- Contracts List -->
+      <div *ngIf="contracts.length > 0" class="flex flex-col space-y-6">
+        <a *ngFor="let contract of contracts" [routerLink]="['/audit', contract.id]" class="block pb-6 border-b border-brandYellow/20 group cursor-pointer transition-all hover:pl-4">
+          
+          <div class="flex justify-between items-start mb-2">
+            <h3 class="text-2xl font-black uppercase tracking-tight text-brandYellow truncate group-hover:text-white transition-colors duration-300" [title]="contract.fileName">
+              {{ contract.fileName }}
+            </h3>
+            <div class="px-3 py-1 text-xs font-bold uppercase tracking-widest text-brandYellow border border-brandYellow rounded-full group-hover:border-white group-hover:text-white transition-colors duration-300">
+              {{ contract.status }}
+            </div>
+          </div>
+
+          <div class="flex items-center gap-6 text-sm font-bold uppercase text-brandYellow">
+            <div class="flex items-center gap-2">
+              <ng-icon name="lucideCalendar" size="16"></ng-icon>
+              <span>{{ contract.uploadedAt | date:'mediumDate' }}</span>
+            </div>
+            <div class="flex items-center gap-2" *ngIf="contract.riskLevel">
+              <ng-icon name="lucideShieldAlert" size="16"></ng-icon>
+              <span>{{ contract.riskLevel }} {{ 'CONTRACTS_PAGE.RISK' | translate }}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </ng-container>
+  </div>
+</div>

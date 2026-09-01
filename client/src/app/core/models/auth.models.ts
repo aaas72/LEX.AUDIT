@@ -2,10 +2,7 @@ export interface User {
   id: string;
   email: string;
   fullName: string;
-  currentPlan: string;
-  auditsUsedThisMonth: number;
-  totalAuditsAllowed: number;
-  subscriptionExpiry: Date | null;
+  hasApiKey: boolean;
 }
 
 export interface AuthResponse {
@@ -14,6 +11,7 @@ export interface AuthResponse {
     id: string;
     email: string;
     fullName: string;
+    hasApiKey: boolean;
   };
 }
 

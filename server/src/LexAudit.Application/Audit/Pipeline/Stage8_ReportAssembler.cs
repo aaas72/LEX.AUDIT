@@ -17,7 +17,7 @@ public class Stage8_ReportAssembler
         _geminiProvider = geminiProvider;
     }
 
-    public async Task AssembleReportAsync(AuditReport report, string fullContractText, UserRole role, CancellationToken ct)
+    public async Task AssembleReportAsync(AuditReport report, string fullContractText, UserRole role, string apiKey, CancellationToken ct)
     {
         report.AnalyzedClauses = report.Findings.Count;
         report.FlaggedFindings = report.Findings.Count(f => f.RiskLevel >= RiskLevel.Medium);
@@ -38,7 +38,7 @@ public class Stage8_ReportAssembler
         try
         {
             // Call Gemini for holistic risk and executive summary
-            var holisticResponse = await _geminiProvider.AnalyzeHolisticRiskAsync(fullContractText, role.ToString(), report.Language, ct);
+            var holisticResponse = await _geminiProvider.AnalyzeHolisticRiskAsync(fullContractText, role.ToString(), report.Language, apiKey, ct);
             report.ExecutiveSummary = holisticResponse;
         }
         catch (Exception)

@@ -39,12 +39,12 @@ public class ContractsController : ControllerBase
     {
         if (file == null || file.Length == 0)
         {
-            return BadRequest(new { error = "لم يتم إرفاق أي ملف." });
+            return BadRequest(new { error = "AUDIT.UPLOAD.ERROR_NO_FILE" });
         }
 
         if (file.ContentType != "application/pdf")
         {
-            return BadRequest(new { error = "يجب أن يكون الملف بصيغة PDF." });
+            return BadRequest(new { error = "AUDIT.UPLOAD.ERROR_PDF_ONLY_API" });
         }
 
         var userIdStr = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -57,6 +57,11 @@ public class ContractsController : ControllerBase
         if (dbUser == null)
         {
             return Unauthorized("User not found in DB.");
+        }
+
+        if (string.IsNullOrWhiteSpace(dbUser.GeminiApiKey))
+        {
+            return BadRequest(new { error = "Gemini API Key is missing. Please set your API key in Settings before auditing." });
         }
 
         // Create Contract Entity

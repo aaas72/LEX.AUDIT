@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using LexAudit.Application.Interfaces;
 using LexAudit.Application.DTOs;
 using LexAudit.Domain.Entities;
-using LexAudit.Domain.Enums;
 using LexAudit.Infrastructure.Persistence;
 
 namespace LexAudit.Infrastructure.Services;
@@ -28,7 +27,7 @@ public class AuthService : IAuthService
         var exists = await _dbContext.Users.AnyAsync(u => u.Email.ToLower() == emailLower);
         if (exists)
         {
-            throw new Exception("Email is already registered.");
+            throw new Exception("AUTH.ERRORS.EMAIL_ALREADY_REGISTERED");
         }
 
         var user = new User
@@ -36,7 +35,6 @@ public class AuthService : IAuthService
             Email = emailLower,
             FullName = request.FullName,
             PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.Password),
-            CurrentPlan = SubscriptionPlan.Free,
             CreatedAt = DateTime.UtcNow
         };
 
@@ -53,7 +51,7 @@ public class AuthService : IAuthService
                 Id = user.Id,
                 Email = user.Email,
                 FullName = user.FullName,
-                CurrentPlan = user.CurrentPlan.ToString()
+                HasApiKey = !string.IsNullOrWhiteSpace(user.GeminiApiKey)
             }
         };
     }
@@ -65,7 +63,7 @@ public class AuthService : IAuthService
         
         if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.PasswordHash))
         {
-            throw new Exception("Invalid email or password.");
+            throw new Exception("AUTH.ERRORS.INVALID_CREDENTIALS");
         }
 
         var token = _tokenService.GenerateJwtToken(user);
@@ -78,7 +76,7 @@ public class AuthService : IAuthService
                 Id = user.Id,
                 Email = user.Email,
                 FullName = user.FullName,
-                CurrentPlan = user.CurrentPlan.ToString()
+                HasApiKey = !string.IsNullOrWhiteSpace(user.GeminiApiKey)
             }
         };
     }
@@ -113,7 +111,7 @@ public class AuthService : IAuthService
 
         if (user == null || !user.PasswordResetExpiry.HasValue || user.PasswordResetExpiry.Value < DateTime.UtcNow)
         {
-            throw new Exception("Invalid or expired password reset token.");
+            throw new Exception("AUTH.ERRORS.INVALID_OR_EXPIRED_TOKEN");
         }
 
         user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(request.NewPassword);

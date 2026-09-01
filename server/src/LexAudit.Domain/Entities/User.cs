@@ -15,10 +15,8 @@ public class User
     public string? PasswordResetToken { get; set; }
     public DateTime? PasswordResetExpiry { get; set; }
     
-    // SaaS Quota Management
-    public SubscriptionPlan CurrentPlan { get; set; } = SubscriptionPlan.Free;
-    public int AuditsUsedThisMonth { get; set; } = 0;
-    public DateTime SubscriptionExpiry { get; set; } = DateTime.UtcNow.AddYears(100); // Default forever for free
+    // Bring Your Own Key (BYOK)
+    public string? GeminiApiKey { get; set; }
     
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     

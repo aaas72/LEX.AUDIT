@@ -2,7 +2,7 @@
   
   <!-- Column 1: Brand Logo (Auto Width) -->
   <div class="w-fit flex items-center justify-start">
-    <a routerLink="/" class="text-2xl sm:text-3xl font-black tracking-tight flex items-center gap-2 hover:opacity-80 transition-opacity whitespace-nowrap">
+    <a routerLink="/" class="text-2xl sm:text-3xl font-black font-brand tracking-tight flex items-center gap-2 hover:opacity-80 transition-opacity whitespace-nowrap">
       LEX.AUDIT
     </a>
   </div>
@@ -11,20 +11,25 @@
   <div class="hidden md:flex items-center justify-center gap-8 text-xs font-bold tracking-wider uppercase whitespace-nowrap">
     <a routerLink="/" routerLinkActive="opacity-100 font-extrabold" [routerLinkActiveOptions]="{exact: true}" class="opacity-75 hover:opacity-100 transition-opacity duration-200">{{ 'NAVBAR.HOME' | translate }}</a>
     <a routerLink="/features" routerLinkActive="opacity-100 font-extrabold" class="opacity-75 hover:opacity-100 transition-opacity duration-200">{{ 'FEATURES.SECTION_LABEL' | translate }}</a>
-    <a routerLink="/pricing" routerLinkActive="opacity-100 font-extrabold" class="opacity-75 hover:opacity-100 transition-opacity duration-200">{{ 'NAVBAR.PRICING' | translate }}</a>
     <a routerLink="/contact" routerLinkActive="opacity-100 font-extrabold" class="opacity-75 hover:opacity-100 transition-opacity duration-200">{{ 'NAVBAR.CONTACT' | translate }}</a>
   </div>
 
   <!-- Column 3: Actions & Language (Auto Width on End) -->
   <div class="flex items-center justify-end gap-3.5 sm:gap-4 w-fit ms-auto whitespace-nowrap">
-    <app-ui-button 
-      [text]="'NAVBAR.START_FREE' | translate" 
-      [variant]="theme === 'dark' ? 'yellow' : 'dark'" 
-      size="sm" 
-      routerLink="/register">
-    </app-ui-button>
+    @if (!authService.isAuthenticated()) {
+      <app-ui-button 
+        [text]="'NAVBAR.START_FREE' | translate" 
+        [variant]="theme === 'dark' ? 'yellow' : 'dark'" 
+        size="sm" 
+        routerLink="/register">
+      </app-ui-button>
+    } @else {
+      <app-user-dropdown [theme]="theme"></app-user-dropdown>
+    }
 
-    <app-language-selector [theme]="theme"></app-language-selector>
+    @if (!authService.isAuthenticated() || router.url.includes('/settings')) {
+      <app-language-selector [theme]="theme"></app-language-selector>
+    }
   </div>
 
 </nav>

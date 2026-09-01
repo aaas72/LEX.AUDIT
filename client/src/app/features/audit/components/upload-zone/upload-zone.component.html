@@ -24,7 +24,7 @@
       <p class="relative z-10 text-brandYellowMuted text-lg max-w-md group-hover:text-black font-medium transition-colors duration-500 mb-4">
         {{ 'AUDIT.UPLOAD.SUBTITLE' | translate }}
       </p>
-      <p *ngIf="errorMessage" class="relative z-10 text-brandYellow font-bold">{{ errorMessage }}</p>
+      <p *ngIf="errorMessage" class="relative z-10 text-red-500 font-bold mt-2">{{ errorMessage | translate }}</p>
     </ng-container>
 
     <ng-template #uploadingState>

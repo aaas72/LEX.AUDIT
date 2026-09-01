@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LexAudit.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb906dc79ac9508f211b9fcf24d3980e832d9f4c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+742dcb836e435130db7f65c87db8ca884bda87cd")]
 [assembly: System.Reflection.AssemblyProductAttribute("LexAudit.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LexAudit.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

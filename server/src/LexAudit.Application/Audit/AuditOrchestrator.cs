@@ -27,7 +27,7 @@ public class AuditOrchestrator
 
     public AuditOrchestrator(IPdfExtractor pdfExtractor, IGeminiProvider geminiProvider, IAuditProgressNotifier notifier, IOptions<AuditPromptsOptions> options)
     {
-        _gatekeeper = new Stage0_GatekeeperValidator();
+        _gatekeeper = new Stage0_GatekeeperValidator(pdfExtractor, geminiProvider);
         _extractor = new Stage1_StructuralExtractor(pdfExtractor);
         _graphBuilder = new Stage2_DocumentGraphBuilder();
         _classifier = new Stage3_ClauseClassifier();
@@ -52,7 +52,7 @@ public class AuditOrchestrator
         try
         {
             await _notifier.NotifyStageCompleteAsync(contractIdStr, "Starting Stage 0: Gatekeeper", 5, ct);
-            var (isValid, errorMsg) = await _gatekeeper.ValidateAsync(contract, ct);
+            var (isValid, errorMsg) = await _gatekeeper.ValidateAsync(contract, fileStream, ct);
             if (!isValid)
             {
                 report.Status = AuditStatus.Failed;
@@ -76,12 +76,14 @@ public class AuditOrchestrator
             await _notifier.NotifyStageCompleteAsync(contractIdStr, "Stage 4: Risk Auditor", 55, ct);
             await _auditor.AuditRisksAsync(findings, contract.UserPartyRole, ct);
             
+            var apiKey = contract.User?.GeminiApiKey ?? string.Empty;
+
             report.Status = AuditStatus.Finalizing;
             await _notifier.NotifyStageCompleteAsync(contractIdStr, "Stage 5: Deep Legal Reasoner", 70, ct);
-            await _reasoner.ReasonOverFindingsAsync(findings, contract.UserPartyRole, targetLanguage, ct);
+            await _reasoner.ReasonOverFindingsAsync(findings, contract.UserPartyRole, targetLanguage, apiKey, ct);
             
             await _notifier.NotifyStageCompleteAsync(contractIdStr, "Stage 6: Remediation Agent", 85, ct);
-            await _remediation.GenerateAlternativesAsync(findings, contract.UserPartyRole, targetLanguage, ct);
+            await _remediation.GenerateAlternativesAsync(findings, contract.UserPartyRole, targetLanguage, apiKey, ct);
             
             await _notifier.NotifyStageCompleteAsync(contractIdStr, "Stage 7: Grounding Verifier", 90, ct);
             await _verifier.VerifyGroundingAsync(findings, ct);
@@ -90,7 +92,7 @@ public class AuditOrchestrator
             
             await _notifier.NotifyStageCompleteAsync(contractIdStr, "Stage 8: Report Assembler", 95, ct);
             var fullText = string.Join("\n\n", paragraphs);
-            await _assembler.AssembleReportAsync(report, fullText, contract.UserPartyRole, ct);
+            await _assembler.AssembleReportAsync(report, fullText, contract.UserPartyRole, apiKey, ct);
             
             report.Status = AuditStatus.Completed;
             report.CompletedAt = DateTime.UtcNow;

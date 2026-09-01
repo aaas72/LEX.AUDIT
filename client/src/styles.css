@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .font-brand {
+    font-family: 'IBM Plex Sans', sans-serif !important;
+  }
+}
+
 @layer base {
   body {
     @apply bg-brandYellow text-black font-sans antialiased overflow-x-hidden;

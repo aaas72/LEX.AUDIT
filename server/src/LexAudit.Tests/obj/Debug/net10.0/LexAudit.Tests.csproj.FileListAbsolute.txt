@@ -18,7 +18,6 @@ A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\LexAudit.Tests
 A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\LexAudit.Tests.runtimeconfig.json
 A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\LexAudit.Tests.dll
 A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\LexAudit.Tests.pdb
-A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\BCrypt-Net-Next.dll
 A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\Castle.Core.dll
 A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\Microsoft.ApplicationInsights.dll
 A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\Microsoft.VisualStudio.CodeCoverage.Shim.dll
@@ -217,3 +216,10 @@ A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\obj\Debug\net10.0\refint\LexAudi
 A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\obj\Debug\net10.0\LexAudit.Tests.pdb
 A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\obj\Debug\net10.0\LexAudit.Tests.genruntimeconfig.cache
 A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\obj\Debug\net10.0\ref\LexAudit.Tests.dll
+A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\BCrypt.Net-Next.dll
+A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\Microsoft.Bcl.Cryptography.dll
+A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\Microsoft.IdentityModel.Abstractions.dll
+A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\Microsoft.IdentityModel.JsonWebTokens.dll
+A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\Microsoft.IdentityModel.Logging.dll
+A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\Microsoft.IdentityModel.Tokens.dll
+A:\projects\LEX.AUDIT\server\src\LexAudit.Tests\bin\Debug\net10.0\System.IdentityModel.Tokens.Jwt.dll
