@@ -1,3 +1,4 @@
+name: lex-audit
 version: '3.8'
 
 services:
