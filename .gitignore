@@ -30,3 +30,7 @@ yarn-error.log*
 
 # Angular cache
 .angular/cache/
+
+# .NET Build output
+bin/
+obj/
